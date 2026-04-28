@@ -138,6 +138,24 @@ def carregar_louvor(slug):
     with open(path, encoding='utf-8') as f:
         return jsonify(json.load(f))
 
+@app.route('/api/editor/<slug>', methods=['GET'])
+def carregar_louvor_editor(slug):
+    """
+    Carrega exclusivamente o JSON humano salvo pelo editor.
+    Não usa merged.
+    Não usa pipeline.
+    Usado pelo editor_v4.html.
+    """
+    path = JSON_DIR / f"{slug}.json"
+
+    if not path.exists():
+        return jsonify({
+            'erro': f'JSON humano não encontrado: {slug}.json',
+            'path': str(path)
+        }), 404
+
+    with open(path, encoding='utf-8') as f:
+        return jsonify(json.load(f))
 
 @app.route('/api/louvores/<slug>', methods=['POST'])
 def salvar_louvor(slug):

@@ -1114,7 +1114,7 @@ async function carregarDoServidor() {
   const slug = getSlug();
   if(!slug || slug.startsWith('louvor-')) return; // novo louvor em branco
   try {
-    const r = await fetch('/api/louvores/' + slug);
+    const r = await fetch('/api/editor/' + slug);
     if(!r.ok) return; // ainda não existe — tudo bem
     const dados = JSON.parse(await r.text());
     restaurarEstado(dados);
