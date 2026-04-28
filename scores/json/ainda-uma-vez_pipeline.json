@@ -8,7 +8,7 @@
   "meter": "4/4",
   "clef": "treble",
   "pipeline_version": "v6",
-  "generated_at": "2026-04-28T04:07:44.584760+00:00",
+  "generated_at": "2026-04-28T17:31:42.314576+00:00",
   "form": [
     {
       "type": "to_coda",
@@ -606,8 +606,8 @@
                   "protocol": {
                     "cx": 95.9,
                     "rule": "T90",
-                    "syllable": "vez,",
-                    "syllable_cx": 160.7,
+                    "syllable": "in",
+                    "syllable_cx": 95.6,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
@@ -2359,8 +2359,8 @@
                   "protocol": {
                     "cx": 154.4,
                     "rule": "T90",
-                    "syllable": "en-che-rei",
-                    "syllable_cx": 139.9,
+                    "syllable": "as-sim",
+                    "syllable_cx": 198.1,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
@@ -4282,8 +4282,8 @@
                   "protocol": {
                     "cx": 433.2,
                     "rule": "V90",
-                    "syllable": "es",
-                    "syllable_cx": 425.1,
+                    "syllable": "-",
+                    "syllable_cx": 446.2,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
@@ -4461,8 +4461,8 @@
                   "protocol": {
                     "cx": 201.4,
                     "rule": "T90",
-                    "syllable": "nhor",
-                    "syllable_cx": 184.4,
+                    "syllable": "dos",
+                    "syllable_cx": 240.4,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,

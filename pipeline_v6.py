@@ -327,77 +327,169 @@ def calc_beat_by_anchor(nota_anchor_cx, comp, meter):
 
 MELISMA_THRESH = 25.0
 
+def pick_syllable_for_chord(chord_cx, anchor_cx, silas_c, max_left=8, max_right=42):
+    """
+    Escolhe sílaba para acorde.
+    Prioridade:
+    1. sílaba levemente à esquerda ou à direita do acorde
+    2. próxima sílaba à direita quando acorde antecipa entrada
+    3. menor distância como fallback
+    """
+    if not silas_c:
+        return None
+
+    ref_cx = anchor_cx if anchor_cx is not None else chord_cx
+
+    # Candidatas em janela cantável
+    window = [
+        s for s in silas_c
+        if (ref_cx - max_left) <= s['cx'] <= (ref_cx + max_right)
+    ]
+
+    if window:
+        # Prefere sílaba à direita ou quase alinhada
+        rightish = [s for s in window if s['cx'] >= ref_cx - max_left]
+        if rightish:
+            return min(rightish, key=lambda s: abs(s['cx'] - ref_cx))
+        return min(window, key=lambda s: abs(s['cx'] - ref_cx))
+
+    # Se o acorde está antes da entrada vocal, pega próxima sílaba à direita
+    after = [s for s in silas_c if s['cx'] >= chord_cx - max_left]
+    if after:
+        return min(after, key=lambda s: s['cx'])
+
+    # Fallback antigo
+    return min(silas_c, key=lambda s: abs(s['cx'] - ref_cx))
+
+
+def is_probable_melisma(anchor_cx, silas_c, threshold=MELISMA_THRESH):
+    if anchor_cx is None or not silas_c:
+        return False
+    dist_min = min(abs(s['cx'] - anchor_cx) for s in silas_c)
+    return dist_min > threshold
+
 def t90_full(chord_cx, compassos, notas_comp_map, silas_por_comp,
              silas_linha_anterior=None, meter=4):
 
-    comp = next((c for c in compassos if c['x0']<=chord_cx<=c['x1']), None)
+    comp = next((c for c in compassos if c['x0'] <= chord_cx <= c['x1']), None)
     if not comp:
-        comp = min(compassos, key=lambda c:min(abs(chord_cx-c['x0']),abs(chord_cx-c['x1'])))
+        comp = min(compassos, key=lambda c: min(abs(chord_cx - c['x0']), abs(chord_cx - c['x1'])))
 
-    notas_c     = notas_comp_map.get(comp['n'], [])
-    nota_anchor = min(notas_c, key=lambda n:abs(n['cx']-chord_cx)) if notas_c else None
-    nota_str    = f"{nota_anchor['text']}@{nota_anchor['cx']:.0f}" if nota_anchor else None
+    notas_c = notas_comp_map.get(comp['n'], [])
+    nota_anchor = min(notas_c, key=lambda n: abs(n['cx'] - chord_cx)) if notas_c else None
+    nota_str = f"{nota_anchor['text']}@{nota_anchor['cx']:.0f}" if nota_anchor else None
 
-    # P2: beat pela nota âncora
+    # Beat pela nota âncora
     if nota_anchor:
         beat, ratio = calc_beat_by_anchor(nota_anchor['cx'], comp, meter)
     else:
-        larg  = comp['x1']-comp['x0']
-        ratio = max(0,min(1,(chord_cx-comp['x0'])/larg)) if larg>0 else 0
-        beat  = min(int(ratio*meter)+1, meter)
+        larg = comp['x1'] - comp['x0']
+        ratio = max(0, min(1, (chord_cx - comp['x0']) / larg)) if larg > 0 else 0
+        beat = min(int(ratio * meter) + 1, meter)
 
     silas_c = silas_por_comp.get(comp['n'], [])
 
     # T90.3 — pausa
     if nota_anchor and nota_anchor['text'] in PAUSE_CHARS:
         silas_depois = [s for s in silas_c if s['cx'] > chord_cx]
-        next_syl = min(silas_depois, key=lambda s:s['cx']) if silas_depois else None
-        return {"measure":comp['n'],"beat":beat,"ratio":ratio,
-                "nota_anchor":nota_str,
-                "syllable":None,"syllable_cx":None,"float_cx":chord_cx,
-                "next_syllable":next_syl['text'] if next_syl else None,
-                "next_syllable_cx":round(next_syl['cx'],1) if next_syl else None,
-                "rule":"T90.3_PAUSA"}
+        next_syl = min(silas_depois, key=lambda s: s['cx']) if silas_depois else None
+
+        return {
+            "measure": comp['n'],
+            "beat": beat,
+            "ratio": ratio,
+            "nota_anchor": nota_str,
+            "syllable": None,
+            "syllable_cx": None,
+            "float_cx": chord_cx,
+            "next_syllable": next_syl['text'] if next_syl else None,
+            "next_syllable_cx": round(next_syl['cx'], 1) if next_syl else None,
+            "rule": "T90.3_PAUSA",
+        }
 
     # T90 / T90.2
     if nota_anchor and silas_c:
-        dist_min = min(abs(s['cx']-nota_anchor['cx']) for s in silas_c)
-        if dist_min > MELISMA_THRESH:
-            silas_antes = [s for s in silas_c if s['cx'] < nota_anchor['cx']-5]
+        if is_probable_melisma(nota_anchor['cx'], silas_c):
+            silas_antes = [s for s in silas_c if s['cx'] < nota_anchor['cx'] - 5]
+
             if not silas_antes:
-                for pn in range(comp['n']-1,0,-1):
-                    p = silas_por_comp.get(pn,[])
-                    if p: silas_antes=p; break
+                for pn in range(comp['n'] - 1, 0, -1):
+                    p = silas_por_comp.get(pn, [])
+                    if p:
+                        silas_antes = p
+                        break
+
             if not silas_antes and silas_linha_anterior:
                 silas_antes = silas_linha_anterior
-            target = max(silas_antes,key=lambda s:s['cx']) if silas_antes else None
-            return {"measure":comp['n'],"beat":beat,"ratio":ratio,
-                    "nota_anchor":nota_str,
-                    "syllable":target['text'] if target else None,
-                    "syllable_cx":round(target['cx'],1) if target else None,
-                    "float_cx":None,"next_syllable":None,"next_syllable_cx":None,
-                    "rule":"T90.2_MELISMA"}
-        else:
-            target = min(silas_c,key=lambda s:abs(s['cx']-nota_anchor['cx']))
-            return {"measure":comp['n'],"beat":beat,"ratio":ratio,
-                    "nota_anchor":nota_str,
-                    "syllable":target['text'],"syllable_cx":round(target['cx'],1),
-                    "float_cx":None,"next_syllable":None,"next_syllable_cx":None,
-                    "rule":"T90"}
-    elif silas_c:
-        target = min(silas_c,key=lambda s:abs(s['cx']-chord_cx))
-        return {"measure":comp['n'],"beat":beat,"ratio":ratio,
-                "nota_anchor":None,
-                "syllable":target['text'],"syllable_cx":round(target['cx'],1),
-                "float_cx":None,"next_syllable":None,"next_syllable_cx":None,
-                "rule":"V90"}
-    else:
-        return {"measure":comp['n'],"beat":beat,"ratio":ratio,
-                "nota_anchor":nota_str,
-                "syllable":None,"syllable_cx":None,"float_cx":chord_cx,
-                "next_syllable":None,"next_syllable_cx":None,
-                "rule":"VAZIO"}
 
+            target = max(silas_antes, key=lambda s: s['cx']) if silas_antes else None
+
+            return {
+                "measure": comp['n'],
+                "beat": beat,
+                "ratio": ratio,
+                "nota_anchor": nota_str,
+                "syllable": target['text'] if target else None,
+                "syllable_cx": round(target['cx'], 1) if target else None,
+                "float_cx": None,
+                "next_syllable": None,
+                "next_syllable_cx": None,
+                "rule": "T90.2_MELISMA",
+            }
+
+        target = pick_syllable_for_chord(
+            chord_cx,
+            nota_anchor['cx'],
+            silas_c
+        )
+
+        return {
+            "measure": comp['n'],
+            "beat": beat,
+            "ratio": ratio,
+            "nota_anchor": nota_str,
+            "syllable": target['text'] if target else None,
+            "syllable_cx": round(target['cx'], 1) if target else None,
+            "float_cx": None,
+            "next_syllable": None,
+            "next_syllable_cx": None,
+            "rule": "T90",
+        }
+
+    # V90 — sem nota âncora, mas com sílabas
+    if silas_c:
+        target = pick_syllable_for_chord(
+            chord_cx,
+            None,
+            silas_c
+        )
+
+        return {
+            "measure": comp['n'],
+            "beat": beat,
+            "ratio": ratio,
+            "nota_anchor": None,
+            "syllable": target['text'] if target else None,
+            "syllable_cx": round(target['cx'], 1) if target else None,
+            "float_cx": None,
+            "next_syllable": None,
+            "next_syllable_cx": None,
+            "rule": "V90",
+        }
+
+    # VAZIO — sem sílaba no compasso
+    return {
+        "measure": comp['n'],
+        "beat": beat,
+        "ratio": ratio,
+        "nota_anchor": nota_str,
+        "syllable": None,
+        "syllable_cx": None,
+        "float_cx": chord_cx,
+        "next_syllable": None,
+        "next_syllable_cx": None,
+        "rule": "VAZIO",
+    }
 
 def detect_anacrusis_v2(compassos, notas_comp_map, silas_por_comp, comps_com_acorde):
     anacrusis = set()
