@@ -1,0 +1,49 @@
+══════════════════════════════════════════════════════════════
+RELATÓRIO DE CALIBRAÇÃO — 1 louvor(es)
+Gerado em: 2026-04-28 17:45 UTC
+══════════════════════════════════════════════════════════════
+
+Total de acordes:      50
+Cifrados pelo humano:  0  (sem comparação — origem humana)
+Validados (com merge): 25
+Corretos:              4  (16%)
+
+DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:
+
+  wrong_syllable              16  ( 64%)  acorde correto, sílaba errada
+  correct                      8  ( 32%)  protocolo acertou — acorde e sílaba corretos
+  melisma_undetected           1  (  4%)  protocolo não detectou melisma
+
+ERROS POR REGRA ORIGINAL:
+
+  T90 → wrong_syllable                       13 vezes
+  VAZIO → correct                             3 vezes
+  V90 → wrong_syllable                        3 vezes
+  T90.3_PAUSA → correct                       1 vezes
+  T90.2_MELISMA → melisma_undetected          1 vezes
+
+──────────────────────────────────────────────────────────────
+SUGESTÕES DE RECALIBRAÇÃO
+──────────────────────────────────────────────────────────────
+
+melisma_undetected: 1 casos (4%)
+  → considerar reduzir MELISMA_THRESH (atual: 25px)
+  → sugestão: testar com 20px
+
+
+──────────────────────────────────────────────────────────────
+BEAT DELTA (protocolo vs humano)
+──────────────────────────────────────────────────────────────
+
+  Total cruzados:    25
+  Beat correto (Δ=0): 9 (36%)
+  Δ médio:           1.24 tempos
+  → P2: considerar refinamento do cálculo de beat
+
+MÉTODOS DE CRUZAMENTO NO MERGE:
+
+  near_measure_loose    8 acordes cruzados
+  n_sym_loose        7 acordes cruzados
+  near_measure_ratio    7 acordes cruzados
+  n_sym_ratio        3 acordes cruzados
+══════════════════════════════════════════════════════════════
