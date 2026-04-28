@@ -8,7 +8,7 @@
   "meter": "4/4",
   "clef": "treble",
   "pipeline_version": "v6",
-  "generated_at": "2026-04-28T17:31:42.314576+00:00",
+  "generated_at": "2026-04-28T22:07:04.492324+00:00",
   "form": [
     {
       "type": "to_coda",
@@ -58,6 +58,7 @@
           "id": "pg0_sis1",
           "page": 0,
           "system": 1,
+          "system_global": 2,
           "measures": [
             {
               "n": 1,
@@ -588,6 +589,7 @@
           "id": "pg0_sis2",
           "page": 0,
           "system": 2,
+          "system_global": 3,
           "measures": [
             {
               "n": 12,
@@ -1069,6 +1071,7 @@
           "id": "pg0_sis3",
           "page": 0,
           "system": 3,
+          "system_global": 4,
           "measures": [
             {
               "n": 20,
@@ -1411,6 +1414,31 @@
                     "rule_changed": null,
                     "implied_rule": null
                   }
+                },
+                {
+                  "symbol": "Eb",
+                  "beat": 3,
+                  "beat_ratio": 0.688,
+                  "bi": null,
+                  "protocol": {
+                    "cx": 433.7,
+                    "rule": "T90",
+                    "syllable": "céus,",
+                    "syllable_cx": 396.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "˙@396"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
                 }
               ],
               "notes": [
@@ -1639,6 +1667,7 @@
           "id": "pg0_sis4",
           "page": 0,
           "system": 4,
+          "system_global": 5,
           "measures": [
             {
               "n": 26,
@@ -2316,6 +2345,7 @@
           "id": "pg0_sis5",
           "page": 0,
           "system": 5,
+          "system_global": 6,
           "measures": [
             {
               "n": 36,
@@ -2994,6 +3024,7 @@
           "id": "pg0_sis6",
           "page": 0,
           "system": 6,
+          "system_global": 7,
           "measures": [
             {
               "n": 43,
@@ -3249,6 +3280,7 @@
           "id": "pg0_sis7",
           "page": 0,
           "system": 7,
+          "system_global": 8,
           "measures": [
             {
               "n": 47,
@@ -3704,6 +3736,7 @@
           "id": "pg1_sis0",
           "page": 1,
           "system": 0,
+          "system_global": 9,
           "measures": [
             {
               "n": 52,
@@ -4010,6 +4043,7 @@
           "id": "pg1_sis1",
           "page": 1,
           "system": 1,
+          "system_global": 10,
           "measures": [
             {
               "n": 55,
@@ -4336,6 +4370,7 @@
           "id": "pg1_sis2",
           "page": 1,
           "system": 2,
+          "system_global": 11,
           "measures": [
             {
               "n": 60,
@@ -4677,6 +4712,7 @@
           "id": "pg1_sis3",
           "page": 1,
           "system": 3,
+          "system_global": 12,
           "measures": [
             {
               "n": 66,
@@ -5111,6 +5147,7 @@
           "id": "pg1_sis4",
           "page": 1,
           "system": 4,
+          "system_global": 13,
           "measures": [
             {
               "n": 75,
@@ -5408,6 +5445,7 @@
           "id": "pg1_sis5",
           "page": 1,
           "system": 5,
+          "system_global": 14,
           "measures": [
             {
               "n": 85,
@@ -6018,6 +6056,7 @@
           "id": "pg1_sis6",
           "page": 1,
           "system": 6,
+          "system_global": 15,
           "measures": [
             {
               "n": 91,
@@ -6246,6 +6285,7 @@
           "id": "pg1_sis7",
           "page": 1,
           "system": 7,
+          "system_global": 16,
           "measures": [
             {
               "n": 98,
@@ -6561,6 +6601,7 @@
           "id": "pg1_sis8",
           "page": 1,
           "system": 8,
+          "system_global": 17,
           "measures": [
             {
               "n": 109,

@@ -256,8 +256,8 @@ def rodar_pipeline(slug):
     Não usa LINES_MAP.
     O PDF deve estar em scores/pdf/<slug>.pdf
     """
-    pdf_path   = PDF_DIR / f"{slug}.pdf"
-    out_path   = JSON_DIR / f"{slug}_pipeline.json"
+    pdf_path = PDF_DIR / f"{slug}.pdf"
+    out_path = JSON_DIR / f"{slug}_pipeline.json"
 
     if not pdf_path.exists():
         return jsonify({
@@ -266,12 +266,9 @@ def rodar_pipeline(slug):
         }), 404
 
     try:
-        # Importar e rodar o pipeline v6 (sem LINES_MAP)
         sys.path.insert(0, str(BASE_DIR))
         import pipeline_v6 as pipeline
 
-        # Meta: lê primeiro o arquivo salvo pela tela de upload.
-        # Se não existir, tenta ler o JSON do editor.
         meta = {}
 
         meta_json = META_DIR / f"{slug}_meta.json"
@@ -283,6 +280,7 @@ def rodar_pipeline(slug):
         if editor_json.exists() and not meta:
             with open(editor_json, encoding='utf-8') as f:
                 ej = json.load(f)
+
             meta = {
                 'title':    ej.get('title', slug),
                 'composer': ej.get('composer', ''),
@@ -298,17 +296,34 @@ def rodar_pipeline(slug):
         with open(out_path, 'w', encoding='utf-8') as f:
             json.dump(output, f, ensure_ascii=False, indent=2)
 
-        total  = len(audit)
+        audit_path = CALIB_DIR / f"pipeline_audit_{slug}.json"
+        with open(audit_path, 'w', encoding='utf-8') as f:
+            json.dump(audit, f, ensure_ascii=False, indent=2)
+
+        # Compatível com audit antigo/lista e audit novo/dict
+        if isinstance(audit, dict):
+            audit_chords = audit.get("chords", [])
+            audit_systems = audit.get("systems", [])
+        else:
+            audit_chords = audit
+            audit_systems = []
+
+        total = len(audit_chords)
+
         by_rule = {}
-        for r in audit:
-            regra = r['regra']
+        for r in audit_chords:
+            regra = r.get('regra')
+            if not regra:
+                continue
             by_rule[regra] = by_rule.get(regra, 0) + 1
 
         return jsonify({
-            'slug':       slug,
-            'output':     str(out_path),
-            'total':      total,
-            'by_rule':    by_rule,
+            'slug':        slug,
+            'output':      str(out_path),
+            'audit':       str(audit_path),
+            'total':       total,
+            'systems':     len(audit_systems),
+            'by_rule':     by_rule,
         })
 
     except Exception as e:

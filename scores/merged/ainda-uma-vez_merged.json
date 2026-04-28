@@ -8,7 +8,7 @@
   "meter": "4/4",
   "clef": "treble",
   "pipeline_version": "v6",
-  "generated_at": "2026-04-28T17:31:42.314576+00:00",
+  "generated_at": "2026-04-28T22:07:04.492324+00:00",
   "form": [
     {
       "type": "to_coda",
@@ -58,6 +58,7 @@
           "id": "pg0_sis1",
           "page": 0,
           "system": 1,
+          "system_global": 2,
           "measures": [
             {
               "n": 1,
@@ -105,7 +106,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": true,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -190,7 +191,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -316,7 +317,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -456,7 +457,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -618,7 +619,7 @@
                     "correction_type": "melisma_undetected",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -678,6 +679,7 @@
           "id": "pg0_sis2",
           "page": 0,
           "system": 2,
+          "system_global": 3,
           "measures": [
             {
               "n": 12,
@@ -711,7 +713,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -785,7 +787,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -916,7 +918,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -1171,6 +1173,7 @@
           "id": "pg0_sis3",
           "page": 0,
           "system": 3,
+          "system_global": 4,
           "measures": [
             {
               "n": 20,
@@ -1204,7 +1207,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -1386,7 +1389,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -1548,11 +1551,40 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 1.0,
                   "_ratio_delta": 0.26
+                },
+                {
+                  "symbol": "Eb",
+                  "beat": 3,
+                  "beat_ratio": 0.688,
+                  "bi": null,
+                  "protocol": {
+                    "cx": 433.7,
+                    "rule": "T90",
+                    "syllable": "céus,",
+                    "syllable_cx": 396.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "˙@396"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": "unvalidated",
+                    "rule_changed": null,
+                    "implied_rule": null,
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                  },
+                  "_match_method": null,
+                  "_beat_delta": null,
+                  "_ratio_delta": null
                 }
               ],
               "notes": [
@@ -1781,6 +1813,7 @@
           "id": "pg0_sis4",
           "page": 0,
           "system": 4,
+          "system_global": 5,
           "measures": [
             {
               "n": 26,
@@ -1814,7 +1847,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -1977,7 +2010,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -2313,7 +2346,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2498,6 +2531,7 @@
           "id": "pg0_sis5",
           "page": 0,
           "system": 5,
+          "system_global": 6,
           "measures": [
             {
               "n": 36,
@@ -2545,7 +2579,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -2588,7 +2622,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2739,7 +2773,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2920,7 +2954,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -2963,7 +2997,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_loose",
                   "_beat_delta": 1.0,
@@ -3114,7 +3148,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -3270,6 +3304,7 @@
           "id": "pg0_sis6",
           "page": 0,
           "system": 6,
+          "system_global": 7,
           "measures": [
             {
               "n": 43,
@@ -3525,6 +3560,7 @@
           "id": "pg0_sis7",
           "page": 0,
           "system": 7,
+          "system_global": 8,
           "measures": [
             {
               "n": 47,
@@ -3572,7 +3608,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -3696,7 +3732,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -3825,7 +3861,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 3.0,
@@ -4002,7 +4038,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4038,6 +4074,7 @@
           "id": "pg1_sis0",
           "page": 1,
           "system": 0,
+          "system_global": 9,
           "measures": [
             {
               "n": 52,
@@ -4085,7 +4122,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -4114,7 +4151,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4233,7 +4270,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4262,7 +4299,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4374,6 +4411,7 @@
           "id": "pg1_sis1",
           "page": 1,
           "system": 1,
+          "system_global": 10,
           "measures": [
             {
               "n": 55,
@@ -4407,7 +4445,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4500,7 +4538,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4584,7 +4622,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4687,7 +4725,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 0.0,
@@ -4730,6 +4768,7 @@
           "id": "pg1_sis2",
           "page": 1,
           "system": 2,
+          "system_global": 11,
           "measures": [
             {
               "n": 60,
@@ -4763,7 +4802,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -4888,7 +4927,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 0.0,
@@ -4999,7 +5038,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "seq_ratio",
                   "_beat_delta": 0.0,
@@ -5111,6 +5150,7 @@
           "id": "pg1_sis3",
           "page": 1,
           "system": 3,
+          "system_global": 12,
           "measures": [
             {
               "n": 66,
@@ -5144,7 +5184,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -5274,7 +5314,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -5327,7 +5367,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -5398,7 +5438,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -5561,6 +5601,7 @@
           "id": "pg1_sis4",
           "page": 1,
           "system": 4,
+          "system_global": 13,
           "measures": [
             {
               "n": 75,
@@ -5858,6 +5899,7 @@
           "id": "pg1_sis5",
           "page": 1,
           "system": 5,
+          "system_global": 14,
           "measures": [
             {
               "n": 85,
@@ -5891,7 +5933,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -5934,7 +5976,7 @@
                     "correction_type": "melisma_undetected",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 1.0,
@@ -5963,7 +6005,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -6158,7 +6200,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -6290,7 +6332,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -6395,7 +6437,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -6506,6 +6548,7 @@
           "id": "pg1_sis6",
           "page": 1,
           "system": 6,
+          "system_global": 15,
           "measures": [
             {
               "n": 91,
@@ -6734,6 +6777,7 @@
           "id": "pg1_sis7",
           "page": 1,
           "system": 7,
+          "system_global": 16,
           "measures": [
             {
               "n": 98,
@@ -6803,7 +6847,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -6910,7 +6954,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -7031,7 +7075,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -7061,6 +7105,7 @@
           "id": "pg1_sis8",
           "page": 1,
           "system": 8,
+          "system_global": 17,
           "measures": [
             {
               "n": 109,
@@ -7094,7 +7139,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -7199,7 +7244,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T18:40:09.681353+00:00"
+                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -7228,7 +7273,7 @@
       ]
     }
   ],
-  "merged_at": "2026-04-28T18:40:09.681353+00:00",
+  "merged_at": "2026-04-28T22:07:31.020830+00:00",
   "merge_sources": {
     "pipeline": "scores/json/ainda-uma-vez_pipeline.json",
     "editor": "scores/json/ainda-uma-vez.json"
@@ -7259,7 +7304,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7287,7 +7332,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7315,7 +7360,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7343,7 +7388,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7371,7 +7416,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7399,7 +7444,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7427,7 +7472,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7455,7 +7500,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7483,7 +7528,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7511,7 +7556,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7539,7 +7584,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7567,7 +7612,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7595,7 +7640,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7623,7 +7668,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7651,7 +7696,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7679,7 +7724,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7707,7 +7752,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7735,7 +7780,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7763,7 +7808,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7791,7 +7836,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7819,7 +7864,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7847,7 +7892,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7875,7 +7920,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7903,7 +7948,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7931,7 +7976,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7959,7 +8004,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -7987,7 +8032,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8015,7 +8060,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8043,7 +8088,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8071,7 +8116,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8099,7 +8144,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8127,7 +8172,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8155,7 +8200,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8183,7 +8228,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8211,7 +8256,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8239,7 +8284,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8267,7 +8312,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8295,7 +8340,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8323,7 +8368,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     },
     {
@@ -8351,7 +8396,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T18:40:09.681353+00:00"
+        "merged_at": "2026-04-28T22:07:31.020830+00:00"
       }
     }
   ]

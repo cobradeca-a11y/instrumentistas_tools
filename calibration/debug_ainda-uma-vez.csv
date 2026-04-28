@@ -10,6 +10,7 @@ pipeline,0,3,16,5,G,unvalidated,,unvalidated,T90,,4,,,0.888,,fa,,311.8,307.3,,,�
 pipeline,0,4,20,1,Cm,unvalidated,,unvalidated,T90,,2,,,0.491,,in,,95.9,95.6,,,˙@95
 pipeline,0,4,22,3,Fm,wrong_syllable,False,corrected,T90,near_measure_ratio,1,0,0.0,0.222,0.222,tre-mer,sim,208.6,224.7,0,0,œ@223
 pipeline,0,4,23,4,Bb,wrong_syllable,False,corrected,T90,near_measure_ratio,2,0,1.0,0.26,0.26,tre-mer,com,327.8,353.4,0,0.125,œ@345
+pipeline,0,4,23,4,Eb,unvalidated,,unvalidated,T90,,3,,,0.688,,"céus,",,433.7,396.2,,,˙@396
 pipeline,0,5,26,1,Ab,unvalidated,,unvalidated,T90,,3,,,0.678,,ea,,95.9,112.1,,,œ@113
 pipeline,0,5,28,3,Fm,wrong_syllable,False,corrected,T90,n_sym_presence,2,0,1.0,0.425,0.425,es,e,200.1,221.3,0,0.125,œ@216
 pipeline,0,5,34,11,G,wrong_syllable,False,corrected,T90,n_sym_ratio,1,0,0.0,0.092,0.092,de-se-ja-do,rei,405.0,425.0,0,0,œ@405
