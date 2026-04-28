@@ -131,13 +131,12 @@ h1{font-size:1.3rem;font-weight:600;margin-bottom:6px;}
 <main>
   <h1>Adicionar partitura ao pipeline</h1>
   <div class="subtitle">
-    Upload do PDF + configuração → extração automática de acordes e letra
+    Upload do PDF + metadados → extração automática pelo pipeline_v6
   </div>
 
   <div class="aviso">
-    ⚠️ O pipeline extrai acordes de PDFs <strong>vetoriais</strong> gerados pelo Sibelius ou Finale
-    com as fontes <code>OpusChordsStd</code> e <code>TimesNewRoman</code>.
-    PDFs escaneados ou de imagem não funcionam.
+    ⚠️ Esta versão não usa mais LINES_MAP. O botão de extração chama diretamente o <strong>pipeline_v6</strong>.
+    PDFs vetoriais funcionam melhor que PDFs escaneados ou imagens.
   </div>
 
   <!-- ETAPA 1: IDENTIFICAÇÃO -->
@@ -170,7 +169,8 @@ h1{font-size:1.3rem;font-weight:600;margin-bottom:6px;}
           <input id="f-bpm" placeholder="ex: 75-85" style="width:100px">
         </div>
       </div>
-      <button class="btn primary" onclick="avancarEtapa2()">próximo →</button>
+      <div class="status-block" id="meta-status"></div>
+      <button class="btn primary" onclick="avancarEtapa2()">salvar metadados e continuar →</button>
     </div>
   </div>
 
@@ -197,59 +197,15 @@ h1{font-size:1.3rem;font-weight:600;margin-bottom:6px;}
     </div>
   </div>
 
-  <!-- ETAPA 3: LINES MAP -->
+  <!-- ETAPA 3: RODAR PIPELINE -->
   <div class="etapa" id="etapa3" style="opacity:.5;pointer-events:none">
     <div class="etapa-header">
-      <div class="etapa-num pending" id="num3">3</div>
-      <div class="etapa-title">Configurar mapeamento de sistemas</div>
-    </div>
-    <div class="etapa-body">
-      <p style="font-size:.88rem;color:var(--dm);margin-bottom:10px;line-height:1.6">
-        O pipeline precisa saber onde estão os acordes e a letra em cada sistema da partitura.
-        Você pode usar o modelo do "Ainda Uma Vez" como ponto de partida
-        e ajustar conforme a sua partitura.
-      </p>
-      <div class="field">
-        <label>Modelo de referência</label>
-        <select id="modelo-ref" onchange="carregarModelo()">
-          <option value="">— selecione um modelo —</option>
-          <option value="ainda-uma-vez">Ainda Uma Vez (Cm, 4/4, 2 páginas, 8 sistemas)</option>
-          <option value="vazio">Em branco (configure manualmente)</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>LINES_MAP (JSON editável)</label>
-        <textarea id="lines-editor"
-          style="font-family:'JetBrains Mono',monospace;font-size:.6rem;
-                 width:100%;height:220px;padding:10px;
-                 background:var(--sf2);border:1px solid var(--bd2);
-                 border-radius:4px;color:var(--dm);outline:none;resize:vertical;
-                 line-height:1.7"
-          spellcheck="false"
-          placeholder='{"meta":{...},"lines":[[0,0,127,129,null,null,"intro","instrumental_1"],...]}'
-        ></textarea>
-        <div class="hint">
-          Formato de cada linha: [pagina, sistema, acorde_min, acorde_max, letra_min, letra_max, secao, subsecao]
-          <br>Use null para letra_min/max quando o sistema for instrumental (sem letra)
-        </div>
-      </div>
-
-      <div class="status-block" id="lines-status"></div>
-      <button class="btn primary" onclick="salvarLines()">salvar configuração →</button>
-    </div>
-  </div>
-
-  <!-- ETAPA 4: RODAR PIPELINE -->
-  <div class="etapa" id="etapa4" style="opacity:.5;pointer-events:none">
-    <div class="etapa-header">
-      <div class="etapa-num pending" id="num4">4</div>
-      <div class="etapa-title">Rodar o pipeline</div>
+      <div class="etapa-num pending" id="num3">4</div>
+      <div class="etapa-title">Rodar o pipeline_v6</div>
     </div>
     <div class="etapa-body">
       <p style="font-size:.88rem;color:var(--dm);margin-bottom:14px;line-height:1.6">
-        Com o PDF e o mapeamento configurados, o pipeline vai extrair automaticamente
-        os acordes e a letra da partitura e gerar o arquivo de protocolo.
+        Com o PDF enviado, o servidor vai chamar diretamente o pipeline_v6 e gerar o JSON do pipeline.
       </p>
       <button class="btn green" id="btn-pipeline" onclick="rodarPipeline()">
         ⚙ extrair partitura
@@ -271,69 +227,11 @@ h1{font-size:1.3rem;font-weight:600;margin-bottom:6px;}
 let slug = '';
 let pdfFile = null;
 let pdfUploaded = false;
-let linesSaved  = false;
-
-// ── MODELO VAZIO ────────────────────────────────────────────
-const MODELO_VAZIO = {
-  "_doc": "LINES_MAP — edite conforme sua partitura",
-  "_instrucoes": [
-    "Cada linha: [pagina, sistema, acorde_min, acorde_max, letra_min, letra_max, secao, subsecao]",
-    "pagina: 0=primeira, 1=segunda...",
-    "sistema: índice do sistema de pauta na página (0, 1, 2...)",
-    "acorde_min/max: faixa vertical em pixels onde ficam os acordes",
-    "letra_min/max: faixa vertical em pixels onde fica a letra (null = sem letra)",
-    "secao: verso_1, verso_2, refrao, intro, ponte, coda, etc",
-    "subsecao: L1, L2, instrumental_1, etc"
-  ],
-  "meta": {
-    "title": "",
-    "composer": "",
-    "key": "",
-    "key_sig": 0,
-    "bpm": "",
-    "meter": "4/4",
-    "clef": "treble"
-  },
-  "form": [],
-  "lines": [
-    [0, 0, 100, 102, null, null, "intro", "instrumental_1"],
-    [0, 1, 200, 202, 240, 280, "verso_1", "L1"]
-  ]
-};
-
-// ── MODELO AINDA UMA VEZ ────────────────────────────────────
-const MODELO_AUV = {
-  "_doc": "LINES_MAP — Ainda Uma Vez (modelo de referência)",
-  "meta": {
-    "title": "", "composer": "", "key": "",
-    "key_sig": -3, "bpm": "", "meter": "4/4", "clef": "treble"
-  },
-  "form": [
-    {"type":"segno",      "page":0,"system":5,"label":"⊕ Segno"},
-    {"type":"to_coda",   "page":0,"system":6,"label":"⚑ To Coda"},
-    {"type":"ds_al_coda","page":1,"system":1,"label":"↩ D.S. al Coda"},
-    {"type":"coda_start","page":1,"system":6,"label":"✦ Coda"}
-  ],
-  "lines": [
-    [0,0,127,129,null,null,"intro","instrumental_1"],
-    [0,1,215,217,null,null,"intro","instrumental_2"],
-    [0,2,304,306,347,349,"verso_1","L1"],
-    [0,3,392,394,438,440,"verso_1","L2"],
-    [0,4,480,482,527,530,"refrao","L1"],
-    [0,5,651,653,702,704,"refrao","L2"],
-    [1,0,74,76,128,130,"verso_2","L1"],
-    [1,1,164,166,217,219,"verso_2","L2"],
-    [1,2,265,267,314,316,"refrao","L3"],
-    [1,3,418,420,469,471,"refrao","L4"],
-    [1,6,588,590,null,null,"coda","instrumental"],
-    [1,7,733,735,null,null,"final","instrumental"]
-  ]
-};
 
 // ── ETAPAS ──────────────────────────────────────────────────
 
 function ativarEtapa(n) {
-  for(let i=2;i<=4;i++){
+  for(let i=2;i<=3;i++){
     const e = document.getElementById(`etapa${i}`);
     if(i<=n){ e.style.opacity='1'; e.style.pointerEvents='auto'; }
     else    { e.style.opacity='.5'; e.style.pointerEvents='none'; }
@@ -355,13 +253,41 @@ function atualizarSlug() {
   document.getElementById('f-slug').value = slug;
 }
 
-function avancarEtapa2() {
+async function avancarEtapa2() {
   const titulo = document.getElementById('f-titulo').value.trim();
+  const compositor = document.getElementById('f-compositor').value.trim();
+  const tom = document.getElementById('f-tom').value.trim();
+  const bpm = document.getElementById('f-bpm').value.trim();
+  const st = document.getElementById('meta-status');
+
   if(!slug){ alert('Digite o slug do louvor.'); return; }
   if(!titulo){ alert('Digite o título do louvor.'); return; }
-  marcarDone(1);
-  ativarEtapa(2);
-  document.getElementById('etapa2').scrollIntoView({behavior:'smooth'});
+
+  try {
+    const r = await fetch(`/api/meta/${slug}`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        title: titulo,
+        composer: compositor,
+        key: tom,
+        bpm: bpm,
+        meter: '4/4',
+        clef: 'treble'
+      })
+    });
+    const d = await r.json();
+    if(d.erro){ st.textContent=`❌ ${d.erro}`; st.className='status-block err on'; return; }
+
+    st.textContent = '✅ Metadados salvos';
+    st.className = 'status-block ok on';
+    marcarDone(1);
+    ativarEtapa(2);
+    document.getElementById('etapa2').scrollIntoView({behavior:'smooth'});
+  } catch(e) {
+    st.textContent = '❌ Erro de conexão com o servidor.';
+    st.className = 'status-block err on';
+  }
 }
 
 // ── ETAPA 2: UPLOAD ─────────────────────────────────────────
@@ -419,77 +345,7 @@ async function fazerUpload() {
   btn.textContent='enviar PDF ↑'; btn.disabled=false;
 }
 
-// ── ETAPA 3: LINES MAP ──────────────────────────────────────
-
-function carregarModelo() {
-  const sel = document.getElementById('modelo-ref').value;
-  const ed  = document.getElementById('lines-editor');
-  const titulo     = document.getElementById('f-titulo').value.trim();
-  const compositor = document.getElementById('f-compositor').value.trim();
-  const tom        = document.getElementById('f-tom').value.trim();
-  const bpm        = document.getElementById('f-bpm').value.trim();
-
-  if(sel === 'ainda-uma-vez') {
-    const m = JSON.parse(JSON.stringify(MODELO_AUV));
-    m.meta.title    = titulo;
-    m.meta.composer = compositor;
-    m.meta.key      = tom || 'Cm';
-    m.meta.bpm      = bpm;
-    ed.value = JSON.stringify(m, null, 2);
-  } else if(sel === 'vazio') {
-    const m = JSON.parse(JSON.stringify(MODELO_VAZIO));
-    m.meta.title    = titulo;
-    m.meta.composer = compositor;
-    m.meta.key      = tom;
-    m.meta.bpm      = bpm;
-    ed.value = JSON.stringify(m, null, 2);
-  }
-}
-
-async function salvarLines() {
-  const texto = document.getElementById('lines-editor').value.trim();
-  const st    = document.getElementById('lines-status');
-
-  // Validar JSON
-  let linesData;
-  try { linesData = JSON.parse(texto); }
-  catch(e) {
-    st.textContent = `❌ JSON inválido: ${e.message}`;
-    st.className = 'status-block err on';
-    return;
-  }
-
-  if(!linesData.lines || !Array.isArray(linesData.lines)){
-    st.textContent = '❌ O JSON precisa ter um campo "lines" com array.';
-    st.className = 'status-block err on';
-    return;
-  }
-
-  // Enviar para o servidor
-  try {
-    const r = await fetch(`/api/lines/${slug}`, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(linesData)
-    });
-    const d = await r.json();
-
-    if(d.erro){ st.textContent=`❌ ${d.erro}`; st.className='status-block err on'; }
-    else {
-      st.textContent=`✅ Configuração salva — ${d.n_lines} sistemas mapeados`;
-      st.className='status-block ok on';
-      linesSaved = true;
-      marcarDone(3);
-      ativarEtapa(4);
-      document.getElementById('etapa4').scrollIntoView({behavior:'smooth'});
-    }
-  } catch(e) {
-    st.textContent='❌ Erro de conexão com o servidor.';
-    st.className='status-block err on';
-  }
-}
-
-// ── ETAPA 4: PIPELINE ───────────────────────────────────────
+// ── ETAPA 3: PIPELINE ───────────────────────────────────────
 
 async function rodarPipeline() {
   const btn = document.getElementById('btn-pipeline');
@@ -518,7 +374,7 @@ async function rodarPipeline() {
       document.getElementById('pipeline-result-body').innerHTML = html;
       document.getElementById('pipeline-result').style.display='block';
       document.getElementById('btn-abrir-editor').href=`/editor?louvor=${slug}`;
-      marcarDone(4);
+      marcarDone(3);
     }
   } catch(e) {
     st.textContent='❌ Erro de conexão com o servidor.';

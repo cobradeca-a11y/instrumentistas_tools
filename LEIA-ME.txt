@@ -78,3 +78,9 @@ SE ALGO NÃO FUNCIONAR:
     → Clique "✎ editar" no painel
 
 ═══════════════════════════════════════════════════
+
+
+VERSÃO V6 SEM LINES_MAP
+- A tela /upload não pede mais LINES_MAP.
+- O servidor chama sempre pipeline_v6.run(pdf_path, meta).
+- Metadados são salvos em scores/meta/<slug>_meta.json.

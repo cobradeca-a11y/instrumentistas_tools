@@ -29,10 +29,11 @@ SCORES_DIR  = BASE_DIR / 'scores'
 PDF_DIR     = SCORES_DIR / 'pdf'
 JSON_DIR    = SCORES_DIR / 'json'
 MERGED_DIR  = SCORES_DIR / 'merged'
+META_DIR    = SCORES_DIR / 'meta'
 CALIB_DIR   = BASE_DIR / 'calibration'
 STATIC_DIR  = BASE_DIR / 'static'
 
-for d in [PDF_DIR, JSON_DIR, MERGED_DIR, CALIB_DIR, STATIC_DIR]:
+for d in [PDF_DIR, JSON_DIR, MERGED_DIR, META_DIR, CALIB_DIR, STATIC_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 app = Flask(__name__, static_folder=str(STATIC_DIR))
@@ -203,6 +204,29 @@ def salvar_louvor(slug):
         return jsonify({'erro': str(e)}), 500
 
 
+
+@app.route('/api/meta/<slug>', methods=['POST'])
+def salvar_meta(slug):
+    """Salva metadados simples para o pipeline_v6. Não usa LINES_MAP."""
+    try:
+        data = request.get_json() or {}
+        meta = {
+            'title':    data.get('title', slug),
+            'composer': data.get('composer', ''),
+            'key':      data.get('key', ''),
+            'key_sig':  data.get('key_sig', None),
+            'bpm':      data.get('bpm', ''),
+            'meter':    data.get('meter', '4/4'),
+            'clef':     data.get('clef', 'treble'),
+        }
+        meta_path = META_DIR / f"{slug}_meta.json"
+        with open(meta_path, 'w', encoding='utf-8') as f:
+            json.dump(meta, f, ensure_ascii=False, indent=2)
+        return jsonify({'slug': slug, 'saved': str(meta_path), 'meta': meta})
+    except Exception as e:
+        return jsonify({'erro': str(e)}), 500
+
+
 # ════════════════════════════════════════════════════════════════
 # API — PIPELINE
 # ════════════════════════════════════════════════════════════════
@@ -210,12 +234,11 @@ def salvar_louvor(slug):
 @app.route('/api/pipeline/<slug>', methods=['POST'])
 def rodar_pipeline(slug):
     """
-    Roda o pipeline CXD+T90 sobre o PDF do louvor.
+    Roda sempre o pipeline_v6 sobre o PDF do louvor.
+    Não usa LINES_MAP.
     O PDF deve estar em scores/pdf/<slug>.pdf
-    O LINES_MAP deve estar em scores/pdf/<slug>_lines.json
     """
     pdf_path   = PDF_DIR / f"{slug}.pdf"
-    lines_path = PDF_DIR / f"{slug}_lines.json"
     out_path   = JSON_DIR / f"{slug}_pipeline.json"
 
     if not pdf_path.exists():
@@ -229,14 +252,15 @@ def rodar_pipeline(slug):
         sys.path.insert(0, str(BASE_DIR))
         import pipeline_v6 as pipeline
 
-        # Meta: lê do _lines.json se existir, senão usa defaults
+        # Meta: lê primeiro o arquivo salvo pela tela de upload.
+        # Se não existir, tenta ler o JSON do editor.
         meta = {}
-        if lines_path.exists():
-            with open(lines_path, encoding='utf-8') as f:
-                config = json.load(f)
-            meta = config.get('meta', {})
 
-        # Tentar carregar meta do JSON do editor se existir
+        meta_json = META_DIR / f"{slug}_meta.json"
+        if meta_json.exists():
+            with open(meta_json, encoding='utf-8') as f:
+                meta = json.load(f)
+
         editor_json = JSON_DIR / f"{slug}.json"
         if editor_json.exists() and not meta:
             with open(editor_json, encoding='utf-8') as f:
@@ -247,6 +271,8 @@ def rodar_pipeline(slug):
                 'key':      ej.get('key', ''),
                 'key_sig':  ej.get('key_sig', None),
                 'bpm':      ej.get('bpm', ''),
+                'meter':    ej.get('meter', '4/4'),
+                'clef':     ej.get('clef', 'treble'),
             }
 
         output, audit = pipeline.run(str(pdf_path), meta)
@@ -277,23 +303,8 @@ def rodar_pipeline(slug):
 
 @app.route('/api/lines/<slug>', methods=['POST'])
 def salvar_lines(slug):
-    """Salva o LINES_MAP de um louvor."""
-    try:
-        data = request.get_json()
-        if not data or 'lines' not in data:
-            return jsonify({'erro': 'JSON inválido — precisa ter campo "lines"'}), 400
-
-        lines_path = PDF_DIR / f"{slug}_lines.json"
-        with open(lines_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-
-        return jsonify({
-            'slug':    slug,
-            'saved':   str(lines_path),
-            'n_lines': len(data['lines']),
-        })
-    except Exception as e:
-        return jsonify({'erro': str(e)}), 500
+    """Rota antiga desativada. Esta versão não usa LINES_MAP."""
+    return jsonify({'erro': 'LINES_MAP foi removido. Esta versão usa somente pipeline_v6.'}), 410
 
 
 @app.route('/api/upload/<slug>', methods=['POST'])
@@ -400,11 +411,12 @@ if __name__ == '__main__':
 ╔══════════════════════════════════════════════════╗
 ║          INSTRUMENTISTAS TOOLS v1.0              ║
 ╠══════════════════════════════════════════════════╣
-║  Editor + Pipeline + Calibração integrados       ║
+║  Editor + Pipeline v6 + Calibração               ║
 ╚══════════════════════════════════════════════════╝
 
 Pastas:
   scores/pdf/     → coloque os PDFs das partituras aqui
+  scores/meta/    → metadados do upload
   scores/json/    → JSONs do editor e do pipeline
   scores/merged/  → JSONs após mesclagem
   calibration/    → relatórios de calibração
