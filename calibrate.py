@@ -35,10 +35,6 @@ CORRECTION_TYPES = {
 }
 
 
-# ════════════════════════════════════════════════════════════════
-# TEMPO / SAFE
-# ════════════════════════════════════════════════════════════════
-
 def utc_iso():
     return datetime.now(timezone.utc).isoformat()
 
@@ -55,19 +51,6 @@ def _safe_float(v, default=None):
     except Exception:
         return default
 
-
-def _safe_int(v, default=None):
-    try:
-        if v is None:
-            return default
-        return int(v)
-    except Exception:
-        return default
-
-
-# ════════════════════════════════════════════════════════════════
-# CLASSIFICAÇÃO
-# ════════════════════════════════════════════════════════════════
 
 def classify_correction(p_syl, h_syl, p_chord, h_chord, p_rule):
     p_syl = (p_syl or '').strip()
@@ -113,7 +96,7 @@ def compute_ground_truth(protocol_block, human_block, ts):
 
     if human_block.get('_presence_only'):
         return {
-            'status': 'unvalidated',
+            'status': 'presence_only',
             'correct': None,
             'delta_cx': None,
             'correction_type': 'unvalidated',
@@ -172,10 +155,6 @@ def compute_ground_truth(protocol_block, human_block, ts):
         'merged_at': ts,
     }
 
-
-# ════════════════════════════════════════════════════════════════
-# ITERAÇÃO / EXTRAÇÃO
-# ════════════════════════════════════════════════════════════════
 
 def _iter_chords_by_measure(data):
     items = []
@@ -365,10 +344,6 @@ def _mark_editor_used(editor_index, editor_seq, matched_chord):
             entry['used'] = True
 
 
-# ════════════════════════════════════════════════════════════════
-# MATCH
-# ════════════════════════════════════════════════════════════════
-
 def _score_match(p_chord, e):
     p_ratio = _chord_ratio(p_chord)
     p_bi = _chord_beat_bi(p_chord)
@@ -498,10 +473,6 @@ def _find_sequence_match(editor_seq, p_chord, p_order, window=8):
 
 
 def _find_presence_match(editor_seq, p_chord, p_order, alignment_map=None, window=18):
-    """
-    Cruza por presença estrutural, sem validar sílaba.
-    Serve para reduzir missing_human sem inflar correct/wrong_syllable.
-    """
     sym = (p_chord.get('symbol') or '').strip()
 
     if alignment_map:
@@ -536,10 +507,6 @@ def _find_presence_match(editor_seq, p_chord, p_order, alignment_map=None, windo
 
     return best, 'presence_seq'
 
-
-# ════════════════════════════════════════════════════════════════
-# MERGE
-# ════════════════════════════════════════════════════════════════
 
 def merge(pipeline_path, editor_path, output_path):
     print("\nMesclando:")
@@ -734,66 +701,113 @@ def merge(pipeline_path, editor_path, output_path):
     return merged, stats
 
 
-# ════════════════════════════════════════════════════════════════
-# CALIBRATE
-# ════════════════════════════════════════════════════════════════
+def _collect_metrics(data):
+    metrics = {
+        'pipeline_total': 0,
+        'structural_crossed': 0,
+        'presence_only': 0,
+        'musical_crossed': 0,
+        'validated': 0,
+        'unvalidated': 0,
+        'correct': 0,
+        'wrong_syllable': 0,
+        'melisma': 0,
+        'pause': 0,
+        'human_origin': 0,
+        'missing_human': len(data.get('_missing_human_chords', [])),
+        'beat_all': [],
+        'beat_musical': [],
+        'match_methods': Counter(),
+        'corrections': Counter(),
+        'rule_errors': Counter(),
+    }
+
+    for sec in data.get('sections', []):
+        for line in sec.get('lines', []):
+            for measure in line.get('measures', []):
+                for chord in measure.get('chords', []):
+                    metrics['pipeline_total'] += 1
+
+                    mm = chord.get('_match_method')
+                    human = chord.get('human') or {}
+                    gt = chord.get('ground_truth', {}) or {}
+                    ct = gt.get('correction_type', 'unvalidated')
+
+                    if mm:
+                        metrics['structural_crossed'] += 1
+                        metrics['match_methods'][mm] += 1
+
+                    bd = chord.get('_beat_delta')
+                    if bd is not None:
+                        metrics['beat_all'].append(bd)
+
+                    is_presence = bool(human.get('_presence_only'))
+
+                    if is_presence:
+                        metrics['presence_only'] += 1
+                    elif mm:
+                        metrics['musical_crossed'] += 1
+                        if bd is not None:
+                            metrics['beat_musical'].append(bd)
+
+                    if ct == 'unvalidated':
+                        metrics['unvalidated'] += 1
+                        continue
+
+                    if ct == 'human_origin':
+                        metrics['human_origin'] += 1
+                        continue
+
+                    metrics['validated'] += 1
+                    metrics['corrections'][ct] += 1
+
+                    if ct == 'correct':
+                        metrics['correct'] += 1
+                    elif ct == 'wrong_syllable':
+                        metrics['wrong_syllable'] += 1
+                    elif ct == 'melisma_undetected':
+                        metrics['melisma'] += 1
+                    elif ct == 'pause_undetected':
+                        metrics['pause'] += 1
+
+                    if not gt.get('correct'):
+                        p_rule = chord.get('protocol', {}).get('rule', '?')
+                        metrics['rule_errors'][f"{p_rule} → {ct}"] += 1
+
+    metrics['corrections']['missing_chord'] += metrics['missing_human']
+
+    return metrics
+
 
 def calibrate(json_paths):
-    correction_counts = Counter()
-    rule_errors = Counter()
-    beat_deltas = []
+    total = Counter()
     match_methods = Counter()
-
-    total_pipeline_chords = 0
-    total_missing_human = 0
-    total_validated = 0
-    total_correct = 0
-    total_human_origin = 0
-    total_unvalidated = 0
+    corrections = Counter()
+    rule_errors = Counter()
+    beat_all = []
+    beat_musical = []
 
     for path in json_paths:
         with open(path, encoding='utf-8') as f:
             data = json.load(f)
 
-        for sec in data.get('sections', []):
-            for line in sec.get('lines', []):
-                for measure in line.get('measures', []):
-                    for chord in measure.get('chords', []):
-                        total_pipeline_chords += 1
+        m = _collect_metrics(data)
 
-                        mm = chord.get('_match_method')
-                        if mm:
-                            match_methods[mm] += 1
+        for k, v in m.items():
+            if isinstance(v, int):
+                total[k] += v
 
-                        bd = chord.get('_beat_delta')
-                        if bd is not None:
-                            beat_deltas.append(bd)
-
-                        gt = chord.get('ground_truth', {})
-                        ct = gt.get('correction_type', 'unvalidated')
-
-                        if ct == 'unvalidated':
-                            total_unvalidated += 1
-                            continue
-
-                        if ct == 'human_origin':
-                            total_human_origin += 1
-                            continue
-
-                        total_validated += 1
-                        correction_counts[ct] += 1
-
-                        if gt.get('correct'):
-                            total_correct += 1
-                        else:
-                            p_rule = chord.get('protocol', {}).get('rule', '?')
-                            rule_errors[f"{p_rule} → {ct}"] += 1
-
-        for mh in data.get('_missing_human_chords', []):
-            total_missing_human += 1
-            correction_counts['missing_chord'] += 1
+        match_methods.update(m['match_methods'])
+        corrections.update(m['corrections'])
+        rule_errors.update(m['rule_errors'])
+        beat_all.extend(m['beat_all'])
+        beat_musical.extend(m['beat_musical'])
 
     sep = '═' * 62
+
+    human_est = total['structural_crossed'] + total['missing_human']
+    musical_crossed = total['musical_crossed']
+    presence_only = total['presence_only']
 
     out = [
         sep,
@@ -801,21 +815,40 @@ def calibrate(json_paths):
         f"Gerado em: {utc_label()}",
         sep,
         '',
-        f"Acordes do pipeline:       {total_pipeline_chords}",
-        f"Acordes humanos faltantes: {total_missing_human}",
-        f"Cifrados pelo humano:      {total_human_origin}  (sem comparação — origem humana)",
-        f"Não validados:             {total_unvalidated}",
-        f"Validados com merge:       {total_validated}",
-        f"Corretos:                  {total_correct}"
-        + (f"  ({round(100 * total_correct / total_validated)}%)" if total_validated else ''),
-        '',
-        'DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:',
-        '',
+        'COBERTURA ESTRUTURAL',
+        f"  Acordes pipeline:        {total['pipeline_total']}",
+        f"  Acordes humanos estim.:  {human_est}",
+        f"  Presença cruzada:        {total['structural_crossed']}",
+        f"  Presence-only:           {presence_only}",
+        f"  Cruzamento musical:      {musical_crossed}",
+        f"  Humanos faltantes:       {total['missing_human']}",
     ]
 
-    denom = max(total_validated + total_missing_human, 1)
+    if human_est:
+        out.append(f"  Cobertura vs humano:     {round(100 * total['structural_crossed'] / human_est)}%")
 
-    for ct, n in correction_counts.most_common():
+    if total['pipeline_total']:
+        out.append(f"  Pipeline cruzado:        {round(100 * total['structural_crossed'] / total['pipeline_total'])}%")
+
+    out += [
+        '',
+        'VALIDAÇÃO MUSICAL REAL',
+        f"  Validados:               {total['validated']}",
+        f"  Não validados:           {total['unvalidated']}",
+        f"  Sílabas corretas:        {total['correct']}",
+        f"  Sílabas erradas:         {total['wrong_syllable']}",
+        f"  Melismas não detectados: {total['melisma']}",
+        f"  Pausas não detectadas:   {total['pause']}",
+    ]
+
+    if total['validated']:
+        out.append(f"  Precisão validada:       {round(100 * total['correct'] / total['validated'])}%")
+
+    out += ['', 'DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:', '']
+
+    denom = max(total['validated'] + total['missing_human'], 1)
+
+    for ct, n in corrections.most_common():
         pct = round(100 * n / denom)
         descr = CORRECTION_TYPES.get(ct, '')
         out.append(f"  {str(ct):<25} {n:>4}  ({pct:>3}%)  {descr}")
@@ -825,198 +858,115 @@ def calibrate(json_paths):
         for key, n in rule_errors.most_common():
             out.append(f"  {key:<40} {n:>4} vezes")
 
-    out += ['', '─' * 62, 'SUGESTÕES DE RECALIBRAÇÃO', '─' * 62, '']
+    out += ['', '─' * 62, 'BEAT', '─' * 62, '']
 
-    missing = correction_counts.get('missing_chord', 0)
-    if missing > 0:
-        out += [
-            f"missing_chord: {missing} casos",
-            "  → pipeline não detectou acorde existente no editor ou merge ainda não cruzou",
-            "  → verificar janela de acordes, numeração de compassos e sequência global",
-            '',
-        ]
+    if beat_all:
+        avg_all = sum(beat_all) / len(beat_all)
+        zero_all = beat_all.count(0)
+        out.append("  Estrutural:")
+        out.append(f"    Cruzados com beat:       {len(beat_all)}")
+        out.append(f"    Beat correto Δ=0:        {zero_all} ({round(100 * zero_all / len(beat_all))}%)")
+        out.append(f"    Δ médio:                 {avg_all:.2f}")
 
-    melisma = correction_counts.get('melisma_undetected', 0)
-    if melisma > 0:
-        pct = round(100 * melisma / denom)
-        out += [
-            f"melisma_undetected: {melisma} casos ({pct}%)",
-            "  → considerar reduzir MELISMA_THRESH",
-            "  → sugestão inicial: testar 20px",
-            '',
-        ]
-
-    if beat_deltas:
-        avg_bd = sum(beat_deltas) / len(beat_deltas)
-        zero = beat_deltas.count(0)
-
-        out += ['', '─' * 62, 'BEAT DELTA (protocolo vs humano)', '─' * 62, '']
-        out.append(f"  Total cruzados:     {len(beat_deltas)}")
-        out.append(f"  Beat correto (Δ=0): {zero} ({round(100 * zero / len(beat_deltas))}%)")
-        out.append(f"  Δ médio:            {avg_bd:.2f} tempos")
-
-        if avg_bd > 1.0:
-            out.append("  → P2: considerar refinamento do cálculo de beat")
-        else:
-            out.append("  → beat dentro do aceitável (< 1 tempo)")
+    if beat_musical:
+        avg_mus = sum(beat_musical) / len(beat_musical)
+        zero_mus = beat_musical.count(0)
+        out.append("  Musical validável:")
+        out.append(f"    Cruzados com beat:       {len(beat_musical)}")
+        out.append(f"    Beat correto Δ=0:        {zero_mus} ({round(100 * zero_mus / len(beat_musical))}%)")
+        out.append(f"    Δ médio:                 {avg_mus:.2f}")
 
     if match_methods:
         out += ['', 'MÉTODOS DE CRUZAMENTO NO MERGE:', '']
         for mm, n in match_methods.most_common():
             out.append(f"  {mm:<20} {n:>4} acordes cruzados")
 
-    out.append(sep)
+    out += [
+        '',
+        '─' * 62,
+        'PRÓXIMO ALVO',
+        '─' * 62,
+        '',
+        '  → cobertura estrutural já está boa; não mexer em coverage agora',
+        '  → próximo ajuste: sílaba/beat/melisma',
+        '  → presence-only não deve contaminar precisão musical',
+        sep,
+    ]
 
     report_text = '\n'.join(out)
     print(report_text)
     return report_text
 
 
-# ════════════════════════════════════════════════════════════════
-# COVERAGE
-# ════════════════════════════════════════════════════════════════
-
 def coverage(json_path):
     with open(json_path, encoding='utf-8') as f:
         data = json.load(f)
 
-    pipeline_total = 0
-    crossed = 0
-    unvalidated = 0
-    validated = 0
-    correct = 0
-    wrong_syllable = 0
-    melisma = 0
-    pause = 0
-    beat_deltas = []
-    match_methods = Counter()
+    m = _collect_metrics(data)
 
-    for sec in data.get('sections', []):
-        for line in sec.get('lines', []):
-            for measure in line.get('measures', []):
-                for chord in measure.get('chords', []):
-                    pipeline_total += 1
-
-                    if chord.get('_match_method'):
-                        crossed += 1
-                        match_methods[chord.get('_match_method')] += 1
-
-                    bd = chord.get('_beat_delta')
-                    if bd is not None:
-                        beat_deltas.append(bd)
-
-                    gt = chord.get('ground_truth', {}) or {}
-                    ct = gt.get('correction_type', 'unvalidated')
-
-                    if ct == 'unvalidated':
-                        unvalidated += 1
-                        continue
-
-                    validated += 1
-
-                    if ct == 'correct':
-                        correct += 1
-                    elif ct == 'wrong_syllable':
-                        wrong_syllable += 1
-                    elif ct == 'melisma_undetected':
-                        melisma += 1
-                    elif ct == 'pause_undetected':
-                        pause += 1
-
-    missing_human = len(data.get('_missing_human_chords', []))
-    human_total = crossed + missing_human
-
-    beat_avg = sum(beat_deltas) / len(beat_deltas) if beat_deltas else None
-    beat_zero = beat_deltas.count(0) if beat_deltas else 0
+    human_total = m['structural_crossed'] + m['missing_human']
 
     print("\n" + "═" * 62)
     print("RELATÓRIO DE COBERTURA")
     print("═" * 62)
 
-    print("\nCOBERTURA DE ACORDES")
-    print(f"  Acordes pipeline:        {pipeline_total}")
+    print("\nCOBERTURA ESTRUTURAL")
+    print(f"  Acordes pipeline:        {m['pipeline_total']}")
     print(f"  Acordes humanos estim.:  {human_total}")
-    print(f"  Presença cruzada:        {crossed}")
-    print(f"  Humanos faltantes:       {missing_human}")
+    print(f"  Presença cruzada:        {m['structural_crossed']}")
+    print(f"  Presence-only:           {m['presence_only']}")
+    print(f"  Cruzamento musical:      {m['musical_crossed']}")
+    print(f"  Humanos faltantes:       {m['missing_human']}")
 
     if human_total:
-        print(f"  Cobertura vs humano:     {round(100 * crossed / human_total)}%")
+        print(f"  Cobertura vs humano:     {round(100 * m['structural_crossed'] / human_total)}%")
 
-    if pipeline_total:
-        print(f"  Pipeline cruzado:        {round(100 * crossed / pipeline_total)}%")
+    if m['pipeline_total']:
+        print(f"  Pipeline cruzado:        {round(100 * m['structural_crossed'] / m['pipeline_total'])}%")
 
-    print("\nVALIDAÇÃO MUSICAL")
-    print(f"  Validados:               {validated}")
-    print(f"  Não validados:           {unvalidated}")
-    print(f"  Sílabas corretas:        {correct}")
-    print(f"  Sílabas erradas:         {wrong_syllable}")
-    print(f"  Melismas não detectados: {melisma}")
-    print(f"  Pausas não detectadas:   {pause}")
+    print("\nVALIDAÇÃO MUSICAL REAL")
+    print(f"  Validados:               {m['validated']}")
+    print(f"  Não validados:           {m['unvalidated']}")
+    print(f"  Sílabas corretas:        {m['correct']}")
+    print(f"  Sílabas erradas:         {m['wrong_syllable']}")
+    print(f"  Melismas não detectados: {m['melisma']}")
+    print(f"  Pausas não detectadas:   {m['pause']}")
 
-    if validated:
-        print(f"  Precisão validada:       {round(100 * correct / validated)}%")
+    if m['validated']:
+        print(f"  Precisão validada:       {round(100 * m['correct'] / m['validated'])}%")
 
     print("\nBEAT")
-    if beat_deltas:
-        print(f"  Cruzados com beat:       {len(beat_deltas)}")
-        print(f"  Beat correto Δ=0:        {beat_zero} ({round(100 * beat_zero / len(beat_deltas))}%)")
-        print(f"  Δ médio:                 {beat_avg:.2f}")
-    else:
-        print("  Sem dados de beat cruzado.")
+    if m['beat_all']:
+        beat_avg = sum(m['beat_all']) / len(m['beat_all'])
+        beat_zero = m['beat_all'].count(0)
+        print("  Estrutural:")
+        print(f"    Cruzados com beat:       {len(m['beat_all'])}")
+        print(f"    Beat correto Δ=0:        {beat_zero} ({round(100 * beat_zero / len(m['beat_all']))}%)")
+        print(f"    Δ médio:                 {beat_avg:.2f}")
 
-    if match_methods:
+    if m['beat_musical']:
+        beat_avg = sum(m['beat_musical']) / len(m['beat_musical'])
+        beat_zero = m['beat_musical'].count(0)
+        print("  Musical validável:")
+        print(f"    Cruzados com beat:       {len(m['beat_musical'])}")
+        print(f"    Beat correto Δ=0:        {beat_zero} ({round(100 * beat_zero / len(m['beat_musical']))}%)")
+        print(f"    Δ médio:                 {beat_avg:.2f}")
+
+    if m['match_methods']:
         print("\nMÉTODOS DE CRUZAMENTO")
-        for k, v in match_methods.most_common():
+        for k, v in m['match_methods'].most_common():
             print(f"  {k:<20} {v}")
 
+    print("\nPRÓXIMO ALVO")
+    print("  → coverage está bom; próximo ajuste é sílaba/beat/melisma")
+    print("  → presence-only não entra como precisão musical")
     print("═" * 62 + "\n")
 
 
-# ════════════════════════════════════════════════════════════════
-# REPORT
-# ════════════════════════════════════════════════════════════════
-
 def report(json_paths):
-    total = correct = human = unval = missing = 0
-
     for path in json_paths:
-        with open(path, encoding='utf-8') as f:
-            data = json.load(f)
+        calibrate([path])
 
-        for sec in data.get('sections', []):
-            for line in sec.get('lines', []):
-                for measure in line.get('measures', []):
-                    for chord in measure.get('chords', []):
-                        total += 1
-                        ct = chord.get('ground_truth', {}).get('correction_type', '')
-
-                        if ct == 'correct':
-                            correct += 1
-                        elif ct == 'human_origin':
-                            human += 1
-                        elif ct == 'unvalidated':
-                            unval += 1
-
-        missing += len(data.get('_missing_human_chords', []))
-
-    validated = total - human - unval
-    pct = round(100 * correct / validated) if validated > 0 else 0
-
-    print(f"\n{'─' * 40}")
-    print(f"RELATÓRIO — {len(json_paths)} arquivo(s)")
-    print(f"{'─' * 40}")
-    print(f"Acordes pipeline:     {total}")
-    print(f"Missing humanos:      {missing}")
-    print(f"Origem humana:        {human}")
-    print(f"Não revisados:        {unval}")
-    print(f"Validados:            {validated}")
-    print(f"Corretos:             {correct}  ({pct}%)")
-    print(f"{'─' * 40}\n")
-
-
-# ════════════════════════════════════════════════════════════════
-# DEBUG
-# ════════════════════════════════════════════════════════════════
 
 def debug(json_path):
     with open(json_path, encoding='utf-8') as f:
@@ -1137,10 +1087,6 @@ def debug(json_path):
     print(f"Linhas: {len(rows)}")
 
 
-# ════════════════════════════════════════════════════════════════
-# COMPARE
-# ════════════════════════════════════════════════════════════════
-
 def compare_sequence(pipeline_path, editor_path):
     with open(pipeline_path, encoding='utf-8') as f:
         pipeline = json.load(f)
@@ -1230,10 +1176,6 @@ def compare_sequence(pipeline_path, editor_path):
     print(f"Pipeline: {len(p_rows)} acordes")
     print(f"Human:    {len(h_rows)} acordes")
 
-
-# ════════════════════════════════════════════════════════════════
-# CLI
-# ════════════════════════════════════════════════════════════════
 
 def main():
     if len(sys.argv) < 2:

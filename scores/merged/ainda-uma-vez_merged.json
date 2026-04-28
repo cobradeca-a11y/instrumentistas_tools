@@ -101,13 +101,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -187,13 +187,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -320,7 +320,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -461,7 +461,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -624,7 +624,7 @@
                     "correction_type": "melisma_undetected",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -727,13 +727,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -816,13 +816,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -962,13 +962,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -1266,13 +1266,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 1.0,
@@ -1455,7 +1455,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -1618,7 +1618,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 1.0,
@@ -1656,13 +1656,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 2.0,
@@ -1938,13 +1938,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 2.0,
@@ -2102,13 +2102,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -2445,7 +2445,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2673,13 +2673,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -2723,7 +2723,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2875,7 +2875,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -3057,7 +3057,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -3101,7 +3101,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_loose",
                   "_beat_delta": 1.0,
@@ -3261,13 +3261,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 1.0,
@@ -3722,13 +3722,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -3847,13 +3847,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -3977,13 +3977,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 3.0,
@@ -4169,13 +4169,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 0.0,
@@ -4260,7 +4260,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -4298,13 +4298,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 3.0,
@@ -4432,13 +4432,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 1.0,
@@ -4476,13 +4476,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -4637,13 +4637,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 3.0,
@@ -4745,13 +4745,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 1.0,
@@ -4844,13 +4844,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 0.0,
@@ -4954,7 +4954,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 0.0,
@@ -5040,13 +5040,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -5172,7 +5172,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 0.0,
@@ -5284,7 +5284,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "seq_ratio",
                   "_beat_delta": 0.0,
@@ -5439,13 +5439,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 1.0,
@@ -5584,13 +5584,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 1.0,
@@ -5652,13 +5652,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 0.0,
@@ -5738,13 +5738,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 0.0,
@@ -6239,7 +6239,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -6283,7 +6283,7 @@
                     "correction_type": "melisma_undetected",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 1.0,
@@ -6321,13 +6321,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -6531,13 +6531,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 1.0,
@@ -6678,13 +6678,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 0.0,
@@ -6798,13 +6798,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 3.0,
@@ -7223,13 +7223,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_beat_delta": 0.0,
@@ -7345,13 +7345,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 2.0,
@@ -7481,13 +7481,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 1.0,
@@ -7560,13 +7560,13 @@
                     "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "unvalidated",
+                    "status": "presence_only",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": "presence_align",
                   "_beat_delta": 1.0,
@@ -7671,7 +7671,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
+                    "merged_at": "2026-04-28T22:15:15.735919+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -7700,7 +7700,7 @@
       ]
     }
   ],
-  "merged_at": "2026-04-28T22:12:01.716831+00:00",
+  "merged_at": "2026-04-28T22:15:15.735919+00:00",
   "merge_sources": {
     "pipeline": "scores/json/ainda-uma-vez_pipeline.json",
     "editor": "scores/json/ainda-uma-vez.json"
@@ -7731,7 +7731,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7759,7 +7759,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7787,7 +7787,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7815,7 +7815,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7843,7 +7843,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7871,7 +7871,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7899,7 +7899,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7927,7 +7927,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7955,7 +7955,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -7983,7 +7983,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -8011,7 +8011,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -8039,7 +8039,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     },
     {
@@ -8067,7 +8067,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:12:01.716831+00:00"
+        "merged_at": "2026-04-28T22:15:15.735919+00:00"
       }
     }
   ]
