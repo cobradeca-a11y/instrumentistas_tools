@@ -135,19 +135,223 @@ def compute_ground_truth(protocol_block, human_block, ts):
     }
 
 
+def _iter_chords_by_measure(data):
+    """
+    Retorna lista plana de acordes preservando seção, linha, compasso e ordem.
+    """
+    items = []
+    for sec_i, sec in enumerate(data.get('sections', [])):
+        for line_i, line in enumerate(sec.get('lines', [])):
+            for measure_i, measure in enumerate(line.get('measures', [])):
+                n = measure.get('n', 0)
+                for chord_i, chord in enumerate(measure.get('chords', [])):
+                    items.append({
+                        'sec_i': sec_i,
+                        'line_i': line_i,
+                        'measure_i': measure_i,
+                        'n': n,
+                        'chord_i': chord_i,
+                        'chord': chord,
+                    })
+    return items
+
+
+def _safe_float(v, default=None):
+    try:
+        if v is None:
+            return default
+        return float(v)
+    except Exception:
+        return default
+
+
+def _chord_ratio(chord):
+    """
+    Melhor posição normalizada disponível do acorde dentro do compasso.
+    """
+    if chord.get('beat_ratio') is not None:
+        return _safe_float(chord.get('beat_ratio'), 0.0)
+
+    human = chord.get('human') or {}
+    if human.get('cx_display') is not None:
+        return _safe_float(human.get('cx_display'), 0.0)
+
+    protocol = chord.get('protocol') or {}
+    if protocol.get('float_cx') is not None:
+        return _safe_float(protocol.get('float_cx'), 0.0)
+
+    return 0.0
+
+
+def _chord_beat_bi(chord):
+    human = chord.get('human') or {}
+    protocol = chord.get('protocol') or {}
+
+    if human.get('beat_bi') is not None:
+        return human.get('beat_bi')
+
+    if chord.get('bi') is not None:
+        return chord.get('bi')
+
+    if protocol.get('bi') is not None:
+        return protocol.get('bi')
+
+    return None
+
+
+def _build_editor_index(editor):
+    """
+    Indexa acordes humanos por compasso e símbolo, preservando múltiplas ocorrências.
+    """
+    by_n_sym = {}
+
+    for item in _iter_chords_by_measure(editor):
+        chord = item['chord']
+        sym = (chord.get('symbol') or '').strip()
+        n = item['n']
+
+        if not sym:
+            continue
+
+        human = chord.get('human') or {}
+        entry = {
+            'key': (item['sec_i'], item['line_i'], item['measure_i'], item['chord_i']),
+            'n': n,
+            'sym': sym,
+            'beat': chord.get('beat', 1),
+            'beat_ratio': _chord_ratio(chord),
+            'beat_bi': _chord_beat_bi(chord),
+            'chord': chord,
+            'human': human,
+            'used': False,
+        }
+
+        by_n_sym.setdefault((n, sym), []).append(entry)
+
+    return by_n_sym
+
+
+def _pick_best_editor_match(candidates, p_chord):
+    """
+    Escolhe o melhor acorde humano para um acorde do pipeline.
+    Critério:
+    1. não usado ainda
+    2. menor distância de beat_ratio
+    3. menor distância de beat_bi, quando existir
+    4. menor distância de beat
+    """
+    available = [c for c in candidates if not c.get('used')]
+    if not available:
+        return None, None
+
+    p_ratio = _chord_ratio(p_chord)
+    p_bi = _chord_beat_bi(p_chord)
+    p_beat = p_chord.get('beat', 1)
+
+    def score(c):
+        c_ratio = c.get('beat_ratio', 0.0)
+        c_bi = c.get('beat_bi')
+        c_beat = c.get('beat', 1)
+
+        ratio_delta = abs(_safe_float(p_ratio, 0.0) - _safe_float(c_ratio, 0.0))
+
+        if p_bi is not None and c_bi is not None:
+            bi_delta = abs(int(p_bi) - int(c_bi))
+        else:
+            bi_delta = 99
+
+        beat_delta = abs(_safe_float(p_beat, 0.0) - _safe_float(c_beat, 0.0))
+
+        return (ratio_delta, bi_delta, beat_delta)
+
+    best = min(available, key=score)
+    ratio_delta, bi_delta, beat_delta = score(best)
+
+    if ratio_delta <= 0.26:
+        method = 'n_sym_ratio'
+    elif bi_delta != 99 and bi_delta <= 2:
+        method = 'n_sym_bi'
+    else:
+        method = 'n_sym_loose'
+
+    return best, method
+
+def _find_best_editor_match(editor_index, n, sym, p_chord, window=2):
+    """
+    Procura o melhor acorde humano:
+    1. mesmo compasso
+    2. compassos próximos: n-1, n+1, n-2, n+2
+    3. mesmo símbolo
+    4. menor distância de beat_ratio / beat_bi / beat
+    """
+    offsets = [0]
+
+    for i in range(1, window + 1):
+        offsets.append(-i)
+        offsets.append(i)
+
+    best = None
+    best_method = None
+    best_score = None
+
+    p_ratio = _chord_ratio(p_chord)
+    p_bi = _chord_beat_bi(p_chord)
+    p_beat = p_chord.get('beat', 1)
+
+    for offset in offsets:
+        target_n = n + offset
+        candidates = editor_index.get((target_n, sym), [])
+
+        for c in candidates:
+            if c.get('used'):
+                continue
+
+            c_ratio = c.get('beat_ratio', 0.0)
+            c_bi = c.get('beat_bi')
+            c_beat = c.get('beat', 1)
+
+            ratio_delta = abs(_safe_float(p_ratio, 0.0) - _safe_float(c_ratio, 0.0))
+
+            if p_bi is not None and c_bi is not None:
+                bi_delta = abs(int(p_bi) - int(c_bi))
+            else:
+                bi_delta = 99
+
+            beat_delta = abs(_safe_float(p_beat, 0.0) - _safe_float(c_beat, 0.0))
+            measure_delta = abs(offset)
+
+            score = (measure_delta, ratio_delta, bi_delta, beat_delta)
+
+            if best_score is None or score < best_score:
+                best = c
+                best_score = score
+
+                if offset == 0:
+                    prefix = 'n_sym'
+                else:
+                    prefix = 'near_measure'
+
+                if ratio_delta <= 0.26:
+                    suffix = 'ratio'
+                elif bi_delta != 99 and bi_delta <= 2:
+                    suffix = 'bi'
+                else:
+                    suffix = 'loose'
+
+                best_method = f'{prefix}_{suffix}'
+
+    return best, best_method
+
 def merge(pipeline_path, editor_path, output_path):
     """
     Une o JSON do pipeline com o JSON do editor.
 
-    O pipeline tem:   sections → lines → measures → chords[].protocol
-    O editor tem:     sections → lines → measures → chords[].human
-    Ambos têm o mesmo schema v1.
-
-    Estratégia de merge:
-    1. Para cada seção/compasso do pipeline, procurar o compasso equivalente no editor
-    2. Cruzar acordes por symbol + beat
-    3. Preencher o bloco human com o que o editor decidiu
-    4. Calcular ground_truth
+    Nova estratégia:
+    1. Indexa todos os acordes humanos por (número do compasso, símbolo)
+    2. Preserva múltiplas ocorrências do mesmo acorde
+    3. Para cada acorde do pipeline, escolhe o humano mais próximo por beat_ratio
+    4. Não reutiliza o mesmo acorde humano em dois acordes do pipeline
+    5. Calcula ground_truth
     """
     print(f"\nMesclando:")
     print(f"  pipeline: {pipeline_path}")
@@ -161,37 +365,13 @@ def merge(pipeline_path, editor_path, output_path):
 
     ts = datetime.utcnow().isoformat() + 'Z'
 
-    # Indexar acordes do editor por múltiplas chaves:
-    # Primária: (symbol, beat_bi) — índice exato da célula na grade
-    # Secundária: (symbol, beat)  — beat calculado
-    # Terciária: (n_global, symbol) — número global do compasso
+    editor_index = _build_editor_index(editor)
 
-    editor_by_bi    = {}  # (symbol, beat_bi) → chord
-    editor_by_beat  = {}  # (symbol, beat) → [chords]
-    editor_by_n_sym = {}  # (n, symbol) → chord
-
-    for sec in editor.get('sections', []):
-        for line in sec.get('lines', []):
-            for measure in line.get('measures', []):
-                n = measure.get('n', 0)
-                for chord in measure.get('chords', []):
-                    sym = chord.get('symbol', '')
-                    human = chord.get('human') or {}
-                    beat_bi = human.get('beat_bi')
-                    beat    = chord.get('beat', 1)
-
-                    if beat_bi is not None:
-                        editor_by_bi[(sym, beat_bi)] = chord
-                    key_beat = (sym, beat)
-                    editor_by_beat.setdefault(key_beat, []).append(chord)
-                    editor_by_n_sym[(n, sym)] = chord
-
-    # Construir JSON mesclado baseado no pipeline
     merged = dict(pipeline)
     merged['merged_at'] = ts
     merged['merge_sources'] = {
         'pipeline': pipeline_path,
-        'editor':   editor_path,
+        'editor': editor_path,
     }
 
     stats = Counter()
@@ -202,57 +382,46 @@ def merge(pipeline_path, editor_path, output_path):
                 n = measure.get('n', 0)
 
                 for chord in measure.get('chords', []):
-                    sym     = chord.get('symbol', '')
-                    p_beat  = chord.get('beat', 1)
-                    p_proto = chord.get('protocol', {})
-                    p_bi    = p_proto.get('bi')
+                    sym = (chord.get('symbol') or '').strip()
+                    p_beat = chord.get('beat', 1)
 
-                    # Tentar cruzamento por (symbol, beat_bi)
-                    editor_chord = None
-                    match_method = None
-
-                    if p_bi is not None:
-                        editor_chord = editor_by_bi.get((sym, p_bi))
-                        if editor_chord: match_method = 'bi'
-
-                    # Tentar por (n_global, symbol)
-                    if not editor_chord:
-                        editor_chord = editor_by_n_sym.get((n, sym))
-                        if editor_chord: match_method = 'n_sym'
-
-                    # Tentar por (symbol, beat)
-                    if not editor_chord:
-                        candidates = editor_by_beat.get((sym, p_beat), [])
-                        if len(candidates) == 1:
-                            editor_chord = candidates[0]
-                            match_method = 'sym_beat'
+                    match, match_method = _find_best_editor_match(
+    			editor_index,
+    			n,
+    			sym,
+    			chord,
+    			window=2
+		    )
 
                     chord['_match_method'] = match_method
 
-                    if editor_chord:
+                    if match:
+                        match['used'] = True
+                        editor_chord = match['chord']
                         e_human = editor_chord.get('human') or {}
+
                         chord['human'] = {
-                            'syllable':     e_human.get('syllable') or
-                                            editor_chord.get('protocol', {}).get('syllable'),
-                            'syllable_bi':  e_human.get('syllable_bi'),
-                            'syllable_cx':  e_human.get('syllable_cx'),
-                            'cx_display':   e_human.get('cx_display'),
-                            'beat_bi':      e_human.get('beat_bi'),
-                            'is_rest':      e_human.get('is_rest', False),
-                            'rhythm':       e_human.get('rhythm', 'nota'),
+                            'syllable': e_human.get('syllable') or editor_chord.get('protocol', {}).get('syllable'),
+                            'syllable_bi': e_human.get('syllable_bi'),
+                            'syllable_cx': e_human.get('syllable_cx'),
+                            'cx_display': e_human.get('cx_display'),
+                            'beat_bi': e_human.get('beat_bi'),
+                            'is_rest': e_human.get('is_rest', False),
+                            'rhythm': e_human.get('rhythm', 'nota'),
                             'validated_by': e_human.get('validated_by', 'editor'),
                             'validated_at': e_human.get('validated_at', ts),
-                            'note':         e_human.get('note', ''),
-                            '_match':       match_method,
+                            'note': e_human.get('note', ''),
+                            '_match': match_method,
                         }
-                        # beat_delta: diferença entre beat do pipeline e do editor
+
                         e_beat = editor_chord.get('beat', p_beat)
-                        chord['_beat_delta'] = abs(p_beat - e_beat)
+                        chord['_beat_delta'] = abs(_safe_float(p_beat, 0.0) - _safe_float(e_beat, 0.0))
+                        chord['_ratio_delta'] = abs(_chord_ratio(chord) - match.get('beat_ratio', 0.0))
                     else:
                         chord['human'] = None
                         chord['_beat_delta'] = None
+                        chord['_ratio_delta'] = None
 
-                    # Calcular ground_truth
                     chord['ground_truth'] = compute_ground_truth(
                         chord.get('protocol', {}),
                         chord.get('human'),
@@ -260,6 +429,33 @@ def merge(pipeline_path, editor_path, output_path):
                     )
 
                     stats[chord['ground_truth']['correction_type']] += 1
+
+    # Acrescentar acordes humanos que não apareceram no pipeline como missing_chord.
+    # Mantém o merged baseado no pipeline, mas registra diagnóstico global.
+    missing_human = []
+    for entries in editor_index.values():
+        for entry in entries:
+            if not entry.get('used'):
+                ch = entry['chord']
+                missing_human.append({
+                    'n': entry['n'],
+                    'symbol': entry['sym'],
+                    'beat': ch.get('beat'),
+                    'beat_ratio': _chord_ratio(ch),
+                    'human': ch.get('human'),
+                    'ground_truth': {
+                        'status': 'corrected',
+                        'correct': False,
+                        'delta_cx': None,
+                        'correction_type': 'missing_chord',
+                        'rule_changed': None,
+                        'implied_rule': 'HUMAN',
+                        'merged_at': ts,
+                    }
+                })
+                stats['missing_chord'] += 1
+
+    merged['_missing_human_chords'] = missing_human
 
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
@@ -269,14 +465,14 @@ def merge(pipeline_path, editor_path, output_path):
     pct = round(100 * correct / total) if total else 0
 
     print(f"\n✅ Mesclagem concluída")
-    print(f"   {total} acordes processados")
+    print(f"   {total} eventos processados")
     print(f"   {correct}/{total} corretos ({pct}%)")
+    print(f"   missing_human_chords: {len(missing_human)}")
     print(f"\n   Distribuição:")
     for ct, n in stats.most_common():
         print(f"     {str(ct):<25} {n:>4}")
 
     return merged, stats
-
 
 # ════════════════════════════════════════════════════════════════
 # CALIBRAÇÃO: lê JSONs mesclados e sugere ajustes no pipeline

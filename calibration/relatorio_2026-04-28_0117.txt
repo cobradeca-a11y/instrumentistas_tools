@@ -1,0 +1,40 @@
+══════════════════════════════════════════════════════════════
+RELATÓRIO DE CALIBRAÇÃO — 1 louvor(es)
+Gerado em: 2026-04-28 04:17 UTC
+══════════════════════════════════════════════════════════════
+
+Total de acordes:      50
+Cifrados pelo humano:  0  (sem comparação — origem humana)
+Validados (com merge): 10
+Corretos:              3  (30%)
+
+DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:
+
+  correct                      5  ( 50%)  protocolo acertou — acorde e sílaba corretos
+  wrong_syllable               5  ( 50%)  acorde correto, sílaba errada
+
+ERROS POR REGRA ORIGINAL:
+
+  T90 → wrong_syllable                        5 vezes
+  T90.3_PAUSA → correct                       1 vezes
+  VAZIO → correct                             1 vezes
+
+──────────────────────────────────────────────────────────────
+SUGESTÕES DE RECALIBRAÇÃO
+──────────────────────────────────────────────────────────────
+
+
+──────────────────────────────────────────────────────────────
+BEAT DELTA (protocolo vs humano)
+──────────────────────────────────────────────────────────────
+
+  Total cruzados:    10
+  Beat correto (Δ=0): 3 (30%)
+  Δ médio:           1.20 tempos
+  → P2: considerar refinamento do cálculo de beat
+
+MÉTODOS DE CRUZAMENTO NO MERGE:
+
+  n_sym_loose        7 acordes cruzados
+  n_sym_ratio        3 acordes cruzados
+══════════════════════════════════════════════════════════════
