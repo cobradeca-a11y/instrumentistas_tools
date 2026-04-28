@@ -1152,6 +1152,106 @@ def compare_sequence(pipeline_path, editor_path):
     print(f"Pipeline: {len(p_rows)} acordes")
     print(f"Human:    {len(h_rows)} acordes")
 
+def coverage(json_path):
+    """
+    Relatório separado:
+    1. cobertura de presença de acordes
+    2. validação musical dos acordes cruzados
+    """
+    with open(json_path, encoding='utf-8') as f:
+        data = json.load(f)
+
+    pipeline_total = 0
+    crossed = 0
+    unvalidated = 0
+    validated = 0
+    correct = 0
+    wrong_syllable = 0
+    melisma = 0
+    pause = 0
+    beat_deltas = []
+    match_methods = Counter()
+
+    for sec in data.get('sections', []):
+        for line in sec.get('lines', []):
+            for measure in line.get('measures', []):
+                for chord in measure.get('chords', []):
+                    pipeline_total += 1
+
+                    if chord.get('_match_method'):
+                        crossed += 1
+                        match_methods[chord.get('_match_method')] += 1
+
+                    bd = chord.get('_beat_delta')
+                    if bd is not None:
+                        beat_deltas.append(bd)
+
+                    gt = chord.get('ground_truth', {}) or {}
+                    ct = gt.get('correction_type', 'unvalidated')
+
+                    if ct == 'unvalidated':
+                        unvalidated += 1
+                        continue
+
+                    validated += 1
+
+                    if ct == 'correct':
+                        correct += 1
+                    elif ct == 'wrong_syllable':
+                        wrong_syllable += 1
+                    elif ct == 'melisma_undetected':
+                        melisma += 1
+                    elif ct == 'pause_undetected':
+                        pause += 1
+
+    missing_human = len(data.get('_missing_human_chords', []))
+    human_total = crossed + missing_human
+
+    beat_avg = sum(beat_deltas) / len(beat_deltas) if beat_deltas else None
+    beat_zero = beat_deltas.count(0) if beat_deltas else 0
+
+    print("\n" + "═" * 62)
+    print("RELATÓRIO DE COBERTURA")
+    print("═" * 62)
+
+    print("\nCOBERTURA DE ACORDES")
+    print(f"  Acordes pipeline:        {pipeline_total}")
+    print(f"  Acordes humanos estim.:  {human_total}")
+    print(f"  Presença cruzada:        {crossed}")
+    print(f"  Humanos faltantes:       {missing_human}")
+
+    if human_total:
+        print(f"  Cobertura vs humano:     {round(100 * crossed / human_total)}%")
+
+    if pipeline_total:
+        print(f"  Pipeline cruzado:        {round(100 * crossed / pipeline_total)}%")
+
+    print("\nVALIDAÇÃO MUSICAL")
+    print(f"  Validados:               {validated}")
+    print(f"  Não validados:           {unvalidated}")
+    print(f"  Sílabas corretas:        {correct}")
+    print(f"  Sílabas erradas:         {wrong_syllable}")
+    print(f"  Melismas não detectados: {melisma}")
+    print(f"  Pausas não detectadas:   {pause}")
+
+    if validated:
+        print(f"  Precisão validada:       {round(100 * correct / validated)}%")
+
+    print("\nBEAT")
+    if beat_deltas:
+        print(f"  Cruzados com beat:       {len(beat_deltas)}")
+        print(f"  Beat correto Δ=0:        {beat_zero} ({round(100 * beat_zero / len(beat_deltas))}%)")
+        print(f"  Δ médio:                 {beat_avg:.2f}")
+    else:
+        print("  Sem dados de beat cruzado.")
+
+    if match_methods:
+        print("\nMÉTODOS DE CRUZAMENTO")
+        for k, v in match_methods.most_common():
+            print(f"  {k:<20} {v}")
+
+    print("═" * 62 + "\n")
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -1194,9 +1294,16 @@ def main():
 
         compare_sequence(sys.argv[2], sys.argv[3])
 
+    elif cmd == 'coverage':
+        if len(sys.argv) < 3:
+            print("Uso: python calibrate.py coverage <merged.json>")
+            sys.exit(1)
+
+        coverage(sys.argv[2])
+
     else:
         print(f"Comando desconhecido: {cmd}")
-        print("Comandos disponíveis: merge, calibrate, report, debug")
+        print("Comandos disponíveis: merge, calibrate, report, debug, coverage")
         sys.exit(1)
 
 
