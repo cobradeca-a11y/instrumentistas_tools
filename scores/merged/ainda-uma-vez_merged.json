@@ -45,7 +45,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -56,7 +56,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 1
@@ -83,7 +83,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -120,7 +120,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -158,7 +158,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -169,7 +169,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 1
@@ -207,7 +207,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -218,7 +218,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 0
@@ -260,7 +260,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -287,7 +287,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -397,7 +397,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -638,7 +638,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -649,7 +649,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 1
@@ -717,7 +717,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -826,7 +826,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -853,7 +853,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1080,7 +1080,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1207,7 +1207,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1324,7 +1324,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1515,7 +1515,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -1526,7 +1526,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 1
@@ -1553,7 +1553,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1661,7 +1661,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1779,7 +1779,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1806,7 +1806,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -1914,7 +1914,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2080,7 +2080,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2206,7 +2206,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2338,7 +2338,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2465,7 +2465,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -2476,7 +2476,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 1
@@ -2598,7 +2598,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -2609,7 +2609,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 0
@@ -2636,7 +2636,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2714,7 +2714,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2741,7 +2741,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2849,7 +2849,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2902,7 +2902,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -2955,7 +2955,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3039,7 +3039,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3116,7 +3116,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3207,7 +3207,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3235,7 +3235,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -3246,7 +3246,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 3
@@ -3354,7 +3354,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3381,7 +3381,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3480,7 +3480,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3580,7 +3580,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3666,7 +3666,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3761,7 +3761,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -3854,7 +3854,7 @@
                     "is_rest": false,
                     "rhythm": "nota",
                     "validated_by": "editor-v4",
-                    "validated_at": "2026-04-28T02:23:54.884Z",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
                     "note": "",
                     "_match": "n_sym"
                   },
@@ -3865,7 +3865,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": "n_sym",
                   "_beat_delta": 3
@@ -3949,7 +3949,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -4014,7 +4014,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -4108,7 +4108,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -4247,7 +4247,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T02:23:54.929479Z"
+                    "merged_at": "2026-04-28T04:02:31.325715Z"
                   },
                   "_match_method": null,
                   "_beat_delta": null
@@ -4271,7 +4271,7 @@
       ]
     }
   ],
-  "merged_at": "2026-04-28T02:23:54.929479Z",
+  "merged_at": "2026-04-28T04:02:31.325715Z",
   "merge_sources": {
     "pipeline": "C:\\HomeCloud\\shared\\Projetos\\instrumentistas_tools\\scores\\json\\ainda-uma-vez_pipeline.json",
     "editor": "C:\\HomeCloud\\shared\\Projetos\\instrumentistas_tools\\scores\\json\\ainda-uma-vez.json"

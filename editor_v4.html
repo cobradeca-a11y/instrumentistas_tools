@@ -1197,7 +1197,7 @@ async function doSave() {
 
   try {
     // Salvar diretamente no servidor em scores/json/<slug>.json
-    const r = await fetch('/api/editor/' + slug, {
+    const r = await fetch('/api/louvores/' + slug, {
       method:  'POST',
       headers: {'Content-Type': 'application/json'},
       body:    JSON.stringify(schema),
