@@ -475,6 +475,12 @@ def _find_best_editor_match(editor_index, n, sym, p_chord, window=2):
 
     # Bloqueia casamento frouxo demais.
     if best_method.endswith('_loose'):
+        # Mesmo compasso + mesmo símbolo: aceita como presença,
+        # mas o ground_truth pode continuar unvalidated se não houver sílaba.
+        if measure_delta == 0:
+            return best, 'n_sym_presence'
+
+        # Compasso próximo frouxo continua perigoso.
         if ratio_delta > 0.38:
             return None, None
 
