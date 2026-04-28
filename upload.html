@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload de Partitura — Instrumentistas Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f2eb;--sf:#faf8f3;--sf2:#eeeade;--sf3:#e5e0d2;
+  --bd:#ddd8cc;--bd2:#ccc6b6;
+  --tx:#1a1712;--dm:#7a7060;--ft:#c0b8a0;
+  --ac:#2a5298;--ac-bg:#e8eef8;--ac-b:#b8cce8;
+  --gn:#256825;--gn-bg:#e8f4e8;--gn-b:#a8d4a8;
+  --am:#7a4e00;--am-bg:#fdf3dc;--am-b:#e8c870;
+  --rd:#7a2020;--rd-bg:#fde8e8;
+}
+body{background:var(--bg);color:var(--tx);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;}
+header{background:var(--sf);border-bottom:1.5px solid var(--bd);padding:16px 28px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.logo{font-size:1rem;font-weight:600;}
+.logo span{color:var(--ac);}
+.btn{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:5px 12px;
+  border-radius:4px;border:1px solid var(--bd2);background:var(--sf2);
+  color:var(--dm);cursor:pointer;transition:all .12s;text-decoration:none;display:inline-block;}
+.btn:hover{border-color:var(--ac);color:var(--ac);}
+.btn.primary{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:700;}
+.btn.primary:hover{background:#1e3d7a;}
+.btn.green{background:var(--gn-bg);color:var(--gn);border-color:var(--gn-b);}
+.btn.green:hover{background:#d0ead0;}
+
+main{max-width:680px;margin:0 auto;padding:32px 24px 80px;}
+
+h1{font-size:1.3rem;font-weight:600;margin-bottom:6px;}
+.subtitle{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--ft);margin-bottom:28px;}
+
+/* ETAPAS */
+.etapa{
+  background:var(--sf);border:1.5px solid var(--bd);border-radius:6px;
+  margin-bottom:16px;overflow:hidden;
+}
+.etapa-header{
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:var(--sf3);border-bottom:1px solid var(--bd);
+}
+.etapa-num{
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--ac);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.etapa-num.done{background:var(--gn);}
+.etapa-num.pending{background:var(--ft);}
+.etapa-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--dm);}
+.etapa-body{padding:16px;}
+
+/* CAMPO SLUG */
+.field{margin-bottom:12px;}
+.field label{font-family:'JetBrains Mono',monospace;font-size:.6rem;
+  color:var(--dm);display:block;margin-bottom:4px;}
+.field input,.field select{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  padding:6px 9px;border-radius:4px;border:1px solid var(--bd2);
+  background:var(--sf2);color:var(--tx);outline:none;width:100%;}
+.field input:focus,.field select:focus{border-color:var(--ac);}
+.field .hint{font-family:'JetBrains Mono',monospace;font-size:.56rem;
+  color:var(--ft);margin-top:3px;}
+
+/* DROP ZONE PDF */
+.drop-zone{
+  border:2px dashed var(--bd2);border-radius:6px;
+  padding:32px;text-align:center;cursor:pointer;
+  transition:all .15s;background:var(--sf2);
+}
+.drop-zone:hover,.drop-zone.over{
+  border-color:var(--ac);background:var(--ac-bg);
+}
+.drop-zone .icon{font-size:2rem;opacity:.4;margin-bottom:8px;}
+.drop-zone p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--dm);}
+.drop-zone .sub{font-size:.56rem;color:var(--ft);margin-top:4px;}
+.drop-zone.has-file{border-color:var(--gn);background:var(--gn-bg);}
+.drop-zone.has-file p{color:var(--gn);}
+
+/* LINES MAP */
+.lines-preview{
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;
+  background:var(--sf2);border:1px solid var(--bd);border-radius:4px;
+  padding:10px 12px;color:var(--dm);line-height:1.8;
+  max-height:200px;overflow-y:auto;margin-top:8px;
+  white-space:pre-wrap;
+}
+
+/* STATUS */
+.status-block{
+  padding:12px 14px;border-radius:4px;
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;
+  line-height:1.8;display:none;margin-top:12px;
+}
+.status-block.on{display:block;}
+.status-block.ok{background:var(--gn-bg);border:1px solid var(--gn-b);color:var(--gn);}
+.status-block.err{background:var(--rd-bg);color:var(--rd);}
+.status-block.info{background:var(--am-bg);border:1px solid var(--am-b);color:var(--am);}
+
+/* PIPELINE RESULT */
+.pipeline-result{
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--dm);line-height:1.8;
+}
+.pipeline-result .rule{display:flex;justify-content:space-between;
+  padding:2px 0;border-bottom:1px solid var(--bd);}
+.pipeline-result .rule:last-child{border-bottom:none;}
+
+/* AVISO */
+.aviso{
+  background:var(--am-bg);border:1px solid var(--am-b);border-radius:4px;
+  padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--am);line-height:1.7;margin-bottom:16px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Instrumentistas <span>Tools</span></div>
+  <a class="btn" href="/">← voltar</a>
+</header>
+
+<main>
+  <h1>Adicionar partitura ao pipeline</h1>
+  <div class="subtitle">
+    Upload do PDF + configuração → extração automática de acordes e letra
+  </div>
+
+  <div class="aviso">
+    ⚠️ O pipeline extrai acordes de PDFs <strong>vetoriais</strong> gerados pelo Sibelius ou Finale
+    com as fontes <code>OpusChordsStd</code> e <code>TimesNewRoman</code>.
+    PDFs escaneados ou de imagem não funcionam.
+  </div>
+
+  <!-- ETAPA 1: IDENTIFICAÇÃO -->
+  <div class="etapa" id="etapa1">
+    <div class="etapa-header">
+      <div class="etapa-num" id="num1">1</div>
+      <div class="etapa-title">Identificar o louvor</div>
+    </div>
+    <div class="etapa-body">
+      <div class="field">
+        <label>Slug (identificador único, sem espaços)</label>
+        <input id="f-slug" placeholder="ex: ainda-uma-vez" oninput="atualizarSlug()">
+        <div class="hint">Use letras minúsculas, números e hífens. Exemplo: ainda-uma-vez</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="field">
+          <label>Título</label>
+          <input id="f-titulo" placeholder="ex: Ainda Uma Vez">
+        </div>
+        <div class="field">
+          <label>Compositor</label>
+          <input id="f-compositor" placeholder="ex: Francisco Jose Barbosa Condi">
+        </div>
+        <div class="field">
+          <label>Tom</label>
+          <input id="f-tom" placeholder="ex: Cm" style="width:100px">
+        </div>
+        <div class="field">
+          <label>BPM</label>
+          <input id="f-bpm" placeholder="ex: 75-85" style="width:100px">
+        </div>
+      </div>
+      <button class="btn primary" onclick="avancarEtapa2()">próximo →</button>
+    </div>
+  </div>
+
+  <!-- ETAPA 2: UPLOAD PDF -->
+  <div class="etapa" id="etapa2" style="opacity:.5;pointer-events:none">
+    <div class="etapa-header">
+      <div class="etapa-num pending" id="num2">2</div>
+      <div class="etapa-title">Upload do PDF da partitura</div>
+    </div>
+    <div class="etapa-body">
+      <div class="drop-zone" id="drop-zone"
+           onclick="document.getElementById('pdf-input').click()"
+           ondragover="dragOver(event)" ondragleave="dragLeave(event)"
+           ondrop="dropFile(event)">
+        <div class="icon">📄</div>
+        <p id="drop-txt">Clique aqui ou arraste o PDF</p>
+        <div class="sub">Apenas arquivos .pdf</div>
+      </div>
+      <input type="file" id="pdf-input" accept=".pdf" style="display:none" onchange="selecionarPDF(this)">
+      <div class="status-block" id="upload-status"></div>
+      <div style="margin-top:12px">
+        <button class="btn primary" id="btn-upload" onclick="fazerUpload()" disabled>enviar PDF ↑</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETAPA 3: LINES MAP -->
+  <div class="etapa" id="etapa3" style="opacity:.5;pointer-events:none">
+    <div class="etapa-header">
+      <div class="etapa-num pending" id="num3">3</div>
+      <div class="etapa-title">Configurar mapeamento de sistemas</div>
+    </div>
+    <div class="etapa-body">
+      <p style="font-size:.88rem;color:var(--dm);margin-bottom:10px;line-height:1.6">
+        O pipeline precisa saber onde estão os acordes e a letra em cada sistema da partitura.
+        Você pode usar o modelo do "Ainda Uma Vez" como ponto de partida
+        e ajustar conforme a sua partitura.
+      </p>
+      <div class="field">
+        <label>Modelo de referência</label>
+        <select id="modelo-ref" onchange="carregarModelo()">
+          <option value="">— selecione um modelo —</option>
+          <option value="ainda-uma-vez">Ainda Uma Vez (Cm, 4/4, 2 páginas, 8 sistemas)</option>
+          <option value="vazio">Em branco (configure manualmente)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>LINES_MAP (JSON editável)</label>
+        <textarea id="lines-editor"
+          style="font-family:'JetBrains Mono',monospace;font-size:.6rem;
+                 width:100%;height:220px;padding:10px;
+                 background:var(--sf2);border:1px solid var(--bd2);
+                 border-radius:4px;color:var(--dm);outline:none;resize:vertical;
+                 line-height:1.7"
+          spellcheck="false"
+          placeholder='{"meta":{...},"lines":[[0,0,127,129,null,null,"intro","instrumental_1"],...]}'
+        ></textarea>
+        <div class="hint">
+          Formato de cada linha: [pagina, sistema, acorde_min, acorde_max, letra_min, letra_max, secao, subsecao]
+          <br>Use null para letra_min/max quando o sistema for instrumental (sem letra)
+        </div>
+      </div>
+
+      <div class="status-block" id="lines-status"></div>
+      <button class="btn primary" onclick="salvarLines()">salvar configuração →</button>
+    </div>
+  </div>
+
+  <!-- ETAPA 4: RODAR PIPELINE -->
+  <div class="etapa" id="etapa4" style="opacity:.5;pointer-events:none">
+    <div class="etapa-header">
+      <div class="etapa-num pending" id="num4">4</div>
+      <div class="etapa-title">Rodar o pipeline</div>
+    </div>
+    <div class="etapa-body">
+      <p style="font-size:.88rem;color:var(--dm);margin-bottom:14px;line-height:1.6">
+        Com o PDF e o mapeamento configurados, o pipeline vai extrair automaticamente
+        os acordes e a letra da partitura e gerar o arquivo de protocolo.
+      </p>
+      <button class="btn green" id="btn-pipeline" onclick="rodarPipeline()">
+        ⚙ extrair partitura
+      </button>
+      <div class="status-block" id="pipeline-status"></div>
+      <div id="pipeline-result" style="display:none;margin-top:12px">
+        <div class="pipeline-result" id="pipeline-result-body"></div>
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <a class="btn green" id="btn-abrir-editor" href="#">✎ abrir no editor</a>
+          <a class="btn" href="/">← voltar ao painel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+let slug = '';
+let pdfFile = null;
+let pdfUploaded = false;
+let linesSaved  = false;
+
+// ── MODELO VAZIO ────────────────────────────────────────────
+const MODELO_VAZIO = {
+  "_doc": "LINES_MAP — edite conforme sua partitura",
+  "_instrucoes": [
+    "Cada linha: [pagina, sistema, acorde_min, acorde_max, letra_min, letra_max, secao, subsecao]",
+    "pagina: 0=primeira, 1=segunda...",
+    "sistema: índice do sistema de pauta na página (0, 1, 2...)",
+    "acorde_min/max: faixa vertical em pixels onde ficam os acordes",
+    "letra_min/max: faixa vertical em pixels onde fica a letra (null = sem letra)",
+    "secao: verso_1, verso_2, refrao, intro, ponte, coda, etc",
+    "subsecao: L1, L2, instrumental_1, etc"
+  ],
+  "meta": {
+    "title": "",
+    "composer": "",
+    "key": "",
+    "key_sig": 0,
+    "bpm": "",
+    "meter": "4/4",
+    "clef": "treble"
+  },
+  "form": [],
+  "lines": [
+    [0, 0, 100, 102, null, null, "intro", "instrumental_1"],
+    [0, 1, 200, 202, 240, 280, "verso_1", "L1"]
+  ]
+};
+
+// ── MODELO AINDA UMA VEZ ────────────────────────────────────
+const MODELO_AUV = {
+  "_doc": "LINES_MAP — Ainda Uma Vez (modelo de referência)",
+  "meta": {
+    "title": "", "composer": "", "key": "",
+    "key_sig": -3, "bpm": "", "meter": "4/4", "clef": "treble"
+  },
+  "form": [
+    {"type":"segno",      "page":0,"system":5,"label":"⊕ Segno"},
+    {"type":"to_coda",   "page":0,"system":6,"label":"⚑ To Coda"},
+    {"type":"ds_al_coda","page":1,"system":1,"label":"↩ D.S. al Coda"},
+    {"type":"coda_start","page":1,"system":6,"label":"✦ Coda"}
+  ],
+  "lines": [
+    [0,0,127,129,null,null,"intro","instrumental_1"],
+    [0,1,215,217,null,null,"intro","instrumental_2"],
+    [0,2,304,306,347,349,"verso_1","L1"],
+    [0,3,392,394,438,440,"verso_1","L2"],
+    [0,4,480,482,527,530,"refrao","L1"],
+    [0,5,651,653,702,704,"refrao","L2"],
+    [1,0,74,76,128,130,"verso_2","L1"],
+    [1,1,164,166,217,219,"verso_2","L2"],
+    [1,2,265,267,314,316,"refrao","L3"],
+    [1,3,418,420,469,471,"refrao","L4"],
+    [1,6,588,590,null,null,"coda","instrumental"],
+    [1,7,733,735,null,null,"final","instrumental"]
+  ]
+};
+
+// ── ETAPAS ──────────────────────────────────────────────────
+
+function ativarEtapa(n) {
+  for(let i=2;i<=4;i++){
+    const e = document.getElementById(`etapa${i}`);
+    if(i<=n){ e.style.opacity='1'; e.style.pointerEvents='auto'; }
+    else    { e.style.opacity='.5'; e.style.pointerEvents='none'; }
+  }
+}
+
+function marcarDone(n) {
+  const el = document.getElementById(`num${n}`);
+  el.classList.remove('pending');
+  el.classList.add('done');
+  el.textContent = '✓';
+}
+
+// ── ETAPA 1 ─────────────────────────────────────────────────
+
+function atualizarSlug() {
+  const v = document.getElementById('f-slug').value;
+  slug = v.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+  document.getElementById('f-slug').value = slug;
+}
+
+function avancarEtapa2() {
+  const titulo = document.getElementById('f-titulo').value.trim();
+  if(!slug){ alert('Digite o slug do louvor.'); return; }
+  if(!titulo){ alert('Digite o título do louvor.'); return; }
+  marcarDone(1);
+  ativarEtapa(2);
+  document.getElementById('etapa2').scrollIntoView({behavior:'smooth'});
+}
+
+// ── ETAPA 2: UPLOAD ─────────────────────────────────────────
+
+function dragOver(e){ e.preventDefault(); document.getElementById('drop-zone').classList.add('over'); }
+function dragLeave(){ document.getElementById('drop-zone').classList.remove('over'); }
+
+function dropFile(e) {
+  e.preventDefault();
+  dragLeave();
+  const f = e.dataTransfer.files[0];
+  if(f && f.name.endsWith('.pdf')) setPDF(f);
+  else alert('Somente arquivos .pdf são aceitos.');
+}
+
+function selecionarPDF(inp) {
+  if(inp.files[0]) setPDF(inp.files[0]);
+}
+
+function setPDF(f) {
+  pdfFile = f;
+  const zone = document.getElementById('drop-zone');
+  zone.classList.add('has-file');
+  document.getElementById('drop-txt').textContent = `📄 ${f.name}`;
+  document.getElementById('btn-upload').disabled = false;
+}
+
+async function fazerUpload() {
+  if(!pdfFile){ alert('Selecione um PDF primeiro.'); return; }
+  const btn = document.getElementById('btn-upload');
+  btn.textContent = '⏳ enviando...'; btn.disabled = true;
+
+  const form = new FormData();
+  form.append('pdf', pdfFile);
+
+  try {
+    const r = await fetch(`/api/upload/${slug}`, {method:'POST', body:form});
+    const d = await r.json();
+
+    const st = document.getElementById('upload-status');
+    if(d.erro){ st.textContent=`❌ ${d.erro}`; st.className='status-block err on'; }
+    else {
+      st.textContent=`✅ PDF salvo (${d.size_kb} KB)`;
+      st.className='status-block ok on';
+      pdfUploaded = true;
+      marcarDone(2);
+      ativarEtapa(3);
+      document.getElementById('etapa3').scrollIntoView({behavior:'smooth'});
+    }
+  } catch(e) {
+    const st = document.getElementById('upload-status');
+    st.textContent='❌ Erro de conexão com o servidor.';
+    st.className='status-block err on';
+  }
+  btn.textContent='enviar PDF ↑'; btn.disabled=false;
+}
+
+// ── ETAPA 3: LINES MAP ──────────────────────────────────────
+
+function carregarModelo() {
+  const sel = document.getElementById('modelo-ref').value;
+  const ed  = document.getElementById('lines-editor');
+  const titulo     = document.getElementById('f-titulo').value.trim();
+  const compositor = document.getElementById('f-compositor').value.trim();
+  const tom        = document.getElementById('f-tom').value.trim();
+  const bpm        = document.getElementById('f-bpm').value.trim();
+
+  if(sel === 'ainda-uma-vez') {
+    const m = JSON.parse(JSON.stringify(MODELO_AUV));
+    m.meta.title    = titulo;
+    m.meta.composer = compositor;
+    m.meta.key      = tom || 'Cm';
+    m.meta.bpm      = bpm;
+    ed.value = JSON.stringify(m, null, 2);
+  } else if(sel === 'vazio') {
+    const m = JSON.parse(JSON.stringify(MODELO_VAZIO));
+    m.meta.title    = titulo;
+    m.meta.composer = compositor;
+    m.meta.key      = tom;
+    m.meta.bpm      = bpm;
+    ed.value = JSON.stringify(m, null, 2);
+  }
+}
+
+async function salvarLines() {
+  const texto = document.getElementById('lines-editor').value.trim();
+  const st    = document.getElementById('lines-status');
+
+  // Validar JSON
+  let linesData;
+  try { linesData = JSON.parse(texto); }
+  catch(e) {
+    st.textContent = `❌ JSON inválido: ${e.message}`;
+    st.className = 'status-block err on';
+    return;
+  }
+
+  if(!linesData.lines || !Array.isArray(linesData.lines)){
+    st.textContent = '❌ O JSON precisa ter um campo "lines" com array.';
+    st.className = 'status-block err on';
+    return;
+  }
+
+  // Enviar para o servidor
+  try {
+    const r = await fetch(`/api/lines/${slug}`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(linesData)
+    });
+    const d = await r.json();
+
+    if(d.erro){ st.textContent=`❌ ${d.erro}`; st.className='status-block err on'; }
+    else {
+      st.textContent=`✅ Configuração salva — ${d.n_lines} sistemas mapeados`;
+      st.className='status-block ok on';
+      linesSaved = true;
+      marcarDone(3);
+      ativarEtapa(4);
+      document.getElementById('etapa4').scrollIntoView({behavior:'smooth'});
+    }
+  } catch(e) {
+    st.textContent='❌ Erro de conexão com o servidor.';
+    st.className='status-block err on';
+  }
+}
+
+// ── ETAPA 4: PIPELINE ───────────────────────────────────────
+
+async function rodarPipeline() {
+  const btn = document.getElementById('btn-pipeline');
+  const st  = document.getElementById('pipeline-status');
+  btn.textContent = '⏳ processando partitura...'; btn.disabled=true;
+  st.textContent='Isso pode levar alguns segundos...';
+  st.className='status-block info on';
+
+  try {
+    const r = await fetch(`/api/pipeline/${slug}`, {method:'POST'});
+    const d = await r.json();
+
+    if(d.erro){
+      st.textContent=`❌ ${d.erro}`;
+      st.className='status-block err on';
+    } else {
+      st.textContent=`✅ Pipeline concluído — ${d.total} acordes extraídos`;
+      st.className='status-block ok on';
+
+      // Mostrar distribuição por regra
+      let html = '';
+      for(const [regra,n] of Object.entries(d.by_rule||{})){
+        const pct = d.total>0 ? Math.round(100*n/d.total) : 0;
+        html += `<div class="rule"><span>${regra}</span><span>${n} (${pct}%)</span></div>`;
+      }
+      document.getElementById('pipeline-result-body').innerHTML = html;
+      document.getElementById('pipeline-result').style.display='block';
+      document.getElementById('btn-abrir-editor').href=`/editor?louvor=${slug}`;
+      marcarDone(4);
+    }
+  } catch(e) {
+    st.textContent='❌ Erro de conexão com o servidor.';
+    st.className='status-block err on';
+  }
+  btn.textContent='⚙ extrair partitura'; btn.disabled=false;
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+
+// Pré-preencher slug a partir da URL
+const params = new URLSearchParams(window.location.search);
+if(params.get('slug')){
+  document.getElementById('f-slug').value = params.get('slug');
+  atualizarSlug();
+}
+</script>
+</body>
+</html>

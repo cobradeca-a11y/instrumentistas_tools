@@ -1,0 +1,4025 @@
+{
+  "schema_version": "1.0",
+  "title": "Ainda Uma Vez",
+  "composer": "Francisco Jose Barbosa Condi",
+  "key": "Cm",
+  "key_sig": -3,
+  "bpm": "75-85",
+  "meter": "4/4",
+  "clef": "treble",
+  "pipeline_version": "v5.1",
+  "generated_at": "2026-04-27T01:26:16.748703+00:00",
+  "sections": [
+    {
+      "id": "intro",
+      "label": "Intro",
+      "lines": [
+        {
+          "id": "instrumental_1",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 227.7,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 2,
+                  "beat_ratio": 0.284,
+                  "protocol": {
+                    "cx": 101.8,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 101.7540417232648,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Ab",
+                  "beat": 4,
+                  "beat_ratio": 0.787,
+                  "protocol": {
+                    "cx": 190.2,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 190.21518380235443,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [],
+              "beats_used": 0.0
+            },
+            {
+              "n": 2,
+              "x0": 227.7,
+              "x1": 334.4,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 2,
+                  "beat_ratio": 0.478,
+                  "protocol": {
+                    "cx": 278.7,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 278.72721486945545,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [],
+              "beats_used": 0.0
+            },
+            {
+              "n": 4,
+              "x0": 336.7,
+              "x1": 460.0,
+              "chords": [
+                {
+                  "symbol": "G",
+                  "beat": 2,
+                  "beat_ratio": 0.314,
+                  "protocol": {
+                    "cx": 375.4,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 375.4094885217323,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [],
+              "beats_used": 0.0
+            },
+            {
+              "n": 5,
+              "x0": 460.0,
+              "x1": 552.5,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 1,
+                  "beat_ratio": 0.149,
+                  "protocol": {
+                    "cx": 473.8,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 473.79154232326476,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [],
+              "beats_used": 0.0
+            }
+          ]
+        },
+        {
+          "id": "instrumental_2",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 227.7,
+              "chords": [
+                {
+                  "symbol": "Ab",
+                  "beat": 2,
+                  "beat_ratio": 0.25,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "T90.3_PAUSA",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 95.87710280235441,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "Œ@100"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Fm",
+                  "beat": 4,
+                  "beat_ratio": 0.837,
+                  "protocol": {
+                    "cx": 199.0,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 199.00489326945544,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@208"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 100.4,
+                  "note": "Sib5",
+                  "midi": 82,
+                  "figure": "pausa_semínima",
+                  "beats": 1.0,
+                  "is_rest": true,
+                  "flags": 0
+                },
+                {
+                  "cx": 119.7,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 133.2,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 146.4,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 164.9,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 189.8,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 208.2,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 221.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 7.0
+            },
+            {
+              "n": 2,
+              "x0": 227.7,
+              "x1": 334.4,
+              "chords": [
+                {
+                  "symbol": "G",
+                  "beat": 4,
+                  "beat_ratio": 0.788,
+                  "protocol": {
+                    "cx": 311.8,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 311.7645023217324,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@310"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 234.9,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 253.4,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 278.2,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 296.7,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 310.1,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 323.4,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 6.0
+            },
+            {
+              "n": 4,
+              "x0": 336.7,
+              "x1": 460.0,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 341.9,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 355.3,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 375.0,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 388.4,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 401.8,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 415.1,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 425.3,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 435.6,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 9.0
+            },
+            {
+              "n": 5,
+              "x0": 460.0,
+              "x1": 552.5,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 472.5,
+                  "note": "Sib5",
+                  "midi": 82,
+                  "figure": "pausa_semínima",
+                  "beats": 1.0,
+                  "is_rest": true,
+                  "flags": 0
+                },
+                {
+                  "cx": 491.8,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 505.1,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 518.5,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 536.9,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verso_1",
+      "label": "Verso 1",
+      "lines": [
+        {
+          "id": "L1",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 197.0,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 2,
+                  "beat_ratio": 0.304,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "T90",
+                    "syllable": "vez,",
+                    "syllable_cx": 160.7,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@170"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 170.4,
+                  "note": "Láb4",
+                  "midi": 68,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "in",
+                  "cx": 95.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-da",
+                  "cx": 112.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "u-ma",
+                  "cx": 136.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "vez,",
+                  "cx": 160.7,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 1.0
+            },
+            {
+              "n": 2,
+              "x0": 197.0,
+              "x1": 313.4,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 1,
+                  "beat_ratio": 0.099,
+                  "protocol": {
+                    "cx": 208.6,
+                    "rule": "T90",
+                    "syllable": "daqui",
+                    "syllable_cx": 229.8,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@236"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 236.0,
+                  "note": "Láb4",
+                  "midi": 68,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 251.7,
+                  "note": "Sib4",
+                  "midi": 70,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 273.5,
+                  "note": "Sib4",
+                  "midi": 70,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 289.3,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 311.3,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "daqui",
+                  "cx": 229.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "a",
+                  "cx": 249.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "pou-co,",
+                  "cx": 271.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "e",
+                  "cx": 293.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "fa",
+                  "cx": 307.3,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 5.0
+            },
+            {
+              "n": 3,
+              "x0": 313.4,
+              "x1": 440.5,
+              "chords": [
+                {
+                  "symbol": "Bb",
+                  "beat": 1,
+                  "beat_ratio": 0.113,
+                  "protocol": {
+                    "cx": 327.8,
+                    "rule": "T90",
+                    "syllable": "rei",
+                    "syllable_cx": 327.5,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@327"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Eb",
+                  "beat": 4,
+                  "beat_ratio": 0.947,
+                  "protocol": {
+                    "cx": 433.7,
+                    "rule": "T90.2_MELISMA",
+                    "syllable": "céus,",
+                    "syllable_cx": 396.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@426"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 327.0,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 342.8,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 358.5,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 370.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 382.6,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 425.9,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "-",
+                  "cx": 316.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "rei",
+                  "cx": 327.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "tre-mer",
+                  "cx": 353.4,
+                  "anacrusis": false
+                },
+                {
+                  "text": "os",
+                  "cx": 375.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "céus,",
+                  "cx": 396.2,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 7.0
+            },
+            {
+              "n": 4,
+              "x0": 440.5,
+              "x1": 552.5,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 447.7,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 463.3,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 475.4,
+                  "note": "Sib5",
+                  "midi": 82,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 487.2,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "pausa_semínima",
+                  "beats": 1.0,
+                  "is_rest": true,
+                  "flags": 0
+                },
+                {
+                  "cx": 503.2,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 518.9,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 534.7,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "e",
+                  "cx": 447.1,
+                  "anacrusis": true
+                },
+                {
+                  "text": "to-da",
+                  "cx": 472.1,
+                  "anacrusis": true
+                },
+                {
+                  "text": "ter-ra,",
+                  "cx": 501.9,
+                  "anacrusis": true
+                },
+                {
+                  "text": "to",
+                  "cx": 521.9,
+                  "anacrusis": true
+                },
+                {
+                  "text": "-",
+                  "cx": 530.3,
+                  "anacrusis": true
+                },
+                {
+                  "text": "do",
+                  "cx": 540.0,
+                  "anacrusis": true
+                }
+              ],
+              "beats_used": 6.0
+            }
+          ]
+        },
+        {
+          "id": "L2",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 197.0,
+              "chords": [
+                {
+                  "symbol": "Ab",
+                  "beat": 2,
+                  "beat_ratio": 0.303,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "T90",
+                    "syllable": "mar",
+                    "syllable_cx": 95.6,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "˙@95"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 95.5,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 115.0,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 128.7,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 142.5,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 156.2,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 169.9,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 183.7,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "mar",
+                  "cx": 95.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ea",
+                  "cx": 112.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ter-ra",
+                  "cx": 131.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "se-ca,",
+                  "cx": 157.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "fa-rei",
+                  "cx": 191.9,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 8.0
+            },
+            {
+              "n": 2,
+              "x0": 197.0,
+              "x1": 313.4,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 1,
+                  "beat_ratio": 0.026,
+                  "protocol": {
+                    "cx": 200.1,
+                    "rule": "T90",
+                    "syllable": "tre-mer",
+                    "syllable_cx": 224.7,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@223"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 222.8,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 236.5,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 250.2,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 264.0,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 280.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 294.3,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 308.0,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "tre-mer",
+                  "cx": 224.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "na-ções,",
+                  "cx": 261.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "e",
+                  "cx": 310.0,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 7.0
+            },
+            {
+              "n": 3,
+              "x0": 313.4,
+              "x1": 440.5,
+              "chords": [
+                {
+                  "symbol": "G",
+                  "beat": 3,
+                  "beat_ratio": 0.721,
+                  "protocol": {
+                    "cx": 405.0,
+                    "rule": "T90",
+                    "syllable": "o",
+                    "syllable_cx": 387.8,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "˙@396"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 344.5,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 361.3,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 376.5,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 395.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "en-fim",
+                  "cx": 330.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "vi-rá",
+                  "cx": 356.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 387.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "de-se-ja-do",
+                  "cx": 425.0,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 5.0
+            },
+            {
+              "n": 4,
+              "x0": 440.5,
+              "x1": 552.5,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 447.7,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 464.8,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 480.0,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 495.1,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 508.9,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 522.6,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 540.6,
+                  "note": "Sib4",
+                  "midi": 70,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "das",
+                  "cx": 459.5,
+                  "anacrusis": true
+                },
+                {
+                  "text": "na-ções.\"",
+                  "cx": 487.6,
+                  "anacrusis": true
+                }
+              ],
+              "beats_used": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "refrao",
+      "label": "Refrao",
+      "lines": [
+        {
+          "id": "L1",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 190.3,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 2,
+                  "beat_ratio": 0.318,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "T90",
+                    "syllable": "eu",
+                    "syllable_cx": 109.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@113"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "C",
+                  "beat": 3,
+                  "beat_ratio": 0.741,
+                  "protocol": {
+                    "cx": 154.4,
+                    "rule": "T90",
+                    "syllable": "en-che-rei",
+                    "syllable_cx": 139.9,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@151"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 112.8,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 126.7,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 139.6,
+                  "note": "Sib4",
+                  "midi": 70,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 150.8,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 161.7,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 172.4,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "\"E",
+                  "cx": 93.4,
+                  "anacrusis": false
+                },
+                {
+                  "text": "eu",
+                  "cx": 109.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "en-che-rei",
+                  "cx": 139.9,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 6.0
+            },
+            {
+              "n": 2,
+              "x0": 190.3,
+              "x1": 300.4,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 1,
+                  "beat_ratio": 0.174,
+                  "protocol": {
+                    "cx": 209.5,
+                    "rule": "T90",
+                    "syllable": "es",
+                    "syllable_cx": 221.3,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@216"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 215.8,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 232.5,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 248.0,
+                  "note": "Sib4",
+                  "midi": 70,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 264.7,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 278.5,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 289.4,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "as-sim",
+                  "cx": 198.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "es",
+                  "cx": 221.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 234.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "te",
+                  "cx": 247.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "lu-gar,",
+                  "cx": 267.6,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 6.0
+            },
+            {
+              "n": 3,
+              "x0": 300.4,
+              "x1": 395.3,
+              "chords": [
+                {
+                  "symbol": "Bb",
+                  "beat": 1,
+                  "beat_ratio": 0.241,
+                  "protocol": {
+                    "cx": 323.2,
+                    "rule": "T90",
+                    "syllable": "com",
+                    "syllable_cx": 336.5,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@323"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Bb7",
+                  "beat": 4,
+                  "beat_ratio": 0.905,
+                  "protocol": {
+                    "cx": 386.3,
+                    "rule": "T90",
+                    "syllable": "gló-ria",
+                    "syllable_cx": 393.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@388"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 322.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 337.7,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 351.7,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 362.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 377.5,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 388.4,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "com",
+                  "cx": 336.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "mi-nha",
+                  "cx": 362.4,
+                  "anacrusis": false
+                },
+                {
+                  "text": "gló-ria",
+                  "cx": 393.2,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 6.0
+            },
+            {
+              "n": 4,
+              "x0": 395.3,
+              "x1": 506.0,
+              "chords": [
+                {
+                  "symbol": "Eb",
+                  "beat": 2,
+                  "beat_ratio": 0.497,
+                  "protocol": {
+                    "cx": 450.3,
+                    "rule": "T90",
+                    "syllable": "en-che-rei",
+                    "syllable_cx": 432.8,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@445"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 405.5,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 418.0,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 429.4,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 445.5,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 460.1,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 474.6,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 485.6,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 497.7,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "en-che-rei",
+                  "cx": 432.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "es",
+                  "cx": 464.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 478.0,
+                  "anacrusis": false
+                },
+                {
+                  "text": "te",
+                  "cx": 490.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "lu-",
+                  "cx": 502.9,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 8.0
+            },
+            {
+              "n": 5,
+              "x0": 506.0,
+              "x1": 550.2,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 517.2,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semibreve",
+                  "beats": 4.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "gar,\"",
+                  "cx": 521.2,
+                  "anacrusis": true
+                }
+              ],
+              "beats_used": 4.0
+            }
+          ]
+        },
+        {
+          "id": "L2",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 198.8,
+              "chords": [
+                {
+                  "symbol": "Ab",
+                  "beat": 2,
+                  "beat_ratio": 0.3,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "T90",
+                    "syllable": "diz",
+                    "syllable_cx": 111.5,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@96"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 96.3,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 109.9,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 123.4,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 138.6,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 143.9,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 154.9,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 173.8,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 187.3,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "diz",
+                  "cx": 111.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 127.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "Se-nhor",
+                  "cx": 156.2,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 8.0
+            },
+            {
+              "n": 2,
+              "x0": 198.8,
+              "x1": 318.0,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 2,
+                  "beat_ratio": 0.325,
+                  "protocol": {
+                    "cx": 237.5,
+                    "rule": "T90",
+                    "syllable": "xér",
+                    "syllable_cx": 240.6,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@234"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 207.3,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 220.8,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 234.5,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 248.0,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 258.4,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 263.7,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 273.4,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "dos",
+                  "cx": 206.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "e",
+                  "cx": 218.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 227.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "xér",
+                  "cx": 240.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 259.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ci-tos,",
+                  "cx": 285.4,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 8.0
+            },
+            {
+              "n": 3,
+              "x0": 318.0,
+              "x1": 423.9,
+              "chords": [
+                {
+                  "symbol": "G7",
+                  "beat": 2,
+                  "beat_ratio": 0.359,
+                  "protocol": {
+                    "cx": 356.0,
+                    "rule": "T90",
+                    "syllable": "diz",
+                    "syllable_cx": 362.1,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@354"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 337.2,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 354.1,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 370.2,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 386.8,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 402.0,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 407.4,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 415.6,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 420.9,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "diz",
+                  "cx": 362.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 377.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "Se-nhor.",
+                  "cx": 407.8,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 8.0
+            },
+            {
+              "n": 4,
+              "x0": 423.9,
+              "x1": 552.5,
+              "chords": [
+                {
+                  "symbol": "G",
+                  "beat": 2,
+                  "beat_ratio": 0.338,
+                  "protocol": {
+                    "cx": 467.4,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 467.3558993217324,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@464"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 430.7,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 450.7,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 464.4,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 477.9,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 491.5,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 501.8,
+                  "note": "Ré5",
+                  "midi": 74,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 507.1,
+                  "note": "Dó5",
+                  "midi": 72,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 518.8,
+                  "note": "Mib5",
+                  "midi": 75,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verso_2",
+      "label": "Verso 2",
+      "lines": [
+        {
+          "id": "L1",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 260.6,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 1,
+                  "beat_ratio": 0.211,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "V90",
+                    "syllable": "-",
+                    "syllable_cx": 106.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Fm",
+                  "beat": 4,
+                  "beat_ratio": 0.774,
+                  "protocol": {
+                    "cx": 213.5,
+                    "rule": "V90",
+                    "syllable": "e",
+                    "syllable_cx": 227.1,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "-",
+                  "cx": 106.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "nha",
+                  "cx": 118.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "é",
+                  "cx": 132.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "a",
+                  "cx": 145.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "pra-ta",
+                  "cx": 165.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "e",
+                  "cx": 227.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "meu",
+                  "cx": 241.0,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 255.0,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            },
+            {
+              "n": 2,
+              "x0": 260.6,
+              "x1": 460.5,
+              "chords": [
+                {
+                  "symbol": "Bb",
+                  "beat": 2,
+                  "beat_ratio": 0.353,
+                  "protocol": {
+                    "cx": 331.1,
+                    "rule": "V90",
+                    "syllable": "sim",
+                    "syllable_cx": 330.9,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Eb",
+                  "beat": 4,
+                  "beat_ratio": 0.863,
+                  "protocol": {
+                    "cx": 433.2,
+                    "rule": "V90",
+                    "syllable": "\"ea",
+                    "syllable_cx": 444.8,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "ou",
+                  "cx": 270.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 281.0,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ro\",as-",
+                  "cx": 305.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "sim",
+                  "cx": 330.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "diz",
+                  "cx": 347.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 361.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "Se-nhor,",
+                  "cx": 387.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "\"ea",
+                  "cx": 444.8,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            },
+            {
+              "n": 3,
+              "x0": 460.5,
+              "x1": 548.8,
+              "chords": [],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "gló-ria",
+                  "cx": 470.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "des-ta",
+                  "cx": 499.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ca-saen",
+                  "cx": 533.7,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            }
+          ]
+        },
+        {
+          "id": "L2",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 183.1,
+              "chords": [
+                {
+                  "symbol": "Ab",
+                  "beat": 2,
+                  "beat_ratio": 0.336,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "V90",
+                    "syllable": "fim",
+                    "syllable_cx": 95.7,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "fim",
+                  "cx": 95.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ex-ce-de-rá",
+                  "cx": 129.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "a",
+                  "cx": 183.0,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            },
+            {
+              "n": 2,
+              "x0": 183.1,
+              "x1": 302.4,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 1,
+                  "beat_ratio": 0.153,
+                  "protocol": {
+                    "cx": 201.4,
+                    "rule": "V90",
+                    "syllable": "gló-ria",
+                    "syllable_cx": 208.3,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "gló-ria",
+                  "cx": 208.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "da",
+                  "cx": 229.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "pri-mei-ra,",
+                  "cx": 259.0,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            },
+            {
+              "n": 3,
+              "x0": 302.4,
+              "x1": 421.7,
+              "chords": [
+                {
+                  "symbol": "G",
+                  "beat": 4,
+                  "beat_ratio": 0.874,
+                  "protocol": {
+                    "cx": 406.6,
+                    "rule": "V90",
+                    "syllable": "da-rei",
+                    "syllable_cx": 397.7,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "enes-te",
+                  "cx": 321.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "lu-gar,",
+                  "cx": 358.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "da-rei",
+                  "cx": 397.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "a",
+                  "cx": 418.3,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            },
+            {
+              "n": 4,
+              "x0": 421.7,
+              "x1": 552.5,
+              "chords": [],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "mi-nhapaz.\"",
+                  "cx": 450.5,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "refrao",
+      "label": "Refrao",
+      "lines": [
+        {
+          "id": "L3",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 183.1,
+              "chords": [
+                {
+                  "symbol": "G7",
+                  "beat": 2,
+                  "beat_ratio": 0.446,
+                  "protocol": {
+                    "cx": 110.3,
+                    "rule": "T90",
+                    "syllable": "diz",
+                    "syllable_cx": 116.4,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@96"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 96.3,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 136.6,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "diz",
+                  "cx": 116.4,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 137.0,
+                  "anacrusis": false
+                },
+                {
+                  "text": "Se",
+                  "cx": 157.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 169.2,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 2.0
+            },
+            {
+              "n": 2,
+              "x0": 183.1,
+              "x1": 302.4,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 4,
+                  "beat_ratio": 0.802,
+                  "protocol": {
+                    "cx": 278.7,
+                    "rule": "T90",
+                    "syllable": "dos",
+                    "syllable_cx": 240.4,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@244"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 183.6,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 201.8,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 243.5,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "nhor",
+                  "cx": 184.4,
+                  "anacrusis": false
+                },
+                {
+                  "text": "dos",
+                  "cx": 240.4,
+                  "anacrusis": false
+                },
+                {
+                  "text": "e",
+                  "cx": 256.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 267.0,
+                  "anacrusis": false
+                },
+                {
+                  "text": "xér",
+                  "cx": 281.8,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 3.0
+            },
+            {
+              "n": 3,
+              "x0": 302.4,
+              "x1": 421.7,
+              "chords": [
+                {
+                  "symbol": "C",
+                  "beat": 2,
+                  "beat_ratio": 0.387,
+                  "protocol": {
+                    "cx": 348.6,
+                    "rule": "T90",
+                    "syllable": "-",
+                    "syllable_cx": 306.0,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@308"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Fm",
+                  "beat": 4,
+                  "beat_ratio": 0.93,
+                  "protocol": {
+                    "cx": 413.3,
+                    "rule": "T90",
+                    "syllable": "-",
+                    "syllable_cx": 306.0,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@308"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 308.4,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "-",
+                  "cx": 306.0,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ci",
+                  "cx": 327.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 336.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "tos,",
+                  "cx": 349.6,
+                  "anacrusis": false
+                },
+                {
+                  "text": "sim",
+                  "cx": 403.3,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 1.0
+            },
+            {
+              "n": 4,
+              "x0": 421.7,
+              "x1": 552.5,
+              "chords": [],
+              "notes": [],
+              "syllables": [
+                {
+                  "text": "es",
+                  "cx": 425.1,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 446.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "te",
+                  "cx": 466.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "lu-gar,",
+                  "cx": 493.0,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 0.0
+            }
+          ]
+        },
+        {
+          "id": "L4",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 207.4,
+              "chords": [
+                {
+                  "symbol": "Bb",
+                  "beat": 2,
+                  "beat_ratio": 0.283,
+                  "protocol": {
+                    "cx": 95.9,
+                    "rule": "T90",
+                    "syllable": "com",
+                    "syllable_cx": 106.2,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@117"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                },
+                {
+                  "symbol": "Bb7",
+                  "beat": 3,
+                  "beat_ratio": 0.665,
+                  "protocol": {
+                    "cx": 155.3,
+                    "rule": "T90",
+                    "syllable": "mi-nhagló-ria",
+                    "syllable_cx": 146.5,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@158"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 117.0,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 137.6,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 158.4,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 179.0,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 199.7,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "com",
+                  "cx": 106.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "mi-nhagló-ria",
+                  "cx": 146.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "en-che-rei",
+                  "cx": 200.3,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 5.0
+            },
+            {
+              "n": 2,
+              "x0": 207.4,
+              "x1": 297.2,
+              "chords": [
+                {
+                  "symbol": "Eb",
+                  "beat": 1,
+                  "beat_ratio": 0.11,
+                  "protocol": {
+                    "cx": 217.3,
+                    "rule": "T90",
+                    "syllable": "es",
+                    "syllable_cx": 229.3,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@220"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 220.4,
+                  "note": "Fá5",
+                  "midi": 77,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 241.0,
+                  "note": "Sol5",
+                  "midi": 79,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 256.8,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 279.1,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "es",
+                  "cx": 229.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 238.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "te",
+                  "cx": 247.2,
+                  "anacrusis": false
+                },
+                {
+                  "text": "lu-",
+                  "cx": 259.5,
+                  "anacrusis": false
+                },
+                {
+                  "text": "gar,\"",
+                  "cx": 277.6,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 4.0
+            },
+            {
+              "n": 3,
+              "x0": 297.2,
+              "x1": 399.9,
+              "chords": [
+                {
+                  "symbol": "Ab",
+                  "beat": 1,
+                  "beat_ratio": 0.094,
+                  "protocol": {
+                    "cx": 306.9,
+                    "rule": "T90",
+                    "syllable": "diz",
+                    "syllable_cx": 317.3,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@308"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 307.7,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 328.3,
+                  "note": "Sib5",
+                  "midi": 82,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 349.1,
+                  "note": "Sib5",
+                  "midi": 82,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "diz",
+                  "cx": 317.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 329.3,
+                  "anacrusis": false
+                },
+                {
+                  "text": "Se-nhor",
+                  "cx": 350.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "dose",
+                  "cx": 386.5,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 4.0
+            },
+            {
+              "n": 4,
+              "x0": 399.9,
+              "x1": 469.8,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 1,
+                  "beat_ratio": 0.139,
+                  "protocol": {
+                    "cx": 409.6,
+                    "rule": "T90",
+                    "syllable": "-",
+                    "syllable_cx": 401.7,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@404"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 403.9,
+                  "note": "Ré6",
+                  "midi": 86,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 424.6,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 445.2,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 467.4,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "-",
+                  "cx": 401.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "xér",
+                  "cx": 412.7,
+                  "anacrusis": false
+                },
+                {
+                  "text": "-",
+                  "cx": 424.8,
+                  "anacrusis": false
+                },
+                {
+                  "text": "ci-tos,",
+                  "cx": 443.4,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 4.0
+            },
+            {
+              "n": 5,
+              "x0": 469.8,
+              "x1": 552.5,
+              "chords": [
+                {
+                  "symbol": "G7",
+                  "beat": 1,
+                  "beat_ratio": 0.169,
+                  "protocol": {
+                    "cx": 483.8,
+                    "rule": "T90",
+                    "syllable": "diz",
+                    "syllable_cx": 489.9,
+                    "float_cx": null,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@483"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 483.4,
+                  "note": "Sib5",
+                  "midi": 82,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 488.7,
+                  "note": "Láb5",
+                  "midi": 80,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 499.3,
+                  "note": "Dó6",
+                  "midi": 84,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [
+                {
+                  "text": "diz",
+                  "cx": 489.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "o",
+                  "cx": 501.9,
+                  "anacrusis": false
+                },
+                {
+                  "text": "Se-nhor.",
+                  "cx": 524.4,
+                  "anacrusis": false
+                }
+              ],
+              "beats_used": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coda",
+      "label": "Coda",
+      "lines": [
+        {
+          "id": "instrumental",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 222.6,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 4,
+                  "beat_ratio": 0.826,
+                  "protocol": {
+                    "cx": 192.9,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 192.9032289232648,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@218"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 97.3,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semibreve",
+                  "beats": 4.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 217.6,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 5.0
+            },
+            {
+              "n": 2,
+              "x0": 222.6,
+              "x1": 268.9,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 239.4,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 247.9,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 2.0
+            },
+            {
+              "n": 3,
+              "x0": 268.9,
+              "x1": 393.7,
+              "chords": [
+                {
+                  "symbol": "Ab",
+                  "beat": 2,
+                  "beat_ratio": 0.347,
+                  "protocol": {
+                    "cx": 312.2,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 312.1903352023544,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "w@308"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 275.0,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 289.2,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 308.3,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semibreve",
+                  "beats": 4.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 6.0
+            },
+            {
+              "n": 4,
+              "x0": 393.7,
+              "x1": 552.5,
+              "chords": [
+                {
+                  "symbol": "Fm",
+                  "beat": 1,
+                  "beat_ratio": 0.238,
+                  "protocol": {
+                    "cx": 431.5,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 431.52833106945536,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "œ@435"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 408.9,
+                  "note": "Fá4",
+                  "midi": 65,
+                  "figure": "pausa_semínima",
+                  "beats": 1.0,
+                  "is_rest": true,
+                  "flags": 0
+                },
+                {
+                  "cx": 434.7,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 448.7,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 460.5,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 480.9,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semibreve",
+                  "beats": 4.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "label": "Final",
+      "lines": [
+        {
+          "id": "instrumental",
+          "measures": [
+            {
+              "n": 1,
+              "x0": 51.8,
+              "x1": 191.6,
+              "chords": [
+                {
+                  "symbol": "G",
+                  "beat": 2,
+                  "beat_ratio": 0.315,
+                  "protocol": {
+                    "cx": 95.8,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 95.8498811217324,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": "˙@101"
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [
+                {
+                  "cx": 100.8,
+                  "note": null,
+                  "midi": null,
+                  "figure": "mínima",
+                  "beats": 2.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 2.0
+            },
+            {
+              "n": 2,
+              "x0": 191.6,
+              "x1": 298.2,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 194.3,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semibreve",
+                  "beats": 4.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 217.8,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 236.1,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 254.6,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 7.0
+            },
+            {
+              "n": 3,
+              "x0": 298.2,
+              "x1": 396.9,
+              "chords": [],
+              "notes": [
+                {
+                  "cx": 311.7,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 337.1,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 355.6,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                },
+                {
+                  "cx": 373.9,
+                  "note": null,
+                  "midi": null,
+                  "figure": "semínima",
+                  "beats": 1.0,
+                  "is_rest": false,
+                  "flags": 0
+                }
+              ],
+              "syllables": [],
+              "beats_used": 4.0
+            },
+            {
+              "n": 4,
+              "x0": 396.9,
+              "x1": 503.0,
+              "chords": [
+                {
+                  "symbol": "Cm",
+                  "beat": 3,
+                  "beat_ratio": 0.692,
+                  "protocol": {
+                    "cx": 470.3,
+                    "rule": "VAZIO",
+                    "syllable": null,
+                    "syllable_cx": null,
+                    "float_cx": 470.3369079232648,
+                    "next_syllable": null,
+                    "next_syllable_cx": null,
+                    "nota_anchor": null
+                  },
+                  "human": null,
+                  "ground_truth": {
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": null,
+                    "rule_changed": null,
+                    "implied_rule": null
+                  }
+                }
+              ],
+              "notes": [],
+              "syllables": [],
+              "beats_used": 0.0
+            },
+            {
+              "n": 5,
+              "x0": 503.0,
+              "x1": 550.2,
+              "chords": [],
+              "notes": [],
+              "syllables": [],
+              "beats_used": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

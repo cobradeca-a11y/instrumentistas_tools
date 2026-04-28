@@ -1,0 +1,160 @@
+{
+  "_doc": "LINES_MAP — Ainda Uma Vez (modelo de referência)",
+  "meta": {
+    "title": "Ainda uma Vez",
+    "composer": "Francisco Jose Barbosa Condi",
+    "key": "Cm",
+    "key_sig": -3,
+    "bpm": "75-65",
+    "meter": "4/4",
+    "clef": "treble"
+  },
+  "form": [
+    {
+      "type": "segno",
+      "page": 0,
+      "system": 5,
+      "label": "⊕ Segno"
+    },
+    {
+      "type": "to_coda",
+      "page": 0,
+      "system": 6,
+      "label": "⚑ To Coda"
+    },
+    {
+      "type": "ds_al_coda",
+      "page": 1,
+      "system": 1,
+      "label": "↩ D.S. al Coda"
+    },
+    {
+      "type": "coda_start",
+      "page": 1,
+      "system": 6,
+      "label": "✦ Coda"
+    }
+  ],
+  "lines": [
+    [
+      0,
+      0,
+      127,
+      129,
+      null,
+      null,
+      "intro",
+      "instrumental_1"
+    ],
+    [
+      0,
+      1,
+      215,
+      217,
+      null,
+      null,
+      "intro",
+      "instrumental_2"
+    ],
+    [
+      0,
+      2,
+      304,
+      306,
+      347,
+      349,
+      "verso_1",
+      "L1"
+    ],
+    [
+      0,
+      3,
+      392,
+      394,
+      438,
+      440,
+      "verso_1",
+      "L2"
+    ],
+    [
+      0,
+      4,
+      480,
+      482,
+      527,
+      530,
+      "refrao",
+      "L1"
+    ],
+    [
+      0,
+      5,
+      651,
+      653,
+      702,
+      704,
+      "refrao",
+      "L2"
+    ],
+    [
+      1,
+      0,
+      74,
+      76,
+      128,
+      130,
+      "verso_2",
+      "L1"
+    ],
+    [
+      1,
+      1,
+      164,
+      166,
+      217,
+      219,
+      "verso_2",
+      "L2"
+    ],
+    [
+      1,
+      2,
+      265,
+      267,
+      314,
+      316,
+      "refrao",
+      "L3"
+    ],
+    [
+      1,
+      3,
+      418,
+      420,
+      469,
+      471,
+      "refrao",
+      "L4"
+    ],
+    [
+      1,
+      6,
+      588,
+      590,
+      null,
+      null,
+      "coda",
+      "instrumental"
+    ],
+    [
+      1,
+      7,
+      733,
+      735,
+      null,
+      null,
+      "final",
+      "instrumental"
+    ]
+  ]
+}

@@ -1,0 +1,80 @@
+═══════════════════════════════════════════════════
+  INSTRUMENTISTAS TOOLS v1.0
+  Editor + Pipeline + Calibração
+═══════════════════════════════════════════════════
+
+INSTALAÇÃO (primeira vez):
+
+1. Abra o Prompt de Comando (cmd) na pasta
+   instrumentistas_tools
+
+2. Execute o instalador:
+     instalar.bat
+
+   Ou manualmente:
+     pip install flask pdfplumber
+
+COMO INICIAR:
+
+1. Abra o Prompt de Comando na pasta
+   instrumentistas_tools
+
+2. Execute:
+     python servidor.py
+
+3. Abra o browser em:
+     http://localhost:5000
+
+4. Para parar: pressione Ctrl+C no Prompt
+
+═══════════════════════════════════════════════════
+ESTRUTURA DE PASTAS:
+
+instrumentistas_tools/
+  servidor.py          ← inicia o servidor
+  instalar.bat         ← instala dependências
+  requirements.txt     ← lista de dependências
+  index.html           ← painel principal
+  editor_v4.html       ← editor de cifra
+  pipeline_v6.py       ← protocolo CXD+T90
+  calibrate.py         ← mesclagem e calibração
+  scores/
+    pdf/               ← coloque os PDFs aqui
+    json/              ← JSONs salvos automaticamente
+    merged/            ← JSONs após mesclagem
+  calibration/         ← relatórios de calibração
+
+═══════════════════════════════════════════════════
+FLUXO DE TRABALHO:
+
+  1. Abra http://localhost:5000
+  2. Clique "+ novo louvor"
+  3. Digite o nome e abra o editor
+  4. Cifre o louvor
+  5. Clique "salvar no servidor"
+     → salva automaticamente em scores/json/
+     → louvor aparece no painel
+     → ao reabrir, carrega automaticamente
+
+  6. Para usar o pipeline (extração do PDF):
+     → Coloque o PDF em scores/pdf/<slug>.pdf
+     → No painel, clique "⚙ pipeline"
+
+═══════════════════════════════════════════════════
+SE ALGO NÃO FUNCIONAR:
+
+  • "No module named pdfplumber"
+    → Execute: instalar.bat
+
+  • "No module named flask"
+    → Execute: pip install flask
+
+  • Louvor não aparece no painel
+    → Verifique se servidor.py está rodando
+    → Acesse http://localhost:5000
+
+  • Editor abre em branco
+    → O louvor deve ser aberto pelo painel
+    → Clique "✎ editar" no painel
+
+═══════════════════════════════════════════════════

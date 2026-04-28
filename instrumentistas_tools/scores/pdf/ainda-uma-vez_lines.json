@@ -1,0 +1,44 @@
+{
+  "_doc": "LINES_MAP — Ainda Uma Vez (Coro) — Fábio Salazar / Francisco Barbosa Condi",
+  "_instrucoes": [
+    "Cada linha é: [pagina, sistema, cmin, cmax, lmin, lmax, secao, subsecao]",
+    "pagina:   0 = primeira página, 1 = segunda página",
+    "sistema:  0, 1, 2... = índice do sistema de pauta na página",
+    "cmin/cmax: faixa vertical (top em px) onde ficam os ACORDES neste sistema",
+    "lmin/lmax: faixa vertical (top em px) onde fica a LETRA neste sistema",
+    "           null = sem letra (instrumental)",
+    "secao:    nome da seção (verso_1, refrao, intro, etc)",
+    "subsecao: identificador da linha (L1, L2, instrumental_1, etc)"
+  ],
+  "meta": {
+    "title":    "Ainda Uma Vez",
+    "composer": "Francisco Jose Barbosa Condi",
+    "arranger": "Fábio Salazar",
+    "key":      "Cm",
+    "key_sig":  -3,
+    "bpm":      "75-85",
+    "meter":    "4/4",
+    "clef":     "treble",
+    "source_pdf": "Ainda_Uma_Vez_-_Coro.pdf"
+  },
+  "form": [
+    {"type": "segno",      "page": 0, "system": 5, "label": "⊕ Segno — retorno do D.S."},
+    {"type": "to_coda",   "page": 0, "system": 6, "label": "⚑ To Coda — pula para Coda na 2ª vez"},
+    {"type": "ds_al_coda","page": 1, "system": 1, "label": "↩ D.S. al Coda — volta ao Segno"},
+    {"type": "coda_start","page": 1, "system": 6, "label": "✦ Coda — seção final"}
+  ],
+  "lines": [
+    [0, 0, 127, 129, null, null, "intro",   "instrumental_1"],
+    [0, 1, 215, 217, null, null, "intro",   "instrumental_2"],
+    [0, 2, 304, 306, 347,  349,  "verso_1", "L1"],
+    [0, 3, 392, 394, 438,  440,  "verso_1", "L2"],
+    [0, 4, 480, 482, 527,  530,  "refrao",  "L1"],
+    [0, 5, 651, 653, 702,  704,  "refrao",  "L2"],
+    [1, 0,  74,  76, 128,  130,  "verso_2", "L1"],
+    [1, 1, 164, 166, 217,  219,  "verso_2", "L2"],
+    [1, 2, 265, 267, 314,  316,  "refrao",  "L3"],
+    [1, 3, 418, 420, 469,  471,  "refrao",  "L4"],
+    [1, 6, 588, 590, null, null, "coda",    "instrumental"],
+    [1, 7, 733, 735, null, null, "final",   "instrumental"]
+  ]
+}
