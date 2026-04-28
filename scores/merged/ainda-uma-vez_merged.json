@@ -97,16 +97,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 1,
-                    "_global_order": 1
+                    "_global_order": 1,
+                    "_presence_only": true
                   },
                   "ground_truth": {
                     "status": "unvalidated",
-                    "correct": false,
-                    "delta_cx": 101.754,
+                    "correct": null,
+                    "delta_cx": null,
                     "correction_type": "unvalidated",
-                    "rule_changed": true,
-                    "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -182,16 +183,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 2,
-                    "_global_order": 2
+                    "_global_order": 2,
+                    "_presence_only": true
                   },
                   "ground_truth": {
                     "status": "unvalidated",
-                    "correct": false,
-                    "delta_cx": 190.215,
+                    "correct": null,
+                    "delta_cx": null,
                     "correction_type": "unvalidated",
-                    "rule_changed": false,
-                    "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -308,7 +310,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 3,
-                    "_global_order": 3
+                    "_global_order": 3,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "unvalidated",
@@ -317,7 +320,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -448,7 +451,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 8,
-                    "_global_order": 8
+                    "_global_order": 8,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "unvalidated",
@@ -457,7 +461,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -610,7 +614,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 10,
-                    "_global_order": 10
+                    "_global_order": 10,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -619,7 +624,7 @@
                     "correction_type": "melisma_undetected",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -705,19 +710,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@170"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 6,
+                    "_global_order": 6,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.816
                 }
               ],
               "notes": [
@@ -779,19 +799,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@236"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 7,
+                    "_global_order": 7,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.819
                 }
               ],
               "notes": [
@@ -910,19 +945,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@311"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "\"A-",
+                    "syllable_bi": 7,
+                    "syllable_cx": 0.875,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 9,
+                    "_global_order": 9,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.888
                 }
               ],
               "notes": [
@@ -1199,19 +1249,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "˙@95"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 5,
+                    "_global_order": 5,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.491
                 }
               ],
               "notes": [
@@ -1380,7 +1445,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 20,
-                    "_global_order": 21
+                    "_global_order": 21,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -1389,7 +1455,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -1542,7 +1608,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 21,
-                    "_global_order": 22
+                    "_global_order": 22,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -1551,7 +1618,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 1.0,
@@ -1572,19 +1639,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "˙@396"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "e",
+                    "syllable_bi": 1,
+                    "syllable_cx": 0.125,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": true,
+                    "rhythm": "pausa",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 13,
+                    "_global_order": 13,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 2.0,
+                  "_ratio_delta": 0.688
                 }
               ],
               "notes": [
@@ -1839,19 +1921,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@113"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "mar",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 14,
+                    "_global_order": 14,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 2.0,
+                  "_ratio_delta": 0.678
                 }
               ],
               "notes": [
@@ -2001,16 +2098,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 28,
-                    "_global_order": 30
+                    "_global_order": 30,
+                    "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "corrected",
-                    "correct": false,
-                    "delta_cx": 221.175,
-                    "correction_type": "wrong_syllable",
-                    "rule_changed": false,
-                    "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": "unvalidated",
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -2337,7 +2435,8 @@
                     "note": "",
                     "_match": "n_sym_ratio",
                     "_editor_n": 34,
-                    "_global_order": 36
+                    "_global_order": 36,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -2346,7 +2445,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2570,16 +2669,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 36,
-                    "_global_order": 38
+                    "_global_order": 38,
+                    "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "correct",
-                    "correct": true,
-                    "delta_cx": 93.4,
-                    "correction_type": "correct",
-                    "rule_changed": false,
-                    "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": "unvalidated",
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -2613,7 +2713,8 @@
                     "note": "",
                     "_match": "n_sym_ratio",
                     "_editor_n": 36,
-                    "_global_order": 39
+                    "_global_order": 39,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -2622,7 +2723,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2764,7 +2865,8 @@
                     "note": "",
                     "_match": "n_sym_ratio",
                     "_editor_n": 37,
-                    "_global_order": 40
+                    "_global_order": 40,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -2773,7 +2875,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_beat_delta": 0.0,
@@ -2945,7 +3047,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 38,
-                    "_global_order": 41
+                    "_global_order": 41,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "correct",
@@ -2954,7 +3057,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -2988,7 +3091,8 @@
                     "note": "",
                     "_match": "near_measure_loose",
                     "_editor_n": 38,
-                    "_global_order": 42
+                    "_global_order": 42,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -2997,7 +3101,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_loose",
                   "_beat_delta": 1.0,
@@ -3140,19 +3244,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@451"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "rei",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 22,
+                    "_global_order": 24,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.459
                 }
               ],
               "notes": [
@@ -3599,16 +3718,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 47,
-                    "_global_order": 53
+                    "_global_order": 53,
+                    "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "correct",
-                    "correct": true,
-                    "delta_cx": 111.375,
-                    "correction_type": "correct",
-                    "rule_changed": false,
-                    "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": "unvalidated",
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 1.0,
@@ -3723,16 +3843,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 48,
-                    "_global_order": 54
+                    "_global_order": 54,
+                    "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "corrected",
-                    "correct": false,
-                    "delta_cx": 240.6,
-                    "correction_type": "wrong_syllable",
-                    "rule_changed": false,
-                    "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": "unvalidated",
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 2.0,
@@ -3852,16 +3973,17 @@
                     "note": "",
                     "_match": "n_sym_presence",
                     "_editor_n": 49,
-                    "_global_order": 55
+                    "_global_order": 55,
+                    "_presence_only": true
                   },
                   "ground_truth": {
-                    "status": "correct",
-                    "correct": true,
-                    "delta_cx": 361.975,
-                    "correction_type": "correct",
-                    "rule_changed": false,
-                    "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "status": "unvalidated",
+                    "correct": null,
+                    "delta_cx": null,
+                    "correction_type": "unvalidated",
+                    "rule_changed": null,
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_beat_delta": 3.0,
@@ -4030,19 +4152,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "˙@470"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 26,
+                    "_global_order": 28,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 0.0,
+                  "_ratio_delta": 0.071
                 }
               ],
               "notes": [
@@ -4113,7 +4250,8 @@
                     "note": "",
                     "_match": "near_measure_ratio",
                     "_editor_n": 51,
-                    "_global_order": 57
+                    "_global_order": 57,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -4122,7 +4260,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_beat_delta": 0.0,
@@ -4143,19 +4281,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "xér-",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 24,
+                    "_global_order": 26,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.7743456857663499
                 }
               ],
               "notes": [],
@@ -4262,19 +4415,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "sim",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 29,
+                    "_global_order": 31,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.352590619732951
                 },
                 {
                   "symbol": "Eb",
@@ -4291,19 +4459,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "\"e a ",
+                    "syllable_bi": 1,
+                    "syllable_cx": 0.125,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": true,
+                    "rhythm": "pausa",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 30,
+                    "_global_order": 32,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.8634114449956919
                 }
               ],
               "notes": [],
@@ -4437,19 +4620,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "\"Mi-",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 27,
+                    "_global_order": 29,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.9693877034974858
                 }
               ],
               "notes": [],
@@ -4530,19 +4728,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "gló-",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 32,
+                    "_global_order": 34,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.2547173635327363
                 }
               ],
               "notes": [],
@@ -4614,19 +4827,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "com",
+                    "syllable_bi": 1,
+                    "syllable_cx": 0.125,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": true,
+                    "rhythm": "pausa",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 45,
+                    "_global_order": 50,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 0.0,
+                  "_ratio_delta": 0.24042636114515462
                 }
               ],
               "notes": [],
@@ -4716,7 +4944,8 @@
                     "note": "",
                     "_match": "seq_align",
                     "_editor_n": 39,
-                    "_global_order": 43
+                    "_global_order": 43,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -4725,7 +4954,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 0.0,
@@ -4794,19 +5023,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@96"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "diz",
+                    "syllable_bi": 1,
+                    "syllable_cx": 0.125,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": true,
+                    "rhythm": "pausa",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 40,
+                    "_global_order": 44,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.869
                 }
               ],
               "notes": [
@@ -4918,7 +5162,8 @@
                     "note": "",
                     "_match": "seq_align",
                     "_editor_n": 41,
-                    "_global_order": 45
+                    "_global_order": 45,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -4927,7 +5172,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 0.0,
@@ -5029,7 +5274,8 @@
                     "note": "",
                     "_match": "seq_ratio",
                     "_editor_n": 35,
-                    "_global_order": 37
+                    "_global_order": 37,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -5038,7 +5284,7 @@
                     "correction_type": "wrong_syllable",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "seq_ratio",
                   "_beat_delta": 0.0,
@@ -5176,19 +5422,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@117"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "diz",
+                    "syllable_bi": 1,
+                    "syllable_cx": 0.125,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": true,
+                    "rhythm": "pausa",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 42,
+                    "_global_order": 46,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.419
                 }
               ],
               "notes": [
@@ -5306,19 +5567,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@279"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "xér-",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 43,
+                    "_global_order": 47,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.294
                 }
               ],
               "notes": [
@@ -5359,19 +5635,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "˙@349"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "tos",
+                    "syllable_bi": 4,
+                    "syllable_cx": 0.5,
+                    "cx_display": 0.5,
+                    "beat_bi": 4,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 43,
+                    "_global_order": 48,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 0.0,
+                  "_ratio_delta": 0.006000000000000005
                 }
               ],
               "notes": [
@@ -5430,19 +5721,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@404"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "sim",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 44,
+                    "_global_order": 49,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 0.0,
+                  "_ratio_delta": 0.127
                 }
               ],
               "notes": [
@@ -5933,7 +6239,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -5967,7 +6273,8 @@
                     "note": "",
                     "_match": "seq_align",
                     "_editor_n": 45,
-                    "_global_order": 51
+                    "_global_order": 51,
+                    "_presence_only": false
                   },
                   "ground_truth": {
                     "status": "corrected",
@@ -5976,7 +6283,7 @@
                     "correction_type": "melisma_undetected",
                     "rule_changed": true,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": "seq_align",
                   "_beat_delta": 1.0,
@@ -5997,19 +6304,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@218"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "rei",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 46,
+                    "_global_order": 52,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.764
                 }
               ],
               "notes": [
@@ -6192,19 +6514,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@318"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "fim",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 31,
+                    "_global_order": 33,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.393
                 }
               ],
               "notes": [
@@ -6324,19 +6661,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@410"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "e",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 33,
+                    "_global_order": 35,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 0.0,
+                  "_ratio_delta": 0.232
                 }
               ],
               "notes": [
@@ -6429,19 +6781,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@491"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": "_",
+                    "syllable_bi": 0,
+                    "syllable_cx": 0,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 50,
+                    "_global_order": 56,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 3.0,
+                  "_ratio_delta": 0.837
                 }
               ],
               "notes": [
@@ -6839,19 +7206,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "w@194"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_seq",
+                    "_editor_n": 56,
+                    "_global_order": 62,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_seq",
+                  "_beat_delta": 0.0,
+                  "_ratio_delta": 0.05
                 }
               ],
               "notes": [
@@ -6946,19 +7328,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": "œ@312"
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 52,
+                    "_global_order": 58,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 2.0,
+                  "_ratio_delta": 0.564
                 }
               ],
               "notes": [
@@ -7067,19 +7464,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 53,
+                    "_global_order": 59,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.326374468138128
                 }
               ],
               "notes": [],
@@ -7131,19 +7543,34 @@
                     "next_syllable_cx": null,
                     "nota_anchor": null
                   },
-                  "human": null,
+                  "human": {
+                    "syllable": null,
+                    "syllable_bi": null,
+                    "syllable_cx": null,
+                    "cx_display": 0,
+                    "beat_bi": 0,
+                    "is_rest": false,
+                    "rhythm": "nota",
+                    "validated_by": "editor-v4",
+                    "validated_at": "2026-04-28T04:02:31.278Z",
+                    "note": "",
+                    "_match": "presence_align",
+                    "_editor_n": 55,
+                    "_global_order": 61,
+                    "_presence_only": true
+                  },
                   "ground_truth": {
                     "status": "unvalidated",
                     "correct": null,
                     "delta_cx": null,
                     "correction_type": "unvalidated",
                     "rule_changed": null,
-                    "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "implied_rule": "PRESENCE",
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
-                  "_match_method": null,
-                  "_beat_delta": null,
-                  "_ratio_delta": null
+                  "_match_method": "presence_align",
+                  "_beat_delta": 1.0,
+                  "_ratio_delta": 0.2899014340736898
                 }
               ],
               "notes": [],
@@ -7244,7 +7671,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-28T22:07:31.020830+00:00"
+                    "merged_at": "2026-04-28T22:12:01.716831+00:00"
                   },
                   "_match_method": null,
                   "_beat_delta": null,
@@ -7273,7 +7700,7 @@
       ]
     }
   ],
-  "merged_at": "2026-04-28T22:07:31.020830+00:00",
+  "merged_at": "2026-04-28T22:12:01.716831+00:00",
   "merge_sources": {
     "pipeline": "scores/json/ainda-uma-vez_pipeline.json",
     "editor": "scores/json/ainda-uma-vez.json"
@@ -7304,119 +7731,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 5,
-      "symbol": "Cm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 5,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 6,
-      "symbol": "Ab",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 6,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 7,
-      "symbol": "Fm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 7,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 9,
-      "symbol": "G",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 9,
-      "human": {
-        "syllable": "\"A-",
-        "syllable_bi": 7,
-        "syllable_cx": 0.875,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7444,7 +7759,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7472,63 +7787,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 13,
-      "symbol": "Eb",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 13,
-      "human": {
-        "syllable": "e",
-        "syllable_bi": 1,
-        "syllable_cx": 0.125,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": true,
-        "rhythm": "pausa",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 14,
-      "symbol": "Ab",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 14,
-      "human": {
-        "syllable": "mar",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7556,7 +7815,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7584,7 +7843,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7612,7 +7871,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7640,7 +7899,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7668,7 +7927,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7696,7 +7955,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7724,35 +7983,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 22,
-      "symbol": "Eb",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 24,
-      "human": {
-        "syllable": "rei",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7780,35 +8011,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 24,
-      "symbol": "Fm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 26,
-      "human": {
-        "syllable": "xér-",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -7836,483 +8039,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 26,
-      "symbol": "G",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 28,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 27,
-      "symbol": "Cm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 29,
-      "human": {
-        "syllable": "\"Mi-",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 29,
-      "symbol": "Bb",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 31,
-      "human": {
-        "syllable": "sim",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 30,
-      "symbol": "Eb",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 32,
-      "human": {
-        "syllable": "\"e a ",
-        "syllable_bi": 1,
-        "syllable_cx": 0.125,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": true,
-        "rhythm": "pausa",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 31,
-      "symbol": "Ab",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 33,
-      "human": {
-        "syllable": "fim",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 32,
-      "symbol": "Fm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 34,
-      "human": {
-        "syllable": "gló-",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 33,
-      "symbol": "Fm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 35,
-      "human": {
-        "syllable": "e",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 40,
-      "symbol": "Ab",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 44,
-      "human": {
-        "syllable": "diz",
-        "syllable_bi": 1,
-        "syllable_cx": 0.125,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": true,
-        "rhythm": "pausa",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 42,
-      "symbol": "G7",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 46,
-      "human": {
-        "syllable": "diz",
-        "syllable_bi": 1,
-        "syllable_cx": 0.125,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": true,
-        "rhythm": "pausa",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 43,
-      "symbol": "Cm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 47,
-      "human": {
-        "syllable": "xér-",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 43,
-      "symbol": "C",
-      "beat": 3,
-      "beat_ratio": 0.5,
-      "global_order": 48,
-      "human": {
-        "syllable": "tos",
-        "syllable_bi": 4,
-        "syllable_cx": 0.5,
-        "cx_display": 0.5,
-        "beat_bi": 4,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 44,
-      "symbol": "Fm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 49,
-      "human": {
-        "syllable": "sim",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 45,
-      "symbol": "Bb",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 50,
-      "human": {
-        "syllable": "com",
-        "syllable_bi": 1,
-        "syllable_cx": 0.125,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": true,
-        "rhythm": "pausa",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 46,
-      "symbol": "Eb",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 52,
-      "human": {
-        "syllable": "rei",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 50,
-      "symbol": "G7",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 56,
-      "human": {
-        "syllable": "_",
-        "syllable_bi": 0,
-        "syllable_cx": 0,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 52,
-      "symbol": "Ab",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 58,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 53,
-      "symbol": "Fm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 59,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     },
     {
@@ -8340,63 +8067,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 55,
-      "symbol": "G",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 61,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
-      }
-    },
-    {
-      "n": 56,
-      "symbol": "Cm",
-      "beat": 1,
-      "beat_ratio": 0.0,
-      "global_order": 62,
-      "human": {
-        "syllable": null,
-        "syllable_bi": null,
-        "syllable_cx": null,
-        "cx_display": 0,
-        "beat_bi": 0,
-        "is_rest": false,
-        "rhythm": "nota",
-        "validated_by": "editor-v4",
-        "validated_at": "2026-04-28T04:02:31.278Z",
-        "note": ""
-      },
-      "ground_truth": {
-        "status": "corrected",
-        "correct": false,
-        "delta_cx": null,
-        "correction_type": "missing_chord",
-        "rule_changed": null,
-        "implied_rule": "HUMAN",
-        "merged_at": "2026-04-28T22:07:31.020830+00:00"
+        "merged_at": "2026-04-28T22:12:01.716831+00:00"
       }
     }
   ]

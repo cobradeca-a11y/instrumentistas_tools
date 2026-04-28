@@ -1,29 +1,14 @@
 #!/usr/bin/env python3
 """
-calibrate.py — Mesclagem e calibração do protocolo CXD+T90
+calibrate.py — Mesclagem, cobertura e calibração do protocolo CXD+T90.
 
-Funções principais:
-
-  merge(pipeline_json, editor_json, saida_json)
-    → Une JSON do pipeline com JSON humano do editor
-    → Calcula ground_truth
-    → Salva JSON mesclado
-
-  calibrate(json_paths)
-    → Lê JSONs mesclados
-    → Gera relatório de calibração
-
-  report(json_paths)
-    → Relatório resumido
-
-  debug(merged_json)
-    → Gera CSV em calibration/debug_<slug>.csv
-
-Uso:
-  python calibrate.py merge scores/json/ainda-uma-vez_pipeline.json scores/json/ainda-uma-vez.json scores/merged/ainda-uma-vez_merged.json
-  python calibrate.py calibrate scores/merged/ainda-uma-vez_merged.json
-  python calibrate.py report scores/merged/ainda-uma-vez_merged.json
-  python calibrate.py debug scores/merged/ainda-uma-vez_merged.json
+Comandos:
+  python calibrate.py merge <pipeline.json> <editor.json> <saida.json>
+  python calibrate.py calibrate <merged.json>
+  python calibrate.py coverage <merged.json>
+  python calibrate.py debug <merged.json>
+  python calibrate.py compare <pipeline.json> <editor.json>
+  python calibrate.py report <merged.json>
 """
 
 import csv
@@ -34,27 +19,24 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-# ════════════════════════════════════════════════════════════════
-# TIPOS DE CORREÇÃO
-# ════════════════════════════════════════════════════════════════
-
 CORRECTION_TYPES = {
-    'correct':             'protocolo acertou — acorde e sílaba corretos',
-    'anchor_shift':        'acorde correto, sílaba deslocada horizontalmente',
-    'wrong_syllable':      'acorde correto, sílaba errada',
-    'wrong_chord':         'sílaba correta, acorde errado',
-    'missing_chord':       'protocolo não detectou acorde que existe',
-    'extra_chord':         'protocolo detectou acorde que não existe',
-    'beat_wrong':          'acorde no tempo errado',
-    'melisma_undetected':  'protocolo não detectou melisma',
-    'pause_undetected':    'protocolo não detectou pausa melódica',
-    'human_origin':        'cifrado do zero pelo humano (sem pipeline)',
-    'unvalidated':         'ainda não revisado',
+    'correct': 'protocolo acertou — acorde e sílaba corretos',
+    'anchor_shift': 'acorde correto, sílaba deslocada horizontalmente',
+    'wrong_syllable': 'acorde correto, sílaba errada',
+    'wrong_chord': 'sílaba correta, acorde errado',
+    'missing_chord': 'protocolo não detectou acorde que existe',
+    'extra_chord': 'protocolo detectou acorde que não existe',
+    'beat_wrong': 'acorde no tempo errado',
+    'melisma_undetected': 'protocolo não detectou melisma',
+    'pause_undetected': 'protocolo não detectou pausa melódica',
+    'human_origin': 'cifrado do zero pelo humano',
+    'presence_only': 'acorde cruzado por presença, sem validação musical',
+    'unvalidated': 'ainda não revisado',
 }
 
 
 # ════════════════════════════════════════════════════════════════
-# UTILITÁRIOS
+# TEMPO / SAFE
 # ════════════════════════════════════════════════════════════════
 
 def utc_iso():
@@ -88,15 +70,12 @@ def _safe_int(v, default=None):
 # ════════════════════════════════════════════════════════════════
 
 def classify_correction(p_syl, h_syl, p_chord, h_chord, p_rule):
-    """
-    Classifica o tipo de correção comparando protocolo e humano.
-    """
-    p_syl   = (p_syl   or '').strip()
-    h_syl   = (h_syl   or '').strip()
+    p_syl = (p_syl or '').strip()
+    h_syl = (h_syl or '').strip()
     p_chord = (p_chord or '').strip()
     h_chord = (h_chord or '').strip()
 
-    syl_ok   = p_syl == h_syl
+    syl_ok = p_syl == h_syl
     chord_ok = p_chord == h_chord
 
     if syl_ok and chord_ok:
@@ -121,34 +100,43 @@ def classify_correction(p_syl, h_syl, p_chord, h_chord, p_rule):
 
 
 def compute_ground_truth(protocol_block, human_block, ts):
-    """
-    Calcula ground_truth comparando protocol e human.
-    """
     if not human_block:
         return {
-            'status':          'unvalidated',
-            'correct':         None,
-            'delta_cx':        None,
+            'status': 'unvalidated',
+            'correct': None,
+            'delta_cx': None,
             'correction_type': 'unvalidated',
-            'rule_changed':    None,
-            'implied_rule':    None,
-            'merged_at':       ts,
+            'rule_changed': None,
+            'implied_rule': None,
+            'merged_at': ts,
+        }
+
+    if human_block.get('_presence_only'):
+        return {
+            'status': 'unvalidated',
+            'correct': None,
+            'delta_cx': None,
+            'correction_type': 'unvalidated',
+            'rule_changed': None,
+            'implied_rule': 'PRESENCE',
+            'merged_at': ts,
         }
 
     if human_block.get('validated_by') == 'editor-v4' and not protocol_block.get('cx'):
         return {
-            'status':          'human_origin',
-            'correct':         None,
-            'delta_cx':        None,
+            'status': 'human_origin',
+            'correct': None,
+            'delta_cx': None,
             'correction_type': 'human_origin',
-            'rule_changed':    None,
-            'implied_rule':    'HUMAN',
-            'merged_at':       ts,
+            'rule_changed': None,
+            'implied_rule': 'HUMAN',
+            'merged_at': ts,
         }
 
-    p_syl  = protocol_block.get('syllable')
-    h_syl  = human_block.get('syllable')
-    p_cx   = protocol_block.get('syllable_cx')
+    p_syl = protocol_block.get('syllable')
+    h_syl = human_block.get('syllable')
+
+    p_cx = protocol_block.get('syllable_cx')
     if p_cx is None:
         p_cx = protocol_block.get('float_cx')
 
@@ -160,11 +148,10 @@ def compute_ground_truth(protocol_block, human_block, ts):
 
     ct = classify_correction(p_syl, h_syl, None, None, p_rule)
 
-    # Protocolo e humano sem sílaba não é acerto musical validável.
     if ct == 'correct' and not p_syl and not h_syl:
         ct = 'unvalidated'
 
-    correct = (ct == 'correct')
+    correct = ct == 'correct'
 
     delta_cx = (
         round(abs(float(h_cx) - float(p_cx)), 3)
@@ -173,27 +160,24 @@ def compute_ground_truth(protocol_block, human_block, ts):
     )
 
     implied_rule = 'T90' if h_syl else 'VAZIO'
-    rule_changed = (implied_rule != p_rule)
+    rule_changed = implied_rule != p_rule
 
     return {
-        'status':          'correct' if correct else ('unvalidated' if ct == 'unvalidated' else 'corrected'),
-        'correct':         correct,
-        'delta_cx':        delta_cx,
+        'status': 'correct' if correct else ('unvalidated' if ct == 'unvalidated' else 'corrected'),
+        'correct': correct,
+        'delta_cx': delta_cx,
         'correction_type': ct,
-        'rule_changed':    rule_changed,
-        'implied_rule':    implied_rule,
-        'merged_at':       ts,
+        'rule_changed': rule_changed,
+        'implied_rule': implied_rule,
+        'merged_at': ts,
     }
 
 
 # ════════════════════════════════════════════════════════════════
-# EXTRAÇÃO LINEAR
+# ITERAÇÃO / EXTRAÇÃO
 # ════════════════════════════════════════════════════════════════
 
 def _iter_chords_by_measure(data):
-    """
-    Retorna acordes preservando seção, linha, compasso e ordem.
-    """
     items = []
 
     for sec_i, sec in enumerate(data.get('sections', [])):
@@ -216,9 +200,6 @@ def _iter_chords_by_measure(data):
 
 
 def _chord_ratio(chord):
-    """
-    Melhor posição normalizada disponível dentro do compasso.
-    """
     if chord.get('beat_ratio') is not None:
         return _safe_float(chord.get('beat_ratio'), 0.0)
 
@@ -227,6 +208,7 @@ def _chord_ratio(chord):
         return _safe_float(human.get('cx_display'), 0.0)
 
     protocol = chord.get('protocol') or {}
+
     if protocol.get('float_cx') is not None:
         return _safe_float(protocol.get('float_cx'), 0.0)
 
@@ -253,10 +235,6 @@ def _chord_beat_bi(chord):
 
 
 def _build_editor_index(editor):
-    """
-    Indexa acordes humanos por compasso + símbolo.
-    Preserva múltiplas ocorrências.
-    """
     by_n_sym = {}
     global_order = 0
 
@@ -271,16 +249,16 @@ def _build_editor_index(editor):
         global_order += 1
 
         entry = {
-            'key':          (item['sec_i'], item['line_i'], item['measure_i'], item['chord_i']),
-            'n':            n,
-            'sym':          sym,
-            'beat':         chord.get('beat', 1),
-            'beat_ratio':   _chord_ratio(chord),
-            'beat_bi':      _chord_beat_bi(chord),
+            'key': (item['sec_i'], item['line_i'], item['measure_i'], item['chord_i']),
+            'n': n,
+            'sym': sym,
+            'beat': chord.get('beat', 1),
+            'beat_ratio': _chord_ratio(chord),
+            'beat_bi': _chord_beat_bi(chord),
             'global_order': global_order,
-            'chord':        chord,
-            'human':        chord.get('human') or {},
-            'used':         False,
+            'chord': chord,
+            'human': chord.get('human') or {},
+            'used': False,
         }
 
         by_n_sym.setdefault((n, sym), []).append(entry)
@@ -289,9 +267,6 @@ def _build_editor_index(editor):
 
 
 def _build_editor_sequence(editor):
-    """
-    Lista linear de acordes humanos na ordem musical.
-    """
     seq = []
     global_order = 0
 
@@ -306,22 +281,20 @@ def _build_editor_sequence(editor):
 
         seq.append({
             'global_order': global_order,
-            'n':            item['n'],
-            'sym':          sym,
-            'beat':         chord.get('beat', 1),
-            'beat_ratio':   _chord_ratio(chord),
-            'beat_bi':      _chord_beat_bi(chord),
-            'chord':        chord,
-            'human':        chord.get('human') or {},
-            'used':         False,
+            'n': item['n'],
+            'sym': sym,
+            'beat': chord.get('beat', 1),
+            'beat_ratio': _chord_ratio(chord),
+            'beat_bi': _chord_beat_bi(chord),
+            'chord': chord,
+            'human': chord.get('human') or {},
+            'used': False,
         })
 
     return seq
 
+
 def _build_pipeline_sequence(pipeline):
-    """
-    Lista linear de acordes do pipeline na ordem musical.
-    """
     seq = []
     global_order = 0
 
@@ -348,11 +321,6 @@ def _build_pipeline_sequence(pipeline):
 
 
 def _sequence_alignment_map(pipeline_seq, editor_seq):
-    """
-    Alinha pipeline e editor por sequência de símbolos.
-    Permite acordes extras no editor ou ausentes no pipeline.
-    Retorna: {pipeline_global_order: editor_entry}
-    """
     n = len(pipeline_seq)
     m = len(editor_seq)
 
@@ -382,10 +350,8 @@ def _sequence_alignment_map(pipeline_seq, editor_seq):
 
     return mapping
 
+
 def _mark_editor_used(editor_index, editor_seq, matched_chord):
-    """
-    Marca como usado em todos os índices o mesmo objeto de acorde humano.
-    """
     if matched_chord is None:
         return
 
@@ -400,7 +366,7 @@ def _mark_editor_used(editor_index, editor_seq, matched_chord):
 
 
 # ════════════════════════════════════════════════════════════════
-# MATCHING
+# MATCH
 # ════════════════════════════════════════════════════════════════
 
 def _score_match(p_chord, e):
@@ -425,14 +391,8 @@ def _score_match(p_chord, e):
 
 
 def _find_best_editor_match(editor_index, n, sym, p_chord, window=2):
-    """
-    Busca por:
-      1. mesmo compasso
-      2. compasso próximo
-      3. mesmo símbolo
-      4. menor distância rítmica
-    """
     offsets = [0]
+
     for i in range(1, window + 1):
         offsets.append(-i)
         offsets.append(i)
@@ -473,14 +433,10 @@ def _find_best_editor_match(editor_index, n, sym, p_chord, window=2):
 
     measure_delta, ratio_delta, bi_delta, beat_delta = best_score
 
-    # Bloqueia casamento frouxo demais.
     if best_method.endswith('_loose'):
-        # Mesmo compasso + mesmo símbolo: aceita como presença,
-        # mas o ground_truth pode continuar unvalidated se não houver sílaba.
         if measure_delta == 0:
             return best, 'n_sym_presence'
 
-        # Compasso próximo frouxo continua perigoso.
         if ratio_delta > 0.38:
             return None, None
 
@@ -491,19 +447,11 @@ def _find_best_editor_match(editor_index, n, sym, p_chord, window=2):
 
 
 def _find_sequence_match(editor_seq, p_chord, p_order, window=8):
-    """
-    Fallback por sequência global.
-    Mais conservador:
-    - não cruza VAZIO por sequência
-    - não aceita seq_loose
-    - exige proximidade rítmica mínima
-    """
     sym = (p_chord.get('symbol') or '').strip()
     protocol = p_chord.get('protocol') or {}
     p_rule = protocol.get('rule')
     p_syl = (protocol.get('syllable') or '').strip()
 
-    # VAZIO por sequência gera muito falso positivo.
     if p_rule == 'VAZIO':
         return None, None
 
@@ -526,11 +474,7 @@ def _find_sequence_match(editor_seq, p_chord, p_order, window=8):
         human = e.get('human') or {}
         h_syl = (human.get('syllable') or '').strip()
 
-        # Se os dois têm sílaba e são muito diferentes, só aceita se o ritmo for forte.
-        both_have_syl = bool(p_syl and h_syl)
-        syllable_same = p_syl == h_syl
-
-        if both_have_syl and not syllable_same:
+        if p_syl and h_syl and p_syl != h_syl:
             if ratio_delta > 0.18:
                 continue
 
@@ -545,23 +489,60 @@ def _find_sequence_match(editor_seq, p_chord, p_order, window=8):
     order_delta, ratio_delta, bi_delta, beat_delta = best_score
 
     if ratio_delta <= 0.22:
-        method = 'seq_ratio'
-    elif bi_delta != 99 and bi_delta <= 1:
-        method = 'seq_bi'
-    else:
+        return best, 'seq_ratio'
+
+    if bi_delta != 99 and bi_delta <= 1:
+        return best, 'seq_bi'
+
+    return None, None
+
+
+def _find_presence_match(editor_seq, p_chord, p_order, alignment_map=None, window=18):
+    """
+    Cruza por presença estrutural, sem validar sílaba.
+    Serve para reduzir missing_human sem inflar correct/wrong_syllable.
+    """
+    sym = (p_chord.get('symbol') or '').strip()
+
+    if alignment_map:
+        aligned = alignment_map.get(p_order)
+
+        if aligned and not aligned.get('used') and aligned.get('sym') == sym:
+            return aligned, 'presence_align'
+
+    candidates = []
+
+    for e in editor_seq:
+        if e.get('used'):
+            continue
+
+        if e.get('sym') != sym:
+            continue
+
+        order_delta = abs(e.get('global_order', 0) - p_order)
+
+        if order_delta > window:
+            continue
+
+        ratio_delta, bi_delta, beat_delta = _score_match(p_chord, e)
+        score = (order_delta, ratio_delta, bi_delta, beat_delta)
+        candidates.append((score, e))
+
+    if not candidates:
         return None, None
 
-    return best, method
+    candidates.sort(key=lambda x: x[0])
+    score, best = candidates[0]
+
+    return best, 'presence_seq'
+
 
 # ════════════════════════════════════════════════════════════════
 # MERGE
 # ════════════════════════════════════════════════════════════════
 
 def merge(pipeline_path, editor_path, output_path):
-    """
-    Une pipeline + editor.
-    """
-    print(f"\nMesclando:")
+    print("\nMesclando:")
     print(f"  pipeline: {pipeline_path}")
     print(f"  editor:   {editor_path}")
     print(f"  saída:    {output_path}")
@@ -584,7 +565,7 @@ def merge(pipeline_path, editor_path, output_path):
     merged['merged_at'] = ts
     merged['merge_sources'] = {
         'pipeline': pipeline_path,
-        'editor':   editor_path,
+        'editor': editor_path,
     }
 
     stats = Counter()
@@ -607,7 +588,6 @@ def merge(pipeline_path, editor_path, output_path):
                         window=2,
                     )
 
-                    # Se o match geométrico falhou ou foi frouxo, tenta alinhamento musical global.
                     if not match or (match_method and match_method.endswith('_loose')):
                         aligned = alignment_map.get(pipeline_order)
 
@@ -623,17 +603,13 @@ def merge(pipeline_path, editor_path, output_path):
 
                             accept_align = True
 
-                            # Não usar alinhamento global para VAZIO:
-                            # se o pipeline não achou sílaba, não deve casar com sílaba humana por sequência.
                             if p_rule == 'VAZIO':
                                 accept_align = False
 
-                            # Se sílabas são diferentes, exigir proximidade rítmica forte.
                             if p_syl and h_syl and p_syl != h_syl:
                                 if ratio_delta > 0.18 and bi_delta > 1 and beat_delta > 0:
                                     accept_align = False
 
-                            # Bloqueio geral de alinhamento distante.
                             if ratio_delta > 0.35 and bi_delta > 2:
                                 accept_align = False
 
@@ -641,13 +617,21 @@ def merge(pipeline_path, editor_path, output_path):
                                 match = aligned
                                 match_method = 'seq_align'
 
-                    # Último fallback conservador por sequência local.
                     if not match:
                         match, match_method = _find_sequence_match(
                             editor_seq,
                             chord,
                             pipeline_order,
                             window=8,
+                        )
+
+                    if not match:
+                        match, match_method = _find_presence_match(
+                            editor_seq,
+                            chord,
+                            pipeline_order,
+                            alignment_map=alignment_map,
+                            window=18,
                         )
 
                     chord['_match_method'] = match_method
@@ -658,20 +642,27 @@ def merge(pipeline_path, editor_path, output_path):
                         editor_chord = match['chord']
                         e_human = editor_chord.get('human') or {}
 
+                        presence_only = match_method in {
+                            'n_sym_presence',
+                            'presence_seq',
+                            'presence_align',
+                        }
+
                         chord['human'] = {
-                            'syllable':      e_human.get('syllable') or editor_chord.get('protocol', {}).get('syllable'),
-                            'syllable_bi':   e_human.get('syllable_bi'),
-                            'syllable_cx':   e_human.get('syllable_cx'),
-                            'cx_display':    e_human.get('cx_display'),
-                            'beat_bi':       e_human.get('beat_bi'),
-                            'is_rest':       e_human.get('is_rest', False),
-                            'rhythm':        e_human.get('rhythm', 'nota'),
-                            'validated_by':  e_human.get('validated_by', 'editor'),
-                            'validated_at':  e_human.get('validated_at', ts),
-                            'note':          e_human.get('note', ''),
-                            '_match':        match_method,
-                            '_editor_n':     match.get('n'),
+                            'syllable': e_human.get('syllable') or editor_chord.get('protocol', {}).get('syllable'),
+                            'syllable_bi': e_human.get('syllable_bi'),
+                            'syllable_cx': e_human.get('syllable_cx'),
+                            'cx_display': e_human.get('cx_display'),
+                            'beat_bi': e_human.get('beat_bi'),
+                            'is_rest': e_human.get('is_rest', False),
+                            'rhythm': e_human.get('rhythm', 'nota'),
+                            'validated_by': e_human.get('validated_by', 'editor'),
+                            'validated_at': e_human.get('validated_at', ts),
+                            'note': e_human.get('note', ''),
+                            '_match': match_method,
+                            '_editor_n': match.get('n'),
                             '_global_order': match.get('global_order'),
+                            '_presence_only': presence_only,
                         }
 
                         e_beat = editor_chord.get('beat', p_beat)
@@ -703,20 +694,20 @@ def merge(pipeline_path, editor_path, output_path):
             ch = entry['chord']
 
             missing_human.append({
-                'n':            entry['n'],
-                'symbol':       entry['sym'],
-                'beat':         ch.get('beat'),
-                'beat_ratio':   _chord_ratio(ch),
+                'n': entry['n'],
+                'symbol': entry['sym'],
+                'beat': ch.get('beat'),
+                'beat_ratio': _chord_ratio(ch),
                 'global_order': entry.get('global_order'),
-                'human':        ch.get('human'),
+                'human': ch.get('human'),
                 'ground_truth': {
-                    'status':          'corrected',
-                    'correct':         False,
-                    'delta_cx':        None,
+                    'status': 'corrected',
+                    'correct': False,
+                    'delta_cx': None,
                     'correction_type': 'missing_chord',
-                    'rule_changed':    None,
-                    'implied_rule':    'HUMAN',
-                    'merged_at':       ts,
+                    'rule_changed': None,
+                    'implied_rule': 'HUMAN',
+                    'merged_at': ts,
                 },
             })
 
@@ -731,11 +722,11 @@ def merge(pipeline_path, editor_path, output_path):
     correct = stats.get('correct', 0)
     pct = round(100 * correct / total) if total else 0
 
-    print(f"\n✅ Mesclagem concluída")
+    print("\n✅ Mesclagem concluída")
     print(f"   {total} eventos processados")
     print(f"   {correct}/{total} corretos ({pct}%)")
     print(f"   missing_human_chords: {len(missing_human)}")
-    print(f"\n   Distribuição:")
+    print("\n   Distribuição:")
 
     for ct, n in stats.most_common():
         print(f"     {str(ct):<25} {n:>4}")
@@ -744,13 +735,12 @@ def merge(pipeline_path, editor_path, output_path):
 
 
 # ════════════════════════════════════════════════════════════════
-# CALIBRAÇÃO
+# CALIBRATE
 # ════════════════════════════════════════════════════════════════
 
 def calibrate(json_paths):
     correction_counts = Counter()
     rule_errors = Counter()
-    delta_cx_vals = []
     beat_deltas = []
     match_methods = Counter()
 
@@ -799,9 +789,6 @@ def calibrate(json_paths):
                             p_rule = chord.get('protocol', {}).get('rule', '?')
                             rule_errors[f"{p_rule} → {ct}"] += 1
 
-                            if ct == 'anchor_shift' and gt.get('delta_cx'):
-                                delta_cx_vals.append(gt['delta_cx'])
-
         for mh in data.get('_missing_human_chords', []):
             total_missing_human += 1
             correction_counts['missing_chord'] += 1
@@ -822,49 +809,42 @@ def calibrate(json_paths):
         f"Corretos:                  {total_correct}"
         + (f"  ({round(100 * total_correct / total_validated)}%)" if total_validated else ''),
         '',
+        'DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:',
+        '',
     ]
 
-    if total_validated == 0 and total_missing_human == 0:
+    denom = max(total_validated + total_missing_human, 1)
+
+    for ct, n in correction_counts.most_common():
+        pct = round(100 * n / denom)
+        descr = CORRECTION_TYPES.get(ct, '')
+        out.append(f"  {str(ct):<25} {n:>4}  ({pct:>3}%)  {descr}")
+
+    if rule_errors:
+        out += ['', 'ERROS POR REGRA ORIGINAL:', '']
+        for key, n in rule_errors.most_common():
+            out.append(f"  {key:<40} {n:>4} vezes")
+
+    out += ['', '─' * 62, 'SUGESTÕES DE RECALIBRAÇÃO', '─' * 62, '']
+
+    missing = correction_counts.get('missing_chord', 0)
+    if missing > 0:
         out += [
-            '⚠️  Nenhum acorde com ground_truth validado encontrado.',
-            '   Execute primeiro: python calibrate.py merge <pipeline.json> <editor.json> <saida.json>',
+            f"missing_chord: {missing} casos",
+            "  → pipeline não detectou acorde existente no editor ou merge ainda não cruzou",
+            "  → verificar janela de acordes, numeração de compassos e sequência global",
             '',
         ]
-    else:
-        out += ['DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:', '']
 
-        denom = max(total_validated + total_missing_human, 1)
-
-        for ct, n in correction_counts.most_common():
-            pct = round(100 * n / denom)
-            descr = CORRECTION_TYPES.get(ct, '')
-            out.append(f"  {str(ct):<25} {n:>4}  ({pct:>3}%)  {descr}")
-
-        if rule_errors:
-            out += ['', 'ERROS POR REGRA ORIGINAL:', '']
-            for key, n in rule_errors.most_common():
-                out.append(f"  {key:<40} {n:>4} vezes")
-
-        out += ['', '─' * 62, 'SUGESTÕES DE RECALIBRAÇÃO', '─' * 62, '']
-
-        missing = correction_counts.get('missing_chord', 0)
-        if missing > 0:
-            out += [
-                f"missing_chord: {missing} casos",
-                "  → pipeline não detectou acorde existente no editor ou merge ainda não cruzou",
-                "  → verificar janela de acordes, numeração de compassos e sequência global",
-                '',
-            ]
-
-        melisma = correction_counts.get('melisma_undetected', 0)
-        if melisma > 0:
-            pct = round(100 * melisma / denom)
-            out += [
-                f"melisma_undetected: {melisma} casos ({pct}%)",
-                "  → considerar reduzir MELISMA_THRESH",
-                "  → sugestão inicial: testar 20px",
-                '',
-            ]
+    melisma = correction_counts.get('melisma_undetected', 0)
+    if melisma > 0:
+        pct = round(100 * melisma / denom)
+        out += [
+            f"melisma_undetected: {melisma} casos ({pct}%)",
+            "  → considerar reduzir MELISMA_THRESH",
+            "  → sugestão inicial: testar 20px",
+            '',
+        ]
 
     if beat_deltas:
         avg_bd = sum(beat_deltas) / len(beat_deltas)
@@ -883,7 +863,7 @@ def calibrate(json_paths):
     if match_methods:
         out += ['', 'MÉTODOS DE CRUZAMENTO NO MERGE:', '']
         for mm, n in match_methods.most_common():
-            out.append(f"  {mm:<18} {n:>4} acordes cruzados")
+            out.append(f"  {mm:<20} {n:>4} acordes cruzados")
 
     out.append(sep)
 
@@ -893,271 +873,10 @@ def calibrate(json_paths):
 
 
 # ════════════════════════════════════════════════════════════════
-# REPORT
+# COVERAGE
 # ════════════════════════════════════════════════════════════════
-
-def report(json_paths):
-    total = correct = human = unval = missing = 0
-
-    for path in json_paths:
-        with open(path, encoding='utf-8') as f:
-            data = json.load(f)
-
-        for sec in data.get('sections', []):
-            for line in sec.get('lines', []):
-                for measure in line.get('measures', []):
-                    for chord in measure.get('chords', []):
-                        total += 1
-                        ct = chord.get('ground_truth', {}).get('correction_type', '')
-
-                        if ct == 'correct':
-                            correct += 1
-                        elif ct == 'human_origin':
-                            human += 1
-                        elif ct == 'unvalidated':
-                            unval += 1
-
-        missing += len(data.get('_missing_human_chords', []))
-
-    validated = total - human - unval
-    pct = round(100 * correct / validated) if validated > 0 else 0
-
-    print(f"\n{'─' * 40}")
-    print(f"RELATÓRIO — {len(json_paths)} arquivo(s)")
-    print(f"{'─' * 40}")
-    print(f"Acordes pipeline:     {total}")
-    print(f"Missing humanos:      {missing}")
-    print(f"Origem humana:        {human}")
-    print(f"Não revisados:        {unval}")
-    print(f"Validados:            {validated}")
-    print(f"Corretos:             {correct}  ({pct}%)")
-    print(f"{'─' * 40}\n")
-
-
-# ════════════════════════════════════════════════════════════════
-# DEBUG CSV
-# ════════════════════════════════════════════════════════════════
-
-def debug(json_path):
-    with open(json_path, encoding='utf-8') as f:
-        data = json.load(f)
-
-    out_dir = Path('calibration')
-    out_dir.mkdir(exist_ok=True)
-
-    slug = Path(json_path).stem.replace('_merged', '')
-    out_path = out_dir / f"debug_{slug}.csv"
-
-    rows = []
-
-    for sec in data.get('sections', []):
-        for line in sec.get('lines', []):
-            for measure in line.get('measures', []):
-                n = measure.get('n')
-                local_n = measure.get('local_n')
-                system = measure.get('system')
-                page = measure.get('page')
-
-                for chord in measure.get('chords', []):
-                    gt = chord.get('ground_truth', {}) or {}
-                    human = chord.get('human') or {}
-                    protocol = chord.get('protocol') or {}
-
-                    rows.append({
-                        'source':               'pipeline',
-                        'page':                 page,
-                        'system':               system,
-                        'measure_n':            n,
-                        'local_n':              local_n,
-                        'symbol':               chord.get('symbol'),
-                        'correction_type':      gt.get('correction_type'),
-                        'correct':              gt.get('correct'),
-                        'status':               gt.get('status'),
-                        'rule':                 protocol.get('rule'),
-                        'match_method':         chord.get('_match_method'),
-                        'beat_pipeline':        chord.get('beat'),
-                        'beat_human':           human.get('beat_bi'),
-                        'beat_delta':           chord.get('_beat_delta'),
-                        'ratio_pipeline':       chord.get('beat_ratio'),
-                        'ratio_delta':          chord.get('_ratio_delta'),
-                        'protocol_syllable':    protocol.get('syllable'),
-                        'human_syllable':       human.get('syllable'),
-                        'protocol_cx':          protocol.get('cx'),
-                        'protocol_syllable_cx': protocol.get('syllable_cx'),
-                        'human_cx_display':     human.get('cx_display'),
-                        'human_syllable_cx':    human.get('syllable_cx'),
-                        'nota_anchor':          protocol.get('nota_anchor'),
-                    })
-
-    for mh in data.get('_missing_human_chords', []):
-        human = mh.get('human') or {}
-        gt = mh.get('ground_truth') or {}
-
-        rows.append({
-            'source':               'missing_human',
-            'page':                 None,
-            'system':               None,
-            'measure_n':            mh.get('n'),
-            'local_n':              None,
-            'symbol':               mh.get('symbol'),
-            'correction_type':      gt.get('correction_type'),
-            'correct':              gt.get('correct'),
-            'status':               gt.get('status'),
-            'rule':                 None,
-            'match_method':         None,
-            'beat_pipeline':        None,
-            'beat_human':           human.get('beat_bi'),
-            'beat_delta':           None,
-            'ratio_pipeline':       None,
-            'ratio_delta':          None,
-            'protocol_syllable':    None,
-            'human_syllable':       human.get('syllable'),
-            'protocol_cx':          None,
-            'protocol_syllable_cx': None,
-            'human_cx_display':     human.get('cx_display'),
-            'human_syllable_cx':    human.get('syllable_cx'),
-            'nota_anchor':          None,
-        })
-
-    fieldnames = [
-        'source',
-        'page',
-        'system',
-        'measure_n',
-        'local_n',
-        'symbol',
-        'correction_type',
-        'correct',
-        'status',
-        'rule',
-        'match_method',
-        'beat_pipeline',
-        'beat_human',
-        'beat_delta',
-        'ratio_pipeline',
-        'ratio_delta',
-        'protocol_syllable',
-        'human_syllable',
-        'protocol_cx',
-        'protocol_syllable_cx',
-        'human_cx_display',
-        'human_syllable_cx',
-        'nota_anchor',
-    ]
-
-    with open(out_path, 'w', encoding='utf-8-sig', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-
-    print(f"Debug gerado: {out_path}")
-    print(f"Linhas: {len(rows)}")
-
-
-# ════════════════════════════════════════════════════════════════
-# CLI
-# ════════════════════════════════════════════════════════════════
-
-def compare_sequence(pipeline_path, editor_path):
-    """
-    Gera CSV lado a lado:
-    pipeline ordenado vs editor humano ordenado.
-    """
-    with open(pipeline_path, encoding='utf-8') as f:
-        pipeline = json.load(f)
-
-    with open(editor_path, encoding='utf-8') as f:
-        editor = json.load(f)
-
-    def flat(data, source):
-        rows = []
-        order = 0
-
-        for item in _iter_chords_by_measure(data):
-            chord = item['chord']
-            sym = (chord.get('symbol') or '').strip()
-            if not sym:
-                continue
-
-            order += 1
-            protocol = chord.get('protocol') or {}
-            human = chord.get('human') or {}
-
-            rows.append({
-                'order': order,
-                'source': source,
-                'n': item['n'],
-                'symbol': sym,
-                'beat': chord.get('beat'),
-                'beat_ratio': chord.get('beat_ratio'),
-                'protocol_syllable': protocol.get('syllable'),
-                'human_syllable': human.get('syllable'),
-            })
-
-        return rows
-
-    p_rows = flat(pipeline, 'pipeline')
-    h_rows = flat(editor, 'human')
-
-    out_dir = Path('calibration')
-    out_dir.mkdir(exist_ok=True)
-    out_path = out_dir / 'compare_sequence.csv'
-
-    max_len = max(len(p_rows), len(h_rows))
-    rows = []
-
-    for i in range(max_len):
-        p = p_rows[i] if i < len(p_rows) else {}
-        h = h_rows[i] if i < len(h_rows) else {}
-
-        rows.append({
-            'order': i + 1,
-
-            'pipeline_symbol': p.get('symbol'),
-            'pipeline_n': p.get('n'),
-            'pipeline_beat': p.get('beat'),
-            'pipeline_ratio': p.get('beat_ratio'),
-            'pipeline_syllable': p.get('protocol_syllable'),
-
-            'human_symbol': h.get('symbol'),
-            'human_n': h.get('n'),
-            'human_beat': h.get('beat'),
-            'human_ratio': h.get('beat_ratio'),
-            'human_syllable': h.get('human_syllable'),
-
-            'same_symbol': p.get('symbol') == h.get('symbol'),
-        })
-
-    fieldnames = [
-        'order',
-        'pipeline_symbol',
-        'pipeline_n',
-        'pipeline_beat',
-        'pipeline_ratio',
-        'pipeline_syllable',
-        'human_symbol',
-        'human_n',
-        'human_beat',
-        'human_ratio',
-        'human_syllable',
-        'same_symbol',
-    ]
-
-    with open(out_path, 'w', encoding='utf-8-sig', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-
-    print(f"Comparação gerada: {out_path}")
-    print(f"Pipeline: {len(p_rows)} acordes")
-    print(f"Human:    {len(h_rows)} acordes")
 
 def coverage(json_path):
-    """
-    Relatório separado:
-    1. cobertura de presença de acordes
-    2. validação musical dos acordes cruzados
-    """
     with open(json_path, encoding='utf-8') as f:
         data = json.load(f)
 
@@ -1252,6 +971,270 @@ def coverage(json_path):
 
     print("═" * 62 + "\n")
 
+
+# ════════════════════════════════════════════════════════════════
+# REPORT
+# ════════════════════════════════════════════════════════════════
+
+def report(json_paths):
+    total = correct = human = unval = missing = 0
+
+    for path in json_paths:
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+
+        for sec in data.get('sections', []):
+            for line in sec.get('lines', []):
+                for measure in line.get('measures', []):
+                    for chord in measure.get('chords', []):
+                        total += 1
+                        ct = chord.get('ground_truth', {}).get('correction_type', '')
+
+                        if ct == 'correct':
+                            correct += 1
+                        elif ct == 'human_origin':
+                            human += 1
+                        elif ct == 'unvalidated':
+                            unval += 1
+
+        missing += len(data.get('_missing_human_chords', []))
+
+    validated = total - human - unval
+    pct = round(100 * correct / validated) if validated > 0 else 0
+
+    print(f"\n{'─' * 40}")
+    print(f"RELATÓRIO — {len(json_paths)} arquivo(s)")
+    print(f"{'─' * 40}")
+    print(f"Acordes pipeline:     {total}")
+    print(f"Missing humanos:      {missing}")
+    print(f"Origem humana:        {human}")
+    print(f"Não revisados:        {unval}")
+    print(f"Validados:            {validated}")
+    print(f"Corretos:             {correct}  ({pct}%)")
+    print(f"{'─' * 40}\n")
+
+
+# ════════════════════════════════════════════════════════════════
+# DEBUG
+# ════════════════════════════════════════════════════════════════
+
+def debug(json_path):
+    with open(json_path, encoding='utf-8') as f:
+        data = json.load(f)
+
+    out_dir = Path('calibration')
+    out_dir.mkdir(exist_ok=True)
+
+    slug = Path(json_path).stem.replace('_merged', '')
+    out_path = out_dir / f"debug_{slug}.csv"
+
+    rows = []
+
+    for sec in data.get('sections', []):
+        for line in sec.get('lines', []):
+            for measure in line.get('measures', []):
+                n = measure.get('n')
+                local_n = measure.get('local_n')
+                system = measure.get('system')
+                page = measure.get('page')
+
+                for chord in measure.get('chords', []):
+                    gt = chord.get('ground_truth', {}) or {}
+                    human = chord.get('human') or {}
+                    protocol = chord.get('protocol') or {}
+
+                    rows.append({
+                        'source': 'pipeline',
+                        'page': page,
+                        'system': system,
+                        'measure_n': n,
+                        'local_n': local_n,
+                        'symbol': chord.get('symbol'),
+                        'correction_type': gt.get('correction_type'),
+                        'correct': gt.get('correct'),
+                        'status': gt.get('status'),
+                        'presence_only': human.get('_presence_only'),
+                        'rule': protocol.get('rule'),
+                        'match_method': chord.get('_match_method'),
+                        'beat_pipeline': chord.get('beat'),
+                        'beat_human': human.get('beat_bi'),
+                        'beat_delta': chord.get('_beat_delta'),
+                        'ratio_pipeline': chord.get('beat_ratio'),
+                        'ratio_delta': chord.get('_ratio_delta'),
+                        'protocol_syllable': protocol.get('syllable'),
+                        'human_syllable': human.get('syllable'),
+                        'protocol_cx': protocol.get('cx'),
+                        'protocol_syllable_cx': protocol.get('syllable_cx'),
+                        'human_cx_display': human.get('cx_display'),
+                        'human_syllable_cx': human.get('syllable_cx'),
+                        'nota_anchor': protocol.get('nota_anchor'),
+                    })
+
+    for mh in data.get('_missing_human_chords', []):
+        human = mh.get('human') or {}
+        gt = mh.get('ground_truth') or {}
+
+        rows.append({
+            'source': 'missing_human',
+            'page': None,
+            'system': None,
+            'measure_n': mh.get('n'),
+            'local_n': None,
+            'symbol': mh.get('symbol'),
+            'correction_type': gt.get('correction_type'),
+            'correct': gt.get('correct'),
+            'status': gt.get('status'),
+            'presence_only': None,
+            'rule': None,
+            'match_method': None,
+            'beat_pipeline': None,
+            'beat_human': human.get('beat_bi'),
+            'beat_delta': None,
+            'ratio_pipeline': None,
+            'ratio_delta': None,
+            'protocol_syllable': None,
+            'human_syllable': human.get('syllable'),
+            'protocol_cx': None,
+            'protocol_syllable_cx': None,
+            'human_cx_display': human.get('cx_display'),
+            'human_syllable_cx': human.get('syllable_cx'),
+            'nota_anchor': None,
+        })
+
+    fieldnames = [
+        'source',
+        'page',
+        'system',
+        'measure_n',
+        'local_n',
+        'symbol',
+        'correction_type',
+        'correct',
+        'status',
+        'presence_only',
+        'rule',
+        'match_method',
+        'beat_pipeline',
+        'beat_human',
+        'beat_delta',
+        'ratio_pipeline',
+        'ratio_delta',
+        'protocol_syllable',
+        'human_syllable',
+        'protocol_cx',
+        'protocol_syllable_cx',
+        'human_cx_display',
+        'human_syllable_cx',
+        'nota_anchor',
+    ]
+
+    with open(out_path, 'w', encoding='utf-8-sig', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print(f"Debug gerado: {out_path}")
+    print(f"Linhas: {len(rows)}")
+
+
+# ════════════════════════════════════════════════════════════════
+# COMPARE
+# ════════════════════════════════════════════════════════════════
+
+def compare_sequence(pipeline_path, editor_path):
+    with open(pipeline_path, encoding='utf-8') as f:
+        pipeline = json.load(f)
+
+    with open(editor_path, encoding='utf-8') as f:
+        editor = json.load(f)
+
+    def flat(data, source):
+        rows = []
+        order = 0
+
+        for item in _iter_chords_by_measure(data):
+            chord = item['chord']
+            sym = (chord.get('symbol') or '').strip()
+
+            if not sym:
+                continue
+
+            order += 1
+
+            protocol = chord.get('protocol') or {}
+            human = chord.get('human') or {}
+
+            rows.append({
+                'order': order,
+                'source': source,
+                'n': item['n'],
+                'symbol': sym,
+                'beat': chord.get('beat'),
+                'beat_ratio': chord.get('beat_ratio'),
+                'protocol_syllable': protocol.get('syllable'),
+                'human_syllable': human.get('syllable'),
+            })
+
+        return rows
+
+    p_rows = flat(pipeline, 'pipeline')
+    h_rows = flat(editor, 'human')
+
+    out_dir = Path('calibration')
+    out_dir.mkdir(exist_ok=True)
+    out_path = out_dir / 'compare_sequence.csv'
+
+    max_len = max(len(p_rows), len(h_rows))
+    rows = []
+
+    for i in range(max_len):
+        p = p_rows[i] if i < len(p_rows) else {}
+        h = h_rows[i] if i < len(h_rows) else {}
+
+        rows.append({
+            'order': i + 1,
+            'pipeline_symbol': p.get('symbol'),
+            'pipeline_n': p.get('n'),
+            'pipeline_beat': p.get('beat'),
+            'pipeline_ratio': p.get('beat_ratio'),
+            'pipeline_syllable': p.get('protocol_syllable'),
+            'human_symbol': h.get('symbol'),
+            'human_n': h.get('n'),
+            'human_beat': h.get('beat'),
+            'human_ratio': h.get('beat_ratio'),
+            'human_syllable': h.get('human_syllable'),
+            'same_symbol': p.get('symbol') == h.get('symbol'),
+        })
+
+    fieldnames = [
+        'order',
+        'pipeline_symbol',
+        'pipeline_n',
+        'pipeline_beat',
+        'pipeline_ratio',
+        'pipeline_syllable',
+        'human_symbol',
+        'human_n',
+        'human_beat',
+        'human_ratio',
+        'human_syllable',
+        'same_symbol',
+    ]
+
+    with open(out_path, 'w', encoding='utf-8-sig', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print(f"Comparação gerada: {out_path}")
+    print(f"Pipeline: {len(p_rows)} acordes")
+    print(f"Human:    {len(h_rows)} acordes")
+
+
+# ════════════════════════════════════════════════════════════════
+# CLI
+# ════════════════════════════════════════════════════════════════
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -1272,6 +1255,13 @@ def main():
             sys.exit(1)
 
         calibrate(sys.argv[2:])
+
+    elif cmd == 'coverage':
+        if len(sys.argv) < 3:
+            print("Uso: python calibrate.py coverage <merged.json>")
+            sys.exit(1)
+
+        coverage(sys.argv[2])
 
     elif cmd == 'report':
         if len(sys.argv) < 3:
@@ -1294,16 +1284,9 @@ def main():
 
         compare_sequence(sys.argv[2], sys.argv[3])
 
-    elif cmd == 'coverage':
-        if len(sys.argv) < 3:
-            print("Uso: python calibrate.py coverage <merged.json>")
-            sys.exit(1)
-
-        coverage(sys.argv[2])
-
     else:
         print(f"Comando desconhecido: {cmd}")
-        print("Comandos disponíveis: merge, calibrate, report, debug, coverage")
+        print("Comandos disponíveis: merge, calibrate, coverage, report, debug, compare")
         sys.exit(1)
 
 
