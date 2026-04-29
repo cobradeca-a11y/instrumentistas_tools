@@ -7,8 +7,8 @@
   "bpm": "",
   "meter": "4/4",
   "clef": "treble",
-  "pipeline_version": "v6",
-  "generated_at": "2026-04-29T00:16:21.146701+00:00",
+  "pipeline_version": "v6.1-syllable-clean",
+  "generated_at": "2026-04-29T00:50:02.799478+00:00",
   "form": [
     {
       "type": "to_coda",
@@ -576,7 +576,7 @@
               ],
               "syllables": [
                 {
-                  "text": "1.\"A-",
+                  "text": "A-",
                   "cx": 530.6,
                   "anacrusis": false
                 }
@@ -608,8 +608,8 @@
                   "protocol": {
                     "cx": 95.9,
                     "rule": "T90",
-                    "syllable": "in",
-                    "syllable_cx": 95.6,
+                    "syllable": "vez,",
+                    "syllable_cx": 160.7,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
@@ -1053,7 +1053,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "1.\"A-",
+                  "text": "A-",
                   "cx": 530.6,
                   "anacrusis": true
                 },
@@ -1592,7 +1592,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "na-ções.\"",
+                  "text": "na-ções",
                   "cx": 487.6,
                   "anacrusis": true
                 },
@@ -1735,7 +1735,7 @@
               ],
               "syllables": [
                 {
-                  "text": "\"E",
+                  "text": "E",
                   "cx": 93.4,
                   "anacrusis": false
                 },
@@ -2268,7 +2268,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "na-ções.\"",
+                  "text": "na-ções",
                   "cx": 487.6,
                   "anacrusis": false
                 },
@@ -2322,7 +2322,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "gar,\"",
+                  "text": "gar,",
                   "cx": 521.2,
                   "anacrusis": true
                 },
@@ -2364,7 +2364,7 @@
                   "protocol": {
                     "cx": 95.9,
                     "rule": "T90",
-                    "syllable": "\"E",
+                    "syllable": "E",
                     "syllable_cx": 93.4,
                     "float_cx": null,
                     "next_syllable": null,
@@ -2483,7 +2483,7 @@
               ],
               "syllables": [
                 {
-                  "text": "\"E",
+                  "text": "E",
                   "cx": 93.4,
                   "anacrusis": false
                 },
@@ -3006,7 +3006,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "gar,\"",
+                  "text": "gar,",
                   "cx": 521.2,
                   "anacrusis": true
                 },
@@ -3193,7 +3193,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 355.3,
                   "anacrusis": true
                 },
@@ -3208,7 +3208,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "Se-nhor.",
+                  "text": "Se-nhor",
                   "cx": 407.8,
                   "anacrusis": true
                 }
@@ -3590,7 +3590,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 355.3,
                   "anacrusis": false
                 },
@@ -3665,7 +3665,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "Se-nhor.",
+                  "text": "Se-nhor",
                   "cx": 407.8,
                   "anacrusis": true
                 }
@@ -3801,7 +3801,7 @@
               "notes": [],
               "syllables": [
                 {
-                  "text": "2.\"Mi",
+                  "text": "Mi",
                   "cx": 89.9,
                   "anacrusis": false
                 },
@@ -3920,7 +3920,7 @@
                   "protocol": {
                     "cx": 433.2,
                     "rule": "V90",
-                    "syllable": "\"ea",
+                    "syllable": "ea",
                     "syllable_cx": 444.8,
                     "float_cx": null,
                     "next_syllable": null,
@@ -3996,12 +3996,12 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "\"ea",
+                  "text": "ea",
                   "cx": 444.8,
                   "anacrusis": false
                 },
                 {
-                  "text": "mi-nhapaz.\"",
+                  "text": "mi-nhapaz",
                   "cx": 450.5,
                   "anacrusis": false
                 }
@@ -4347,7 +4347,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "mi-nhapaz.\"",
+                  "text": "mi-nhapaz",
                   "cx": 450.5,
                   "anacrusis": false
                 },
@@ -5244,7 +5244,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "gar,\"",
+                  "text": "gar,",
                   "cx": 277.6,
                   "anacrusis": false
                 },
@@ -5403,7 +5403,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 488.3,
                   "anacrusis": false
                 },
@@ -5432,7 +5432,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "Se-nhor.",
+                  "text": "Se-nhor",
                   "cx": 524.4,
                   "anacrusis": false
                 }
@@ -5934,7 +5934,7 @@
                   "protocol": {
                     "cx": 483.8,
                     "rule": "T90",
-                    "syllable": "nhor.\"",
+                    "syllable": "nhor",
                     "syllable_cx": 488.3,
                     "float_cx": null,
                     "next_syllable": null,
@@ -5970,7 +5970,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 488.3,
                   "anacrusis": false
                 }
@@ -6103,7 +6103,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "sus.",
+                  "text": "sus",
                   "cx": 193.9,
                   "anacrusis": false
                 }

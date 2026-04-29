@@ -75,7 +75,7 @@
       "beat": 4,
       "ratio": 0.816,
       "regra": "T90",
-      "silaba": "in",
+      "silaba": "vez,",
       "nota": "œ@170"
     },
     {
@@ -205,7 +205,7 @@
       "beat": 2,
       "ratio": 0.303,
       "regra": "T90",
-      "silaba": "\"E",
+      "silaba": "E",
       "nota": "œ@96"
     },
     {
@@ -374,7 +374,7 @@
       "beat": 4,
       "ratio": 0.8634114449956919,
       "regra": "V90",
-      "silaba": "\"ea",
+      "silaba": "ea",
       "nota": "—"
     },
     {
@@ -595,7 +595,7 @@
       "beat": 4,
       "ratio": 0.837,
       "regra": "T90",
-      "silaba": "nhor.\"",
+      "silaba": "nhor",
       "nota": "œ@491"
     },
     {
@@ -704,7 +704,7 @@
         "C‹"
       ],
       "silabas": [
-        "1.\"A-"
+        "A-"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
@@ -747,7 +747,7 @@
         "ter-ra,",
         "to",
         "-",
-        "1.\"A-",
+        "A-",
         "do"
       ],
       "acordes_nao_atribuidos": [],
@@ -802,7 +802,7 @@
         "e",
         "das",
         "to-da",
-        "na-ções.\""
+        "na-ções"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
@@ -826,7 +826,7 @@
         "G"
       ],
       "silabas": [
-        "\"E",
+        "E",
         "mar",
         "eu",
         "ea",
@@ -882,7 +882,7 @@
         "E¨"
       ],
       "silabas": [
-        "\"E",
+        "E",
         "eu",
         "en-che-rei",
         "as-sim",
@@ -907,7 +907,7 @@
         "lu-",
         "-",
         "te",
-        "gar,\"",
+        "gar,",
         "lu",
         "-"
       ],
@@ -943,10 +943,10 @@
         "o",
         "Se",
         "-",
-        "nhor.\"",
+        "nhor",
         "diz",
         "o",
-        "Se-nhor."
+        "Se-nhor"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
@@ -985,10 +985,10 @@
         "o",
         "Se",
         "-",
-        "nhor.\"",
+        "nhor",
         "diz",
         "o",
-        "Se-nhor."
+        "Se-nhor"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
@@ -1013,7 +1013,7 @@
         "E¨"
       ],
       "silabas": [
-        "2.\"Mi",
+        "Mi",
         "fim",
         "-",
         "nha",
@@ -1039,8 +1039,8 @@
         "Se-nhor,",
         "da-rei",
         "a",
-        "\"ea",
-        "mi-nhapaz.\"",
+        "ea",
+        "mi-nhapaz",
         "gló-ria",
         "des-ta"
       ],
@@ -1093,7 +1093,7 @@
         "a",
         "es",
         "-",
-        "mi-nhapaz.\"",
+        "mi-nhapaz",
         "te",
         "lu-gar,"
       ],
@@ -1201,7 +1201,7 @@
         "lu-",
         "-",
         "te",
-        "gar,\"",
+        "gar,",
         "lu-",
         "gar),",
         "diz",
@@ -1216,10 +1216,10 @@
         "o",
         "Se",
         "-",
-        "nhor.\"",
+        "nhor",
         "diz",
         "o",
-        "Se-nhor."
+        "Se-nhor"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
@@ -1256,7 +1256,7 @@
         "o",
         "Se",
         "-",
-        "nhor.\""
+        "nhor"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
@@ -1278,7 +1278,7 @@
       "silabas": [
         "Je",
         "-",
-        "sus."
+        "sus"
       ],
       "acordes_nao_atribuidos": [],
       "qtd_acordes_nao_atribuidos": 0
