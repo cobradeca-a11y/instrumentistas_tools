@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-calibrate.py — Mesclagem, cobertura, review e calibração do protocolo CXD+T90.
+calibrate.py — Mesclagem, cobertura e calibração do protocolo CXD+T90.
 
 Comandos:
   python calibrate.py merge <pipeline.json> <editor.json> <saida.json>
@@ -549,18 +549,10 @@ def _is_alignment_conflict(chord):
     beat_delta = _safe_float(beat_delta, None)
 
     # Melisma só é erro real se o match for confiável.
-    # Se o pipeline não tinha sílaba anterior disponível,
-    # mas o merge trouxe uma sílaba humana de outro lugar,
-    # isso é conflito de alinhamento, não erro musical.
+    # Em seq_align/seq_ratio/near_measure_loose com sílaba diferente, vira conflito.
     if ct == 'melisma_undetected':
-        melisma_debug = protocol.get('melisma_debug') or {}
-        reason = melisma_debug.get('reason')
-
-        if reason == 'no_previous_syllable_available' and h_syl:
-            return True
-
         if p_syl != h_syl:
-            if method in {'seq_align', 'seq_ratio', 'near_measure_ratio', 'near_measure_loose'}:
+            if method in {'seq_align', 'seq_ratio', 'near_measure_loose'}:
                 return True
 
             if ratio_delta is not None and ratio_delta >= 0.18:
@@ -853,15 +845,9 @@ def _collect_metrics(data):
 
                     is_presence = bool(human.get('_presence_only'))
 
-                    protocol = chord.get('protocol') or {}
-                    p_syl = (protocol.get('syllable') or '').strip()
-                    h_syl = (human.get('syllable') or '').strip()
-                    rule = protocol.get('rule') or ''
-                    empty_match = rule == 'VAZIO' and not p_syl and not h_syl
-
                     if is_presence:
                         metrics['presence_only'] += 1
-                    elif mm and not empty_match:
+                    elif mm:
                         metrics['musical_crossed'] += 1
                         if bd is not None:
                             metrics['beat_musical'].append(bd)
@@ -1214,61 +1200,9 @@ def debug(json_path):
 
 
 
-
-def _review_kind(row):
-    """
-    Classifica linha do review em tipo acionável.
-    """
-    rule = row.get('rule') or ''
-    ct = row.get('correction_type') or ''
-    p_syl = (row.get('protocol_syllable') or '').strip()
-    h_syl = (row.get('human_syllable') or '').strip()
-    match_method = row.get('match_method') or ''
-    presence_only = bool(row.get('presence_only'))
-    alignment_conflict = bool(row.get('alignment_conflict'))
-
-    if presence_only:
-        return 'presence_only'
-
-    if rule == 'VAZIO' and not p_syl and not h_syl:
-        return 'empty_match'
-
-    if rule == 'T90.2_MELISMA' and not p_syl and h_syl:
-        # Sem sílaba anterior no audit, o human veio de alinhamento fraco.
-        # Não é melisma real; é conflito do merge.
-        return 'alignment_conflict'
-
-    if ct == 'correct':
-        return 'confirmed_correct'
-
-    if alignment_conflict or ct == 'unvalidated_alignment_conflict':
-        return 'alignment_conflict'
-
-    if ct in {'wrong_syllable', 'melisma_undetected', 'pause_undetected'}:
-        return 'possible_pipeline_error'
-
-    if match_method:
-        return 'needs_review'
-
-    return 'ignore'
-
-
-def _review_action(kind):
-    actions = {
-        'empty_match': 'ignorar',
-        'presence_only': 'ignorar_coverage',
-        'possible_real_melisma': 'investigar_pipeline_melisma',
-        'confirmed_correct': 'manter',
-        'alignment_conflict': 'melhorar_merge',
-        'possible_pipeline_error': 'investigar_pipeline',
-        'needs_review': 'revisar_manual',
-        'ignore': 'ignorar',
-    }
-    return actions.get(kind, 'revisar_manual')
-
 def review(json_path):
     """
-    Gera CSV de revisão humana focado em decisões acionáveis.
+    Gera CSV de revisão humana focado nos cruzamentos musicais e conflitos.
     Não altera o JSON.
     """
     with open(json_path, encoding='utf-8') as f:
@@ -1299,14 +1233,31 @@ def review(json_path):
                     presence_only = bool(human.get('_presence_only'))
                     alignment_conflict = bool(chord.get('_alignment_conflict'))
 
+                    # Review foca no que ajuda decidir próximos ajustes.
+                    include = False
+
+                    if match_method and not presence_only:
+                        include = True
+
+                    if alignment_conflict:
+                        include = True
+
+                    if gt.get('correction_type') in {
+                        'wrong_syllable',
+                        'melisma_undetected',
+                        'pause_undetected',
+                        'unvalidated_alignment_conflict',
+                        'correct',
+                    }:
+                        include = True
+
+                    if not include:
+                        continue
+
                     p_syl = protocol.get('syllable')
                     h_syl = human.get('syllable')
 
-                    melisma_debug = protocol.get('melisma_debug') or {}
-
-                    base = {
-                        'melisma_reason': melisma_debug.get('reason'),
-                        'melisma_used_source': melisma_debug.get('used_source'),
+                    rows.append({
                         'page': page,
                         'system': system,
                         'measure_n': measure_n,
@@ -1333,49 +1284,11 @@ def review(json_path):
                         'human_syllable_cx': human.get('syllable_cx'),
                         'delta_cx': gt.get('delta_cx'),
                         'nota_anchor': protocol.get('nota_anchor'),
-                    }
-
-                    kind = _review_kind(base)
-                    action = _review_action(kind)
-
-                    include = kind not in {'presence_only', 'ignore'}
-
-                    # empty_match entra no CSV, mas já classificado como ignorável.
-                    if kind == 'empty_match':
-                        include = True
-
-                    if not include:
-                        continue
-
-                    base['review_kind'] = kind
-                    base['suggested_action'] = action
-                    base['review_decision'] = ''
-                    base['review_note'] = ''
-
-                    rows.append(base)
-
-    kind_order = {
-        'possible_real_melisma': 0,
-        'possible_pipeline_error': 1,
-        'confirmed_correct': 2,
-        'alignment_conflict': 3,
-        'empty_match': 4,
-        'needs_review': 5,
-    }
-
-    rows.sort(key=lambda r: (
-        kind_order.get(r.get('review_kind'), 99),
-        r.get('page') if r.get('page') is not None else 999,
-        r.get('system') if r.get('system') is not None else 999,
-        r.get('measure_n') if r.get('measure_n') is not None else 999,
-        str(r.get('symbol') or ''),
-    ))
+                        'review_decision': '',
+                        'review_note': '',
+                    })
 
     fieldnames = [
-        'review_kind',
-        'suggested_action',
-        'melisma_reason',
-        'melisma_used_source',
         'page',
         'system',
         'measure_n',
@@ -1411,17 +1324,11 @@ def review(json_path):
         writer.writeheader()
         writer.writerows(rows)
 
-    by_kind = Counter(r['review_kind'] for r in rows)
     by_type = Counter(r['correction_type'] for r in rows)
     by_method = Counter(r['match_method'] for r in rows)
 
     print(f"Review gerado: {out_path}")
     print(f"Linhas: {len(rows)}")
-
-    if by_kind:
-        print("\nPor review_kind:")
-        for k, v in by_kind.most_common():
-            print(f"  {str(k):<28} {v}")
 
     if by_type:
         print("\nPor correction_type:")

@@ -7,8 +7,8 @@
   "bpm": "",
   "meter": "4/4",
   "clef": "treble",
-  "pipeline_version": "v6",
-  "generated_at": "2026-04-29T00:16:21.146701+00:00",
+  "pipeline_version": "v6.2-melisma-debug",
+  "generated_at": "2026-04-29T01:03:04.189158+00:00",
   "form": [
     {
       "type": "to_coda",
@@ -82,7 +82,8 @@
                     "float_cx": 101.7540417232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "Œ@100"
+                    "nota_anchor": "Œ@100",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -107,7 +108,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -169,7 +170,8 @@
                     "float_cx": 190.21518380235443,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@190"
+                    "nota_anchor": "œ@190",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -194,7 +196,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -297,7 +299,8 @@
                     "float_cx": 278.72721486945545,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@278"
+                    "nota_anchor": "œ@278",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -322,7 +325,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": false,
@@ -439,7 +442,8 @@
                     "float_cx": 375.4094885217323,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@375"
+                    "nota_anchor": "œ@375",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -464,7 +468,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": false,
                     "implied_rule": "VAZIO",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": false,
@@ -603,7 +607,17 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@492"
+                    "nota_anchor": "œ@492",
+                    "melisma_debug": {
+                      "anchor_cx": 491.8,
+                      "current_measure": 13,
+                      "used_source": null,
+                      "reason": "no_previous_syllable_available",
+                      "same_measure_candidates": [],
+                      "previous_measure": null,
+                      "previous_measure_candidates": [],
+                      "previous_line_candidates": []
+                    }
                   },
                   "human": {
                     "syllable": "in-",
@@ -628,7 +642,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": true,
@@ -676,7 +690,7 @@
               ],
               "syllables": [
                 {
-                  "text": "1.\"A-",
+                  "text": "A-",
                   "cx": 530.6,
                   "anacrusis": false
                 }
@@ -708,12 +722,13 @@
                   "protocol": {
                     "cx": 95.9,
                     "rule": "T90",
-                    "syllable": "in",
-                    "syllable_cx": 95.6,
+                    "syllable": "vez,",
+                    "syllable_cx": 160.7,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@170"
+                    "nota_anchor": "œ@170",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -738,7 +753,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -803,7 +818,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@236"
+                    "nota_anchor": "œ@236",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -828,7 +844,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -950,7 +966,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@311"
+                    "nota_anchor": "œ@311",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "\"A-",
@@ -975,7 +992,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -1213,7 +1230,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "1.\"A-",
+                  "text": "A-",
                   "cx": 530.6,
                   "anacrusis": true
                 },
@@ -1255,7 +1272,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@95"
+                    "nota_anchor": "˙@95",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -1280,7 +1298,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -1439,7 +1457,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@223"
+                    "nota_anchor": "œ@223",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "sim",
@@ -1464,7 +1483,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": true,
@@ -1603,7 +1622,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@345"
+                    "nota_anchor": "œ@345",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "com",
@@ -1628,7 +1648,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": true,
@@ -1648,7 +1668,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@396"
+                    "nota_anchor": "˙@396",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "e",
@@ -1673,7 +1694,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -1832,7 +1853,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "na-ções.\"",
+                  "text": "na-ções",
                   "cx": 487.6,
                   "anacrusis": true
                 },
@@ -1931,7 +1952,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@113"
+                    "nota_anchor": "œ@113",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "mar",
@@ -1956,7 +1978,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -1995,7 +2017,7 @@
               ],
               "syllables": [
                 {
-                  "text": "\"E",
+                  "text": "E",
                   "cx": 93.4,
                   "anacrusis": false
                 },
@@ -2096,7 +2118,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@216"
+                    "nota_anchor": "œ@216",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "e",
@@ -2121,7 +2144,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -2434,7 +2457,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@405"
+                    "nota_anchor": "œ@405",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "rei",
@@ -2459,7 +2483,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_alignment_conflict": true,
@@ -2568,7 +2592,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "na-ções.\"",
+                  "text": "na-ções",
                   "cx": 487.6,
                   "anacrusis": false
                 },
@@ -2622,7 +2646,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "gar,\"",
+                  "text": "gar,",
                   "cx": 521.2,
                   "anacrusis": true
                 },
@@ -2664,12 +2688,13 @@
                   "protocol": {
                     "cx": 95.9,
                     "rule": "T90",
-                    "syllable": "\"E",
+                    "syllable": "E",
                     "syllable_cx": 93.4,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@96"
+                    "nota_anchor": "œ@96",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "\"E",
@@ -2694,7 +2719,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -2714,7 +2739,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@155"
+                    "nota_anchor": "œ@155",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "rei",
@@ -2739,7 +2765,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_alignment_conflict": true,
@@ -2823,7 +2849,7 @@
               ],
               "syllables": [
                 {
-                  "text": "\"E",
+                  "text": "E",
                   "cx": 93.4,
                   "anacrusis": false
                 },
@@ -2867,7 +2893,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@207"
+                    "nota_anchor": "œ@207",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "sim",
@@ -2892,7 +2919,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_ratio",
                   "_alignment_conflict": true,
@@ -3050,7 +3077,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@337"
+                    "nota_anchor": "œ@337",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "com",
@@ -3075,7 +3103,7 @@
                     "correction_type": "correct",
                     "rule_changed": false,
                     "implied_rule": "T90",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": false,
@@ -3095,7 +3123,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@387"
+                    "nota_anchor": "œ@387",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "gló-",
@@ -3120,7 +3149,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_loose",
                   "_alignment_conflict": true,
@@ -3262,7 +3291,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@451"
+                    "nota_anchor": "œ@451",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "rei",
@@ -3287,7 +3317,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -3426,7 +3456,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "gar,\"",
+                  "text": "gar,",
                   "cx": 521.2,
                   "anacrusis": true
                 },
@@ -3613,7 +3643,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 355.3,
                   "anacrusis": true
                 },
@@ -3628,7 +3658,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "Se-nhor.",
+                  "text": "Se-nhor",
                   "cx": 407.8,
                   "anacrusis": true
                 }
@@ -3724,7 +3754,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@112"
+                    "nota_anchor": "œ@112",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "diz",
@@ -3749,7 +3780,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -3850,7 +3881,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@238"
+                    "nota_anchor": "œ@238",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "xér-",
@@ -3875,7 +3907,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -3981,7 +4013,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@363"
+                    "nota_anchor": "œ@363",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "diz",
@@ -4006,7 +4039,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "n_sym_presence",
                   "_alignment_conflict": false,
@@ -4070,7 +4103,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 355.3,
                   "anacrusis": false
                 },
@@ -4145,7 +4178,7 @@
                   "anacrusis": true
                 },
                 {
-                  "text": "Se-nhor.",
+                  "text": "Se-nhor",
                   "cx": 407.8,
                   "anacrusis": true
                 }
@@ -4174,7 +4207,8 @@
                     "float_cx": 467.3558993217324,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@470"
+                    "nota_anchor": "˙@470",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -4199,7 +4233,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -4260,7 +4294,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "sus.",
@@ -4285,7 +4320,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "near_measure_ratio",
                   "_alignment_conflict": true,
@@ -4305,7 +4340,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "xér-",
@@ -4330,7 +4366,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -4341,7 +4377,7 @@
               "notes": [],
               "syllables": [
                 {
-                  "text": "2.\"Mi",
+                  "text": "Mi",
                   "cx": 89.9,
                   "anacrusis": false
                 },
@@ -4440,7 +4476,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "sim",
@@ -4465,7 +4502,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -4480,12 +4517,13 @@
                   "protocol": {
                     "cx": 433.2,
                     "rule": "V90",
-                    "syllable": "\"ea",
+                    "syllable": "ea",
                     "syllable_cx": 444.8,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "\"e a ",
@@ -4510,7 +4548,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -4576,12 +4614,12 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "\"ea",
+                  "text": "ea",
                   "cx": 444.8,
                   "anacrusis": false
                 },
                 {
-                  "text": "mi-nhapaz.\"",
+                  "text": "mi-nhapaz",
                   "cx": 450.5,
                   "anacrusis": false
                 }
@@ -4647,7 +4685,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "\"Mi-",
@@ -4672,7 +4711,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -4756,7 +4795,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "gló-",
@@ -4781,7 +4821,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -4856,7 +4896,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "com",
@@ -4881,7 +4922,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -4961,7 +5002,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "rei",
@@ -4986,7 +5028,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "seq_align",
                   "_alignment_conflict": true,
@@ -5007,7 +5049,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "mi-nhapaz.\"",
+                  "text": "mi-nhapaz",
                   "cx": 450.5,
                   "anacrusis": false
                 },
@@ -5054,7 +5096,8 @@
                     "float_cx": 95.87710280235441,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@96"
+                    "nota_anchor": "œ@96",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "diz",
@@ -5079,7 +5122,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -5181,7 +5224,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@202"
+                    "nota_anchor": "œ@202",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "xér-",
@@ -5206,7 +5250,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "seq_align",
                   "_alignment_conflict": true,
@@ -5294,7 +5338,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@308"
+                    "nota_anchor": "œ@308",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "_",
@@ -5319,7 +5364,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "seq_ratio",
                   "_alignment_conflict": true,
@@ -5456,7 +5501,8 @@
                     "float_cx": 110.3158288222179,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@117"
+                    "nota_anchor": "œ@117",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "diz",
@@ -5481,7 +5527,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -5602,7 +5648,8 @@
                     "float_cx": 278.7375951232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@279"
+                    "nota_anchor": "œ@279",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "xér-",
@@ -5627,7 +5674,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -5671,7 +5718,8 @@
                     "float_cx": 348.5624655769992,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@349"
+                    "nota_anchor": "˙@349",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "tos",
@@ -5696,7 +5744,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -5758,7 +5806,8 @@
                     "float_cx": 413.32506786945544,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@404"
+                    "nota_anchor": "œ@404",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "sim",
@@ -5783,7 +5832,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -6044,7 +6093,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "gar,\"",
+                  "text": "gar,",
                   "cx": 277.6,
                   "anacrusis": false
                 },
@@ -6203,7 +6252,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 488.3,
                   "anacrusis": false
                 },
@@ -6232,7 +6281,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "Se-nhor.",
+                  "text": "Se-nhor",
                   "cx": 524.4,
                   "anacrusis": false
                 }
@@ -6269,7 +6318,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@107"
+                    "nota_anchor": "œ@107",
+                    "melisma_debug": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -6279,7 +6329,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": null,
                   "_alignment_conflict": false,
@@ -6299,7 +6349,174 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@156"
+                    "nota_anchor": "œ@156",
+                    "melisma_debug": {
+                      "anchor_cx": 155.7,
+                      "current_measure": 1,
+                      "used_source": "same_measure",
+                      "reason": "target_from_same_measure",
+                      "same_measure_candidates": [
+                        {
+                          "text": "rei)",
+                          "cx": 99.6,
+                          "top": 494.0
+                        }
+                      ],
+                      "previous_measure": null,
+                      "previous_measure_candidates": [],
+                      "previous_line_candidates": [
+                        {
+                          "text": "rei)",
+                          "cx": 99.6,
+                          "top": 494.0
+                        },
+                        {
+                          "text": "com",
+                          "cx": 106.2,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "mi-nhagló-ria",
+                          "cx": 146.5,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "en-che-rei",
+                          "cx": 200.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "es",
+                          "cx": 229.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "-",
+                          "cx": 238.5,
+                          "top": 470.5
+                        },
+                        {
+                          "text": "(es",
+                          "cx": 245.5,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "te",
+                          "cx": 247.2,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "lu-",
+                          "cx": 259.5,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "-",
+                          "cx": 261.1,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "te",
+                          "cx": 274.3,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "gar,",
+                          "cx": 277.6,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "lu-",
+                          "cx": 290.7,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "gar),",
+                          "cx": 309.6,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "diz",
+                          "cx": 317.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "o",
+                          "cx": 329.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "Se-nhor",
+                          "cx": 350.8,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "dose",
+                          "cx": 386.5,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "-",
+                          "cx": 401.7,
+                          "top": 470.5
+                        },
+                        {
+                          "text": "xér",
+                          "cx": 412.7,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "-",
+                          "cx": 424.8,
+                          "top": 470.0
+                        },
+                        {
+                          "text": "diz",
+                          "cx": 434.1,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "ci-tos,",
+                          "cx": 443.4,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "o",
+                          "cx": 448.1,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "Se",
+                          "cx": 460.0,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "-",
+                          "cx": 470.7,
+                          "top": 494.8
+                        },
+                        {
+                          "text": "nhor",
+                          "cx": 488.3,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "diz",
+                          "cx": 489.9,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "o",
+                          "cx": 501.9,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "Se-nhor",
+                          "cx": 524.4,
+                          "top": 469.8
+                        }
+                      ]
+                    }
                   },
                   "human": {
                     "syllable": "gló-",
@@ -6324,7 +6541,7 @@
                     "correction_type": "unvalidated_alignment_conflict",
                     "rule_changed": null,
                     "implied_rule": "ALIGNMENT_CONFLICT",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "seq_align",
                   "_alignment_conflict": true,
@@ -6344,7 +6561,174 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@218"
+                    "nota_anchor": "œ@218",
+                    "melisma_debug": {
+                      "anchor_cx": 217.6,
+                      "current_measure": 1,
+                      "used_source": "same_measure",
+                      "reason": "target_from_same_measure",
+                      "same_measure_candidates": [
+                        {
+                          "text": "rei)",
+                          "cx": 99.6,
+                          "top": 494.0
+                        }
+                      ],
+                      "previous_measure": null,
+                      "previous_measure_candidates": [],
+                      "previous_line_candidates": [
+                        {
+                          "text": "rei)",
+                          "cx": 99.6,
+                          "top": 494.0
+                        },
+                        {
+                          "text": "com",
+                          "cx": 106.2,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "mi-nhagló-ria",
+                          "cx": 146.5,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "en-che-rei",
+                          "cx": 200.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "es",
+                          "cx": 229.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "-",
+                          "cx": 238.5,
+                          "top": 470.5
+                        },
+                        {
+                          "text": "(es",
+                          "cx": 245.5,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "te",
+                          "cx": 247.2,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "lu-",
+                          "cx": 259.5,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "-",
+                          "cx": 261.1,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "te",
+                          "cx": 274.3,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "gar,",
+                          "cx": 277.6,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "lu-",
+                          "cx": 290.7,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "gar),",
+                          "cx": 309.6,
+                          "top": 494.5
+                        },
+                        {
+                          "text": "diz",
+                          "cx": 317.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "o",
+                          "cx": 329.3,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "Se-nhor",
+                          "cx": 350.8,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "dose",
+                          "cx": 386.5,
+                          "top": 470.3
+                        },
+                        {
+                          "text": "-",
+                          "cx": 401.7,
+                          "top": 470.5
+                        },
+                        {
+                          "text": "xér",
+                          "cx": 412.7,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "-",
+                          "cx": 424.8,
+                          "top": 470.0
+                        },
+                        {
+                          "text": "diz",
+                          "cx": 434.1,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "ci-tos,",
+                          "cx": 443.4,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "o",
+                          "cx": 448.1,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "Se",
+                          "cx": 460.0,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "-",
+                          "cx": 470.7,
+                          "top": 494.8
+                        },
+                        {
+                          "text": "nhor",
+                          "cx": 488.3,
+                          "top": 494.7
+                        },
+                        {
+                          "text": "diz",
+                          "cx": 489.9,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "o",
+                          "cx": 501.9,
+                          "top": 469.8
+                        },
+                        {
+                          "text": "Se-nhor",
+                          "cx": 524.4,
+                          "top": 469.8
+                        }
+                      ]
+                    }
                   },
                   "human": {
                     "syllable": "rei",
@@ -6369,7 +6753,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -6555,7 +6939,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@318"
+                    "nota_anchor": "œ@318",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "fim",
@@ -6580,7 +6965,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -6703,7 +7088,8 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@410"
+                    "nota_anchor": "œ@410",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "e",
@@ -6728,7 +7114,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -6819,12 +7205,13 @@
                   "protocol": {
                     "cx": 483.8,
                     "rule": "T90",
-                    "syllable": "nhor.\"",
+                    "syllable": "nhor",
                     "syllable_cx": 488.3,
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@491"
+                    "nota_anchor": "œ@491",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": "_",
@@ -6849,7 +7236,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -6875,7 +7262,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "nhor.\"",
+                  "text": "nhor",
                   "cx": 488.3,
                   "anacrusis": false
                 }
@@ -7008,7 +7395,7 @@
                   "anacrusis": false
                 },
                 {
-                  "text": "sus.",
+                  "text": "sus",
                   "cx": 193.9,
                   "anacrusis": false
                 }
@@ -7250,7 +7637,8 @@
                     "float_cx": 192.9032289232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "w@194"
+                    "nota_anchor": "w@194",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -7275,7 +7663,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_seq",
                   "_alignment_conflict": false,
@@ -7373,7 +7761,8 @@
                     "float_cx": 312.1903352023544,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@312"
+                    "nota_anchor": "œ@312",
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -7398,7 +7787,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -7510,7 +7899,8 @@
                     "float_cx": 431.52833106945536,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -7535,7 +7925,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -7590,7 +7980,8 @@
                     "float_cx": 95.8498811217324,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": {
                     "syllable": null,
@@ -7615,7 +8006,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": "PRESENCE",
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": "presence_align",
                   "_alignment_conflict": false,
@@ -7711,7 +8102,8 @@
                     "float_cx": 470.3369079232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null
+                    "nota_anchor": null,
+                    "melisma_debug": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -7721,7 +8113,7 @@
                     "correction_type": "unvalidated",
                     "rule_changed": null,
                     "implied_rule": null,
-                    "merged_at": "2026-04-29T00:48:38.443805+00:00"
+                    "merged_at": "2026-04-29T01:05:39.488222+00:00"
                   },
                   "_match_method": null,
                   "_alignment_conflict": false,
@@ -7751,7 +8143,7 @@
       ]
     }
   ],
-  "merged_at": "2026-04-29T00:48:38.443805+00:00",
+  "merged_at": "2026-04-29T01:05:39.488222+00:00",
   "merge_sources": {
     "pipeline": "scores/json/ainda-uma-vez_pipeline.json",
     "editor": "scores/json/ainda-uma-vez.json"
@@ -7782,7 +8174,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7810,7 +8202,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7838,7 +8230,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7866,7 +8258,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7894,7 +8286,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7922,7 +8314,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7950,7 +8342,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -7978,7 +8370,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -8006,7 +8398,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -8034,7 +8426,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -8062,7 +8454,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -8090,7 +8482,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     },
     {
@@ -8118,7 +8510,7 @@
         "correction_type": "missing_chord",
         "rule_changed": null,
         "implied_rule": "HUMAN",
-        "merged_at": "2026-04-29T00:48:38.443805+00:00"
+        "merged_at": "2026-04-29T01:05:39.488222+00:00"
       }
     }
   ]

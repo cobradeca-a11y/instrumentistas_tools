@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-calibrate.py — Mesclagem, cobertura, review e calibração do protocolo CXD+T90.
+calibrate.py — Mesclagem, cobertura e calibração do protocolo CXD+T90.
 
 Comandos:
   python calibrate.py merge <pipeline.json> <editor.json> <saida.json>
@@ -549,18 +549,10 @@ def _is_alignment_conflict(chord):
     beat_delta = _safe_float(beat_delta, None)
 
     # Melisma só é erro real se o match for confiável.
-    # Se o pipeline não tinha sílaba anterior disponível,
-    # mas o merge trouxe uma sílaba humana de outro lugar,
-    # isso é conflito de alinhamento, não erro musical.
+    # Em seq_align/seq_ratio/near_measure_loose com sílaba diferente, vira conflito.
     if ct == 'melisma_undetected':
-        melisma_debug = protocol.get('melisma_debug') or {}
-        reason = melisma_debug.get('reason')
-
-        if reason == 'no_previous_syllable_available' and h_syl:
-            return True
-
         if p_syl != h_syl:
-            if method in {'seq_align', 'seq_ratio', 'near_measure_ratio', 'near_measure_loose'}:
+            if method in {'seq_align', 'seq_ratio', 'near_measure_loose'}:
                 return True
 
             if ratio_delta is not None and ratio_delta >= 0.18:
@@ -1234,9 +1226,7 @@ def _review_kind(row):
         return 'empty_match'
 
     if rule == 'T90.2_MELISMA' and not p_syl and h_syl:
-        # Sem sílaba anterior no audit, o human veio de alinhamento fraco.
-        # Não é melisma real; é conflito do merge.
-        return 'alignment_conflict'
+        return 'possible_real_melisma'
 
     if ct == 'correct':
         return 'confirmed_correct'
@@ -1302,11 +1292,7 @@ def review(json_path):
                     p_syl = protocol.get('syllable')
                     h_syl = human.get('syllable')
 
-                    melisma_debug = protocol.get('melisma_debug') or {}
-
                     base = {
-                        'melisma_reason': melisma_debug.get('reason'),
-                        'melisma_used_source': melisma_debug.get('used_source'),
                         'page': page,
                         'system': system,
                         'measure_n': measure_n,
@@ -1374,8 +1360,6 @@ def review(json_path):
     fieldnames = [
         'review_kind',
         'suggested_action',
-        'melisma_reason',
-        'melisma_used_source',
         'page',
         'system',
         'measure_n',

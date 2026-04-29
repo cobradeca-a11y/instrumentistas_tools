@@ -11,7 +11,8 @@
       "ratio": 0.516,
       "regra": "T90.3_PAUSA",
       "silaba": "—",
-      "nota": "Œ@100"
+      "nota": "Œ@100",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -24,7 +25,8 @@
       "ratio": 0.579,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@190"
+      "nota": "œ@190",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -37,7 +39,8 @@
       "ratio": 0.015,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@278"
+      "nota": "œ@278",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -50,7 +53,8 @@
       "ratio": 0.159,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@375"
+      "nota": "œ@375",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -63,7 +67,17 @@
       "ratio": 0.241,
       "regra": "T90.2_MELISMA",
       "silaba": "—",
-      "nota": "œ@492"
+      "nota": "œ@492",
+      "melisma_debug": {
+        "anchor_cx": 491.8,
+        "current_measure": 13,
+        "used_source": null,
+        "reason": "no_previous_syllable_available",
+        "same_measure_candidates": [],
+        "previous_measure": null,
+        "previous_measure_candidates": [],
+        "previous_line_candidates": []
+      }
     },
     {
       "pg": 0,
@@ -76,7 +90,8 @@
       "ratio": 0.816,
       "regra": "T90",
       "silaba": "vez,",
-      "nota": "œ@170"
+      "nota": "œ@170",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -89,7 +104,8 @@
       "ratio": 0.819,
       "regra": "T90",
       "silaba": "daqui",
-      "nota": "œ@236"
+      "nota": "œ@236",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -102,7 +118,8 @@
       "ratio": 0.888,
       "regra": "T90",
       "silaba": "fa",
-      "nota": "œ@311"
+      "nota": "œ@311",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -115,7 +132,8 @@
       "ratio": 0.491,
       "regra": "T90",
       "silaba": "in",
-      "nota": "˙@95"
+      "nota": "˙@95",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -128,7 +146,8 @@
       "ratio": 0.222,
       "regra": "T90",
       "silaba": "tre-mer",
-      "nota": "œ@223"
+      "nota": "œ@223",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -141,7 +160,8 @@
       "ratio": 0.26,
       "regra": "T90",
       "silaba": "tre-mer",
-      "nota": "œ@345"
+      "nota": "œ@345",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -154,7 +174,8 @@
       "ratio": 0.688,
       "regra": "T90",
       "silaba": "céus,",
-      "nota": "˙@396"
+      "nota": "˙@396",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -167,7 +188,8 @@
       "ratio": 0.678,
       "regra": "T90",
       "silaba": "ea",
-      "nota": "œ@113"
+      "nota": "œ@113",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -180,7 +202,8 @@
       "ratio": 0.425,
       "regra": "T90",
       "silaba": "es",
-      "nota": "œ@216"
+      "nota": "œ@216",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -193,7 +216,8 @@
       "ratio": 0.092,
       "regra": "T90",
       "silaba": "de-se-ja-do",
-      "nota": "œ@405"
+      "nota": "œ@405",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -206,7 +230,8 @@
       "ratio": 0.303,
       "regra": "T90",
       "silaba": "E",
-      "nota": "œ@96"
+      "nota": "œ@96",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -219,7 +244,8 @@
       "ratio": 0.701,
       "regra": "T90",
       "silaba": "as-sim",
-      "nota": "œ@155"
+      "nota": "œ@155",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -232,7 +258,8 @@
       "ratio": 0.101,
       "regra": "T90",
       "silaba": "es",
-      "nota": "œ@207"
+      "nota": "œ@207",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -245,7 +272,8 @@
       "ratio": 0.241,
       "regra": "T90",
       "silaba": "com",
-      "nota": "œ@337"
+      "nota": "œ@337",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -258,7 +286,8 @@
       "ratio": 0.862,
       "regra": "T90",
       "silaba": "gló-ria",
-      "nota": "œ@387"
+      "nota": "œ@387",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -271,7 +300,8 @@
       "ratio": 0.459,
       "regra": "T90",
       "silaba": "es",
-      "nota": "œ@451"
+      "nota": "œ@451",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -284,7 +314,8 @@
       "ratio": 0.469,
       "regra": "T90",
       "silaba": "diz",
-      "nota": "œ@112"
+      "nota": "œ@112",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -297,7 +328,8 @@
       "ratio": 0.65,
       "regra": "T90",
       "silaba": "xér",
-      "nota": "œ@238"
+      "nota": "œ@238",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -310,7 +342,8 @@
       "ratio": 0.969,
       "regra": "T90",
       "silaba": "diz",
-      "nota": "œ@363"
+      "nota": "œ@363",
+      "melisma_debug": null
     },
     {
       "pg": 0,
@@ -323,7 +356,8 @@
       "ratio": 0.071,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "˙@470"
+      "nota": "˙@470",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -336,7 +370,8 @@
       "ratio": 0.21117025131069514,
       "regra": "V90",
       "silaba": "fim",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -349,7 +384,8 @@
       "ratio": 0.7743456857663499,
       "regra": "V90",
       "silaba": "gló-ria",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -362,7 +398,8 @@
       "ratio": 0.352590619732951,
       "regra": "V90",
       "silaba": "sim",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -375,7 +412,8 @@
       "ratio": 0.8634114449956919,
       "regra": "V90",
       "silaba": "ea",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -388,7 +426,8 @@
       "ratio": 0.9693877034974858,
       "regra": "V90",
       "silaba": "fim",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -401,7 +440,8 @@
       "ratio": 0.2547173635327363,
       "regra": "V90",
       "silaba": "gló-ria",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -414,7 +454,8 @@
       "ratio": 0.24042636114515462,
       "regra": "V90",
       "silaba": "ci",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -427,7 +468,8 @@
       "ratio": 0.08788950959203985,
       "regra": "V90",
       "silaba": "-",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -440,7 +482,8 @@
       "ratio": 0.869,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@96"
+      "nota": "œ@96",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -453,7 +496,8 @@
       "ratio": 0.157,
       "regra": "T90",
       "silaba": "dos",
-      "nota": "œ@202"
+      "nota": "œ@202",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -466,7 +510,8 @@
       "ratio": 0.05,
       "regra": "T90",
       "silaba": "-",
-      "nota": "œ@308"
+      "nota": "œ@308",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -479,7 +524,8 @@
       "ratio": 0.419,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@117"
+      "nota": "œ@117",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -492,7 +538,8 @@
       "ratio": 0.294,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@279"
+      "nota": "œ@279",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -505,7 +552,8 @@
       "ratio": 0.506,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "˙@349"
+      "nota": "˙@349",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -518,7 +566,8 @@
       "ratio": 0.127,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@404"
+      "nota": "œ@404",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -531,7 +580,8 @@
       "ratio": 0.254,
       "regra": "T90",
       "silaba": "rei)",
-      "nota": "œ@107"
+      "nota": "œ@107",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -544,7 +594,174 @@
       "ratio": 0.479,
       "regra": "T90.2_MELISMA",
       "silaba": "rei)",
-      "nota": "œ@156"
+      "nota": "œ@156",
+      "melisma_debug": {
+        "anchor_cx": 155.7,
+        "current_measure": 1,
+        "used_source": "same_measure",
+        "reason": "target_from_same_measure",
+        "same_measure_candidates": [
+          {
+            "text": "rei)",
+            "cx": 99.6,
+            "top": 494.0
+          }
+        ],
+        "previous_measure": null,
+        "previous_measure_candidates": [],
+        "previous_line_candidates": [
+          {
+            "text": "rei)",
+            "cx": 99.6,
+            "top": 494.0
+          },
+          {
+            "text": "com",
+            "cx": 106.2,
+            "top": 470.3
+          },
+          {
+            "text": "mi-nhagló-ria",
+            "cx": 146.5,
+            "top": 470.3
+          },
+          {
+            "text": "en-che-rei",
+            "cx": 200.3,
+            "top": 470.3
+          },
+          {
+            "text": "es",
+            "cx": 229.3,
+            "top": 470.3
+          },
+          {
+            "text": "-",
+            "cx": 238.5,
+            "top": 470.5
+          },
+          {
+            "text": "(es",
+            "cx": 245.5,
+            "top": 494.5
+          },
+          {
+            "text": "te",
+            "cx": 247.2,
+            "top": 470.3
+          },
+          {
+            "text": "lu-",
+            "cx": 259.5,
+            "top": 470.3
+          },
+          {
+            "text": "-",
+            "cx": 261.1,
+            "top": 494.7
+          },
+          {
+            "text": "te",
+            "cx": 274.3,
+            "top": 494.5
+          },
+          {
+            "text": "gar,",
+            "cx": 277.6,
+            "top": 470.3
+          },
+          {
+            "text": "lu-",
+            "cx": 290.7,
+            "top": 494.5
+          },
+          {
+            "text": "gar),",
+            "cx": 309.6,
+            "top": 494.5
+          },
+          {
+            "text": "diz",
+            "cx": 317.3,
+            "top": 470.3
+          },
+          {
+            "text": "o",
+            "cx": 329.3,
+            "top": 470.3
+          },
+          {
+            "text": "Se-nhor",
+            "cx": 350.8,
+            "top": 470.3
+          },
+          {
+            "text": "dose",
+            "cx": 386.5,
+            "top": 470.3
+          },
+          {
+            "text": "-",
+            "cx": 401.7,
+            "top": 470.5
+          },
+          {
+            "text": "xér",
+            "cx": 412.7,
+            "top": 469.8
+          },
+          {
+            "text": "-",
+            "cx": 424.8,
+            "top": 470.0
+          },
+          {
+            "text": "diz",
+            "cx": 434.1,
+            "top": 494.7
+          },
+          {
+            "text": "ci-tos,",
+            "cx": 443.4,
+            "top": 469.8
+          },
+          {
+            "text": "o",
+            "cx": 448.1,
+            "top": 494.7
+          },
+          {
+            "text": "Se",
+            "cx": 460.0,
+            "top": 494.7
+          },
+          {
+            "text": "-",
+            "cx": 470.7,
+            "top": 494.8
+          },
+          {
+            "text": "nhor",
+            "cx": 488.3,
+            "top": 494.7
+          },
+          {
+            "text": "diz",
+            "cx": 489.9,
+            "top": 469.8
+          },
+          {
+            "text": "o",
+            "cx": 501.9,
+            "top": 469.8
+          },
+          {
+            "text": "Se-nhor",
+            "cx": 524.4,
+            "top": 469.8
+          }
+        ]
+      }
     },
     {
       "pg": 1,
@@ -557,7 +774,174 @@
       "ratio": 0.764,
       "regra": "T90.2_MELISMA",
       "silaba": "rei)",
-      "nota": "œ@218"
+      "nota": "œ@218",
+      "melisma_debug": {
+        "anchor_cx": 217.6,
+        "current_measure": 1,
+        "used_source": "same_measure",
+        "reason": "target_from_same_measure",
+        "same_measure_candidates": [
+          {
+            "text": "rei)",
+            "cx": 99.6,
+            "top": 494.0
+          }
+        ],
+        "previous_measure": null,
+        "previous_measure_candidates": [],
+        "previous_line_candidates": [
+          {
+            "text": "rei)",
+            "cx": 99.6,
+            "top": 494.0
+          },
+          {
+            "text": "com",
+            "cx": 106.2,
+            "top": 470.3
+          },
+          {
+            "text": "mi-nhagló-ria",
+            "cx": 146.5,
+            "top": 470.3
+          },
+          {
+            "text": "en-che-rei",
+            "cx": 200.3,
+            "top": 470.3
+          },
+          {
+            "text": "es",
+            "cx": 229.3,
+            "top": 470.3
+          },
+          {
+            "text": "-",
+            "cx": 238.5,
+            "top": 470.5
+          },
+          {
+            "text": "(es",
+            "cx": 245.5,
+            "top": 494.5
+          },
+          {
+            "text": "te",
+            "cx": 247.2,
+            "top": 470.3
+          },
+          {
+            "text": "lu-",
+            "cx": 259.5,
+            "top": 470.3
+          },
+          {
+            "text": "-",
+            "cx": 261.1,
+            "top": 494.7
+          },
+          {
+            "text": "te",
+            "cx": 274.3,
+            "top": 494.5
+          },
+          {
+            "text": "gar,",
+            "cx": 277.6,
+            "top": 470.3
+          },
+          {
+            "text": "lu-",
+            "cx": 290.7,
+            "top": 494.5
+          },
+          {
+            "text": "gar),",
+            "cx": 309.6,
+            "top": 494.5
+          },
+          {
+            "text": "diz",
+            "cx": 317.3,
+            "top": 470.3
+          },
+          {
+            "text": "o",
+            "cx": 329.3,
+            "top": 470.3
+          },
+          {
+            "text": "Se-nhor",
+            "cx": 350.8,
+            "top": 470.3
+          },
+          {
+            "text": "dose",
+            "cx": 386.5,
+            "top": 470.3
+          },
+          {
+            "text": "-",
+            "cx": 401.7,
+            "top": 470.5
+          },
+          {
+            "text": "xér",
+            "cx": 412.7,
+            "top": 469.8
+          },
+          {
+            "text": "-",
+            "cx": 424.8,
+            "top": 470.0
+          },
+          {
+            "text": "diz",
+            "cx": 434.1,
+            "top": 494.7
+          },
+          {
+            "text": "ci-tos,",
+            "cx": 443.4,
+            "top": 469.8
+          },
+          {
+            "text": "o",
+            "cx": 448.1,
+            "top": 494.7
+          },
+          {
+            "text": "Se",
+            "cx": 460.0,
+            "top": 494.7
+          },
+          {
+            "text": "-",
+            "cx": 470.7,
+            "top": 494.8
+          },
+          {
+            "text": "nhor",
+            "cx": 488.3,
+            "top": 494.7
+          },
+          {
+            "text": "diz",
+            "cx": 489.9,
+            "top": 469.8
+          },
+          {
+            "text": "o",
+            "cx": 501.9,
+            "top": 469.8
+          },
+          {
+            "text": "Se-nhor",
+            "cx": 524.4,
+            "top": 469.8
+          }
+        ]
+      }
     },
     {
       "pg": 1,
@@ -570,7 +954,8 @@
       "ratio": 0.393,
       "regra": "T90",
       "silaba": "gar),",
-      "nota": "œ@318"
+      "nota": "œ@318",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -583,7 +968,8 @@
       "ratio": 0.232,
       "regra": "T90",
       "silaba": "diz",
-      "nota": "œ@410"
+      "nota": "œ@410",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -596,7 +982,8 @@
       "ratio": 0.837,
       "regra": "T90",
       "silaba": "nhor",
-      "nota": "œ@491"
+      "nota": "œ@491",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -609,7 +996,8 @@
       "ratio": 0.05,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "w@194"
+      "nota": "w@194",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -622,7 +1010,8 @@
       "ratio": 0.564,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "œ@312"
+      "nota": "œ@312",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -635,7 +1024,8 @@
       "ratio": 0.326374468138128,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -648,7 +1038,8 @@
       "ratio": 0.2899014340736898,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     },
     {
       "pg": 1,
@@ -661,7 +1052,8 @@
       "ratio": 0.8026776096120274,
       "regra": "VAZIO",
       "silaba": "—",
-      "nota": "—"
+      "nota": "—",
+      "melisma_debug": null
     }
   ],
   "systems": [
