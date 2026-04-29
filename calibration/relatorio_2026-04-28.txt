@@ -1,39 +1,64 @@
 ══════════════════════════════════════════════════════════════
-RELATÓRIO DE CALIBRAÇÃO — 1 louvor(es)
-Gerado em: 2026-04-28 04:02 UTC
+RELATÓRIO DE CALIBRAÇÃO — 2 louvor(es)
+Gerado em: 2026-04-29 01:34 UTC
 ══════════════════════════════════════════════════════════════
 
-Total de acordes:      47
-Cifrados pelo humano:  0  (sem comparação — origem humana)
-Validados (com merge): 9
-Corretos:              0  (0%)
+COBERTURA ESTRUTURAL
+  Acordes pipeline:        132
+  Acordes humanos estim.:  145
+  Presença cruzada:        130
+  Presence-only:           72
+  Forced-presence:         38
+  Cruzamento musical:      58
+  Humanos faltantes:       15
+  Cobertura vs humano:     90%
+  Pipeline cruzado:        98%
+
+VALIDAÇÃO MUSICAL REAL
+  Validados:               55
+  Não validados:           77
+  Conflitos de alinhamento:       2
+  Sílabas corretas:        55
+  Sílabas erradas:         0
+  Melismas não detectados: 0
+  Pausas não detectadas:   0
+  Precisão validada:       100%
 
 DISTRIBUIÇÃO POR TIPO DE CORREÇÃO:
 
-  correct                      5  ( 56%)  protocolo acertou — acorde e sílaba corretos
-  wrong_syllable               4  ( 44%)  acorde correto, sílaba errada
-
-ERROS POR REGRA ORIGINAL:
-
-  VAZIO → correct                             5 vezes
-  T90 → wrong_syllable                        3 vezes
-  V90 → wrong_syllable                        1 vezes
+  correct                               55  ( 76%)  protocolo acertou — acorde e sílaba corretos
+  missing_chord                         15  ( 21%)  protocolo não detectou acorde que existe
+  unvalidated_alignment_conflict         2  (  3%)  cruzamento fraco: símbolo bate, mas sílaba diverge; não validar como erro musical
 
 ──────────────────────────────────────────────────────────────
-SUGESTÕES DE RECALIBRAÇÃO
+BEAT
 ──────────────────────────────────────────────────────────────
 
-
-──────────────────────────────────────────────────────────────
-BEAT DELTA (protocolo vs humano)
-──────────────────────────────────────────────────────────────
-
-  Total cruzados:    9
-  Beat correto (Δ=0): 2 (22%)
-  Δ médio:           1.22 tempos
-  → P2: considerar refinamento do cálculo de beat
+  Estrutural:
+    Cruzados com beat:       130
+    Beat correto Δ=0:        89 (68%)
+    Δ médio:                 0.52
+  Musical validável:
+    Cruzados com beat:       58
+    Beat correto Δ=0:        52 (90%)
+    Δ médio:                 0.10
 
 MÉTODOS DE CRUZAMENTO NO MERGE:
 
-  n_sym              9 acordes cruzados
+  n_sym_ratio            84 acordes cruzados
+  presence_align         19 acordes cruzados
+  presence_seq            8 acordes cruzados
+  n_sym_presence          7 acordes cruzados
+  near_measure_ratio      7 acordes cruzados
+  seq_align               3 acordes cruzados
+  near_measure_loose      1 acordes cruzados
+  seq_ratio               1 acordes cruzados
+
+──────────────────────────────────────────────────────────────
+PRÓXIMO ALVO
+──────────────────────────────────────────────────────────────
+
+  → wrong_syllable agora conta só match forte
+  → alignment_conflict indica pareamento fraco, não erro musical
+  → próximo ajuste real deve vir do debug dos validados restantes
 ══════════════════════════════════════════════════════════════

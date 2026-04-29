@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PIPELINE CXD+T90 v6
+PIPELINE CXD+T90 v6.3-bugfix
 Extração automática sem LINES_MAP.
 
 P1 — Detecta sistemas, acordes e letra automaticamente.
@@ -25,6 +25,19 @@ P8 — Debug de melisma:
      - registra candidatos anteriores no mesmo sistema
      - registra candidatos da linha anterior
      - registra motivo quando não encontra sílaba herdada
+
+CORREÇÕES v6.3:
+B1 — ly_y_max dinâmico (65% do gap real, máx 80px) — elimina vazamento
+     de letras entre sistemas adjacentes (raiz dos wrong_syllable).
+B2 — Nota âncora prioriza onset (nota com cx >= chord_cx - 5, dentro
+     de 30px) antes de cair no min(|cx - chord_cx|) genérico.
+B3 — pick_syllable_for_chord: max_left 8 → 20px para capturar sílabas
+     de melisma no início do compasso.
+B4 — find_melisma_origin: prioriza sílabas terminadas em hífen (abertura
+     real de melisma) antes de pegar max(cx) genérico.
+B5 — normalize_chord: ordem multi-char antes de single-char + validação
+     pós-substituição (descarta lixo tipográfico com symbol=None).
+B6 — MELISMA_THRESH: 25px → 18px para detectar mais melismas reais.
 """
 
 import json
@@ -33,7 +46,7 @@ import re
 from datetime import datetime, timezone
 from collections import Counter
 
-PIPELINE_VERSION = "v6.2-melisma-debug"
+PIPELINE_VERSION = "v6.3-bugfix"
 
 
 # ════════════════════════════════════════════════════════════════
@@ -164,13 +177,18 @@ def should_skip(text):
 
 
 def normalize_chord(t):
-    return (
-        t.replace('©', '#')
-         .replace('‹', 'm')
-         .replace('„ˆˆ', 'add')
+    # Ordem importa: multi-char antes de single-char para evitar colisão.
+    t = (
+        t.replace('„ˆˆ', 'add')
          .replace('Œ„Š', 'maj')
+         .replace('©', '#')
+         .replace('‹', 'm')
          .replace('¨', 'b')
     )
+    # Descarta lixo tipográfico: acorde válido começa com A-G maiúsculo.
+    if not re.match(r'^[A-G]', t):
+        return None
+    return t
 
 
 def is_note_font(fontname):
@@ -186,7 +204,8 @@ def detect_systems_auto(page):
     Detecta sistemas de pauta e calcula janelas automáticas.
 
     Janela de acordes: y_top - 80 até y_top + 5
-    Janela de letra:   y_bot + 2 até y_bot + 150
+    Janela de letra:   y_bot + 2 até min(65% do gap, 80px)
+                       — dinâmica para evitar vazamento entre sistemas.
     """
     h = [
         l for l in page.lines
@@ -219,11 +238,20 @@ def detect_systems_auto(page):
             'x_dir': max(xd),
         })
 
-    for sis in sistemas:
+    for i, sis in enumerate(sistemas):
         sis['ac_y_min'] = sis['y_top'] - 80
         sis['ac_y_max'] = sis['y_top'] + 5
         sis['ly_y_min'] = sis['y_bot'] + 2
-        sis['ly_y_max'] = sis['y_bot'] + 150
+
+        # Janela de letra dinâmica: no máximo 65% do gap até o próximo
+        # sistema, limitada a 80px — evita capturar letras do sistema seguinte.
+        if i + 1 < len(sistemas):
+            gap = sistemas[i + 1]['y_top'] - sis['y_bot']
+            ly_max_dyn = sis['y_bot'] + min(gap * 0.65, 80)
+        else:
+            ly_max_dyn = sis['y_bot'] + 80
+
+        sis['ly_y_max'] = ly_max_dyn
 
     return sistemas
 
@@ -560,10 +588,10 @@ def calc_beat_by_anchor(nota_anchor_cx, comp, meter):
 # T90
 # ════════════════════════════════════════════════════════════════
 
-MELISMA_THRESH = 25.0
+MELISMA_THRESH = 18.0
 
 
-def pick_syllable_for_chord(chord_cx, anchor_cx, silas_c, max_left=8, max_right=42):
+def pick_syllable_for_chord(chord_cx, anchor_cx, silas_c, max_left=20, max_right=42):
     if not silas_c:
         return None
 
@@ -621,7 +649,18 @@ def t90_full(chord_cx, compassos, notas_comp_map, silas_por_comp,
         )
 
     notas_c = notas_comp_map.get(comp['n'], [])
-    nota_anchor = min(notas_c, key=lambda n: abs(n['cx'] - chord_cx)) if notas_c else None
+
+    # Bug 2 fix: prioriza nota no onset do acorde (cx >= chord_cx - 5, dentro de 30px).
+    # O acorde está escrito acima do onset da nota, não necessariamente da nota mais
+    # próxima em módulo — que pode ser a nota do tempo anterior.
+    def find_anchor_note(chord_cx, notas_c, max_onset=30):
+        onset = [n for n in notas_c if -5 <= n['cx'] - chord_cx <= max_onset]
+        if onset:
+            return min(onset, key=lambda n: n['cx'])
+        # fallback: mais próxima em x absoluto
+        return min(notas_c, key=lambda n: abs(n['cx'] - chord_cx)) if notas_c else None
+
+    nota_anchor = find_anchor_note(chord_cx, notas_c) if notas_c else None
     nota_str = f"{nota_anchor['text']}@{nota_anchor['cx']:.0f}" if nota_anchor else None
 
     if nota_anchor:
@@ -686,7 +725,19 @@ def t90_full(chord_cx, compassos, notas_comp_map, silas_por_comp,
                 silas_antes = melisma_candidates_prev_line
                 used_source = "previous_line"
 
-            target = max(silas_antes, key=lambda s: s['cx']) if silas_antes else None
+            # Bug 4 fix: sílaba que abre melisma termina em hífen.
+            # Prioriza candidatas com hífen antes de cair no max(cx) genérico.
+            def find_melisma_origin(pool):
+                if not pool:
+                    return None
+                with_hyphen = [
+                    s for s in pool
+                    if s.get('text', '').endswith('-') or s.get('text', '') == '-'
+                ]
+                source = with_hyphen if with_hyphen else pool
+                return max(source, key=lambda s: s['cx'])
+
+            target = find_melisma_origin(silas_antes)
 
             if target:
                 reason = f"target_from_{used_source}"
@@ -1052,6 +1103,12 @@ def run(pdf_path, meta=None):
                     ac_in = acordes_por_comp.get(comp['n'], [])
 
                     for ac in ac_in:
+                        symbol = normalize_chord(ac['text'])
+
+                        # Descarta token que não é acorde válido (lixo tipográfico).
+                        if symbol is None:
+                            continue
+
                         r = t90_full(
                             ac['cx'],
                             compassos,
@@ -1074,7 +1131,7 @@ def run(pdf_path, meta=None):
                         }
 
                         m_obj['chords'].append({
-                            "symbol": normalize_chord(ac['text']),
+                            "symbol": symbol,
                             "beat": r['beat'],
                             "beat_ratio": r['ratio'],
                             "bi": None,
@@ -1096,7 +1153,7 @@ def run(pdf_path, meta=None):
                             'system_global': system_global,
                             'comp_n': measure_global,
                             'local_n': comp['n'],
-                            'acorde': normalize_chord(ac['text']),
+                            'acorde': symbol,
                             'beat': r['beat'],
                             'ratio': r['ratio'],
                             'regra': r['rule'],

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instrumentistas Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f2eb;--sf:#faf8f3;--sf2:#eeeade;--sf3:#e5e0d2;
+  --bd:#ddd8cc;--bd2:#ccc6b6;
+  --tx:#1a1712;--dm:#7a7060;--ft:#c0b8a0;
+  --ac:#2a5298;--ac-bg:#e8eef8;--ac-b:#b8cce8;
+  --gn:#256825;--gn-bg:#e8f4e8;--gn-b:#a8d4a8;
+  --am:#7a4e00;--am-bg:#fdf3dc;--am-b:#e8c870;
+  --rd:#7a2020;--rd-bg:#fde8e8;
+  --pu:#4a2878;--pu-bg:#f0e8fc;
+}
+body{background:var(--bg);color:var(--tx);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;}
+
+header{
+  background:var(--sf);border-bottom:1.5px solid var(--bd);
+  padding:18px 28px;display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.logo{font-size:1.15rem;font-weight:600;color:var(--tx);}
+.logo span{color:var(--ac);}
+.header-meta{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--ft);}
+
+main{max-width:960px;margin:0 auto;padding:28px 24px 80px;}
+
+/* STATUS DO SERVIDOR */
+.status-bar{
+  display:flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--dm);margin-bottom:24px;
+  padding:7px 12px;background:var(--sf);
+  border:1px solid var(--bd);border-radius:4px;
+}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--gn);}
+.status-dot.err{background:var(--rd);}
+
+/* SEÇÃO */
+.sec-title{
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ft);margin-bottom:12px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+
+/* BOTÃO NOVO LOUVOR */
+.btn{
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;
+  padding:5px 12px;border-radius:4px;
+  border:1px solid var(--bd2);background:var(--sf2);
+  color:var(--dm);cursor:pointer;transition:all .12s;text-decoration:none;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.btn:hover{border-color:var(--ac);color:var(--ac);}
+.btn.primary{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:700;}
+.btn.primary:hover{background:#1e3d7a;}
+.btn.green{background:var(--gn-bg);color:var(--gn);border-color:var(--gn-b);}
+.btn.green:hover{background:#d0ead0;}
+
+/* TABELA DE LOUVORES */
+.louvores-table{width:100%;border-collapse:collapse;font-size:.9rem;}
+.louvores-table th{
+  font-family:'JetBrains Mono',monospace;font-size:.55rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ft);
+  text-align:left;padding:6px 10px;border-bottom:1.5px solid var(--bd);
+  background:var(--sf);
+}
+.louvores-table td{
+  padding:9px 10px;border-bottom:1px solid var(--bd);
+  vertical-align:middle;
+}
+.louvores-table tr:hover td{background:var(--sf);}
+.louvor-title{font-weight:600;color:var(--tx);}
+.louvor-meta{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--ft);}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:.55rem;
+  padding:1px 6px;border-radius:3px;display:inline-block;
+}
+.badge.ok{background:var(--gn-bg);color:var(--gn);border:1px solid var(--gn-b);}
+.badge.pending{background:var(--am-bg);color:var(--am);border:1px solid var(--am-b);}
+.badge.new{background:var(--ac-bg);color:var(--ac);border:1px solid var(--ac-b);}
+.pct{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;}
+.pct.high{color:var(--gn);}
+.pct.mid{color:var(--am);}
+.pct.low{color:var(--rd);}
+
+/* ACERVO VAZIO */
+.empty{
+  text-align:center;padding:48px 20px;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ft);
+}
+.empty .big{font-size:2rem;opacity:.3;margin-bottom:12px;}
+
+/* PAINEL CALIBRAÇÃO */
+.calib-panel{
+  margin-top:32px;padding:16px 18px;
+  background:var(--sf);border:1px solid var(--bd);border-radius:6px;
+}
+.calib-report{
+  margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--dm);white-space:pre-wrap;line-height:1.7;
+  background:var(--sf2);border:1px solid var(--bd);
+  border-radius:4px;padding:12px;max-height:280px;overflow-y:auto;
+  display:none;
+}
+.calib-report.on{display:block;}
+
+/* NOVO LOUVOR MODAL */
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:400;}
+#overlay.on{display:block;}
+#modal{
+  display:none;position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:var(--sf);border:1.5px solid var(--bd2);
+  border-radius:8px;padding:22px 26px;width:360px;z-index:500;
+  box-shadow:0 8px 32px rgba(0,0,0,.12);
+}
+#modal.on{display:block;}
+#modal h3{font-family:'JetBrains Mono',monospace;font-size:.68rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--dm);margin-bottom:14px;}
+.field{margin-bottom:10px;}
+.field label{font-family:'JetBrains Mono',monospace;font-size:.6rem;
+  color:var(--dm);display:block;margin-bottom:3px;}
+.field input{width:100%;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+  padding:5px 8px;border-radius:4px;border:1px solid var(--bd2);
+  background:var(--sf2);color:var(--tx);outline:none;}
+.field input:focus{border-color:var(--ac);}
+.modal-footer{display:flex;gap:7px;justify-content:flex-end;margin-top:16px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Instrumentistas <span>Tools</span></div>
+  <div class="header-meta">editor · pipeline · calibração · v1.0</div>
+</header>
+
+<main>
+
+  <!-- STATUS -->
+  <div class="status-bar">
+    <div class="status-dot" id="status-dot"></div>
+    <span id="status-txt">verificando servidor...</span>
+  </div>
+
+  <!-- LOUVORES -->
+  <div class="sec-title">
+    <span>Acervo</span>
+    <div style="display:flex;gap:6px">
+      <button class="btn" onclick="calibrar()">⚡ calibrar agora</button>
+      <a class="btn" href="/upload">⊕ upload de partitura</a>
+      <button class="btn primary" onclick="abrirModal()">+ novo louvor</button>
+    </div>
+  </div>
+
+  <div id="louvores-container">
+    <div class="empty">
+      <div class="big">♩</div>
+      <div>Nenhum louvor no acervo ainda.</div>
+      <div style="margin-top:8px">Clique em <strong>+ novo louvor</strong> para começar.</div>
+    </div>
+  </div>
+
+  <!-- CALIBRAÇÃO -->
+  <div class="calib-panel">
+    <div class="sec-title" style="margin-bottom:0">
+      <span>Último relatório de calibração</span>
+      <button class="btn" onclick="toggleReport()">ver / ocultar</button>
+    </div>
+    <div class="calib-report" id="calib-report">Nenhum relatório ainda. Clique em "calibrar agora".</div>
+  </div>
+
+</main>
+
+<!-- MODAL NOVO LOUVOR -->
+<div id="overlay" onclick="fecharModal()"></div>
+<div id="modal">
+  <h3>Novo Louvor</h3>
+  <div class="field">
+    <label>Título</label>
+    <input id="f-titulo" placeholder="ex: Ainda Uma Vez">
+  </div>
+  <div class="field">
+    <label>Compositor</label>
+    <input id="f-compositor" placeholder="ex: Francisco Jose Barbosa Condi">
+  </div>
+  <div class="field">
+    <label>Tom</label>
+    <input id="f-tom" placeholder="ex: Cm" style="width:80px">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" onclick="fecharModal()">cancelar</button>
+    <button class="btn primary" onclick="criarLouvor()">abrir editor →</button>
+  </div>
+</div>
+
+<script>
+// ── UTILITÁRIOS ─────────────────────────────────────────────
+
+function slug(titulo) {
+  return titulo.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')
+    || 'louvor-' + Date.now();
+}
+
+// ── STATUS DO SERVIDOR ───────────────────────────────────────
+
+async function checkStatus() {
+  try {
+    const r = await fetch('/api/louvores');
+    if(r.ok) {
+      document.getElementById('status-dot').classList.remove('err');
+      document.getElementById('status-txt').textContent =
+        'servidor rodando em localhost:5000';
+      return true;
+    }
+  } catch {}
+  document.getElementById('status-dot').classList.add('err');
+  document.getElementById('status-txt').textContent =
+    'servidor não encontrado — verifique se servidor.py está rodando';
+  return false;
+}
+
+// ── LOUVORES ─────────────────────────────────────────────────
+
+async function carregarLouvores() {
+  try {
+    const r = await fetch('/api/louvores');
+    const louvores = await r.json();
+    const cont = document.getElementById('louvores-container');
+
+    // Separar louvores por tipo
+    const bySlug = {};
+    louvores.forEach(l => {
+      const base = l.slug.replace(/_pipeline$/, '').replace(/_merged$/, '').replace(/_\d{4}-\d{2}-\d{2}$/, '');
+      if(!bySlug[base]) bySlug[base] = {editor:null, pipeline:null, merged:null, base};
+      if(l.slug.endsWith('_pipeline')) bySlug[base].pipeline = l;
+      else if(l.slug.endsWith('_merged')) bySlug[base].merged = l;
+      else if(!/\d{4}-\d{2}-\d{2}$/.test(l.slug)) bySlug[base].editor = l;
+    });
+
+    const grupos = Object.values(bySlug);
+
+    if(!grupos.length) {
+      cont.innerHTML = `<div class="empty">
+        <div class="big">♩</div>
+        <div>Nenhum louvor no acervo ainda.</div>
+        <div style="margin-top:8px">Clique em <strong>+ novo louvor</strong> para começar.</div>
+      </div>`;
+      return;
+    }
+
+    let html = `<table class="louvores-table">
+      <thead><tr>
+        <th>Louvor</th>
+        <th>Tom</th>
+        <th>Acordes</th>
+        <th>Precisão</th>
+        <th style="text-align:center">Editor</th>
+        <th style="text-align:center">Pipeline</th>
+        <th style="text-align:center">Merged</th>
+      </tr></thead><tbody>`;
+
+    grupos.forEach(g => {
+      const ref = g.editor || g.pipeline || g.merged;
+      if(!ref) return;
+
+      // Precisão do merged
+      const pct = g.merged?.correct_pct;
+      const pctStr = pct != null
+        ? `<span class="pct ${pct>=80?'high':pct>=50?'mid':'low'}">${pct}%</span>`
+        : '<span class="pct" style="color:var(--ft)">—</span>';
+
+      // Botão editor
+      const btnEditor = g.editor
+        ? `<a class="btn green" href="/editor?louvor=${g.base}" style="text-align:center">✎ abrir</a>`
+        : `<a class="btn" href="/editor?louvor=${g.base}" style="opacity:.6;text-align:center">✎ novo</a>`;
+
+      // Botão pipeline
+      const hasPdf = g.editor?.has_pdf || g.pipeline?.has_pdf;
+      const btnPipeline = g.pipeline
+        ? `<a class="btn" href="/editor?louvor=${g.base}_pipeline" style="text-align:center">⚙ ver</a>`
+        : hasPdf
+        ? `<button class="btn" onclick="rodarPipeline('${g.base}')" style="text-align:center">⚙ extrair</button>`
+        : `<span class="btn" style="opacity:.35;cursor:default">⚙ sem PDF</span>`;
+
+      // Botão merged
+      const btnMerged = g.merged
+        ? `<a class="btn" href="/editor?louvor=${g.base}_merged" style="text-align:center;color:var(--pu)">⊕ ver</a>`
+        : (g.editor && g.pipeline)
+        ? `<button class="btn" onclick="mesclar('${g.base}')" style="text-align:center">⊕ mesclar</button>`
+        : `<span class="btn" style="opacity:.35;cursor:default">⊕ pendente</span>`;
+
+      html += `<tr>
+        <td>
+          <div class="louvor-title">${ref.title || g.base}</div>
+          <div class="louvor-meta">${ref.composer || '—'} · ${ref.modified || ''}</div>
+        </td>
+        <td><span class="louvor-meta">${ref.key || '—'}</span></td>
+        <td>
+          ${g.editor ? `<span class="louvor-meta" style="color:var(--gn)">✎ ${g.editor.human_chords}</span><br>` : ''}
+          ${g.pipeline ? `<span class="louvor-meta" style="color:var(--ac)">⚙ ${g.pipeline.total_chords}</span>` : ''}
+        </td>
+        <td>${pctStr}</td>
+        <td style="text-align:center">${btnEditor}</td>
+        <td style="text-align:center">${btnPipeline}</td>
+        <td style="text-align:center">${btnMerged}</td>
+      </tr>`;
+    });
+
+    html += '</tbody></table>';
+    cont.innerHTML = html;
+
+  } catch(e) {
+    console.error(e);
+  }
+}
+
+async function mesclar(slug) {
+  if(!confirm(`Mesclar editor + pipeline para "${slug}"?`)) return;
+  try {
+    const r = await fetch(`/api/mesclar/${slug}`, {method:'POST'});
+    const d = await r.json();
+    if(d.erro) alert('Erro: ' + d.erro);
+    else { alert('✅ Mesclado! Precisão: ' + (d.pct||'—') + '%'); carregarLouvores(); }
+  } catch(e) { alert('Erro de conexão.'); }
+}
+
+// ── PIPELINE ─────────────────────────────────────────────────
+
+async function rodarPipeline(slug) {
+  if(!confirm(`Rodar pipeline CXD+T90 sobre "${slug}"?\n\nIsso pode demorar alguns segundos.`)) return;
+  const btn = event.currentTarget;
+  btn.textContent = '⏳ processando...';
+  btn.disabled = true;
+
+  try {
+    const r = await fetch(`/api/pipeline/${slug}`, {method:'POST'});
+    const data = await r.json();
+
+    if(data.erro) {
+      alert(`Erro: ${data.erro}\n\n${data.instrucao || ''}`);
+    } else {
+      alert(`✅ Pipeline concluído!\n\n${data.total} acordes processados.\n\nO arquivo foi salvo e o merge foi disparado automaticamente.`);
+      carregarLouvores();
+    }
+  } catch(e) {
+    alert('Erro de conexão com o servidor.');
+  } finally {
+    btn.disabled = false;
+    carregarLouvores();
+  }
+}
+
+// ── CALIBRAÇÃO ───────────────────────────────────────────────
+
+async function calibrar() {
+  const r = await fetch('/api/calibrar');
+  const data = await r.json();
+
+  const box = document.getElementById('calib-report');
+  box.textContent = data.report || data.aviso || 'Sem dados';
+  box.classList.add('on');
+}
+
+function toggleReport() {
+  document.getElementById('calib-report').classList.toggle('on');
+}
+
+// ── MODAL NOVO LOUVOR ────────────────────────────────────────
+
+function abrirModal() {
+  document.getElementById('modal').classList.add('on');
+  document.getElementById('overlay').classList.add('on');
+  document.getElementById('f-titulo').focus();
+}
+
+function fecharModal() {
+  document.getElementById('modal').classList.remove('on');
+  document.getElementById('overlay').classList.remove('on');
+}
+
+function criarLouvor() {
+  const titulo = document.getElementById('f-titulo').value.trim();
+  if(!titulo) { alert('Digite o título do louvor.'); return; }
+
+  const compositor = document.getElementById('f-compositor').value.trim();
+  const tom        = document.getElementById('f-tom').value.trim();
+  const s          = slug(titulo);
+
+  // Abrir editor com parâmetros pré-preenchidos
+  const url = `/editor?louvor=${s}&titulo=${encodeURIComponent(titulo)}&compositor=${encodeURIComponent(compositor)}&tom=${encodeURIComponent(tom)}`;
+  fecharModal();
+  window.location.href = url;
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+
+checkStatus().then(ok => { if(ok) carregarLouvores(); });
+
+// Auto-refresh a cada 30s
+setInterval(() => { checkStatus().then(ok => { if(ok) carregarLouvores(); }); }, 30000);
+</script>
+</body>
+</html>
