@@ -1,6 +1,6 @@
 ﻿review_kind,suggested_action,melisma_reason,melisma_used_source,page,system,measure_n,local_n,symbol,status,correction_type,correct,match_method,presence_only,alignment_conflict,rule,beat_pipeline,beat_human,beat_delta,ratio_pipeline,ratio_delta,protocol_syllable,human_syllable,same_syllable,protocol_cx,protocol_syllable_cx,human_cx_display,human_syllable_cx,delta_cx,nota_anchor,review_decision,review_note
 confirmed_correct,manter,,,0,6,39,4,Bb,correct,correct,True,near_measure_ratio,False,False,T90,1,0,0.0,0.241,0.241,com,com,True,323.2,336.5,0,0.125,336.375,œ@337,,
-alignment_conflict,melhorar_merge,no_previous_syllable_available,,0,2,11,13,Cm,unvalidated,unvalidated_alignment_conflict,,near_measure_ratio,False,True,T90.2_MELISMA,1,0,0.0,0.241,0.241,,in-,False,473.8,,0,0,,œ@492,,
+alignment_conflict,melhorar_merge,,,0,2,11,13,Cm,unvalidated,unvalidated_alignment_conflict,,near_measure_ratio,False,True,T90.2_MELISMA,1,0,0.0,0.241,0.241,,in-,False,473.8,,0,0,,œ@492,,
 alignment_conflict,melhorar_merge,,,0,4,22,3,Fm,unvalidated,unvalidated_alignment_conflict,,near_measure_ratio,False,True,T90,1,0,0.0,0.222,0.222,tre-mer,sim,False,208.6,224.7,0,0,224.7,œ@223,,
 alignment_conflict,melhorar_merge,,,0,4,23,4,Bb,unvalidated,unvalidated_alignment_conflict,,near_measure_ratio,False,True,T90,2,0,1.0,0.26,0.26,tre-mer,com,False,327.8,353.4,0,0.125,353.275,œ@345,,
 alignment_conflict,melhorar_merge,,,0,5,34,11,G,unvalidated,unvalidated_alignment_conflict,,n_sym_ratio,False,True,T90,1,0,0.0,0.092,0.092,de-se-ja-do,rei,False,405.0,425.0,0,0,425.0,œ@405,,
@@ -11,7 +11,7 @@ alignment_conflict,melhorar_merge,,,1,9,52,1,Cm,unvalidated,unvalidated_alignmen
 alignment_conflict,melhorar_merge,,,1,10,59,5,Eb,unvalidated,unvalidated_alignment_conflict,,seq_align,False,True,V90,1,0,0.0,0.08788950959203985,0.08788950959203985,-,rei,False,433.2,446.2,0,0,446.2,,,
 alignment_conflict,melhorar_merge,,,1,11,63,4,Fm,unvalidated,unvalidated_alignment_conflict,,seq_align,False,True,T90,1,0,0.0,0.157,0.157,dos,xér-,False,201.4,240.4,0,0,240.4,œ@202,,
 alignment_conflict,melhorar_merge,,,1,11,64,5,G,unvalidated,unvalidated_alignment_conflict,,seq_ratio,False,True,T90,1,0,0.0,0.05,0.05,-,_,False,406.6,306.0,0,0,306.0,œ@308,,
-alignment_conflict,melhorar_merge,target_from_same_measure,same_measure,1,14,85,1,Bb7,unvalidated,unvalidated_alignment_conflict,,seq_align,False,True,T90.2_MELISMA,2,4,1.0,0.479,0.02100000000000002,rei),gló-,False,155.3,99.6,0.5,0.5,99.1,œ@156,,
+alignment_conflict,melhorar_merge,,,1,14,85,1,Bb7,unvalidated,unvalidated_alignment_conflict,,seq_align,False,True,T90.2_MELISMA,2,4,1.0,0.479,0.02100000000000002,rei),gló-,False,155.3,99.6,0.5,0.5,99.1,œ@156,,
 empty_match,ignorar,,,0,2,4,5,Fm,unvalidated,unvalidated,False,near_measure_ratio,False,False,VAZIO,1,0,0.0,0.015,0.015,,,True,278.7,,0,,278.727,œ@278,,
 empty_match,ignorar,,,0,2,7,9,G,unvalidated,unvalidated,False,near_measure_ratio,False,False,VAZIO,1,0,0.0,0.159,0.159,,,True,375.4,,0,,375.409,œ@375,,
 empty_match,ignorar,,,1,17,114,6,Cm,unvalidated,unvalidated,,,False,False,VAZIO,4,,,0.8026776096120274,,,,True,470.3,,,,,,,

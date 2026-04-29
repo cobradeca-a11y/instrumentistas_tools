@@ -40,6 +40,119 @@ app = Flask(__name__, static_folder=str(STATIC_DIR))
 
 
 # ════════════════════════════════════════════════════════════════
+# HELPERS
+# ════════════════════════════════════════════════════════════════
+
+def load_json(path):
+    with open(path, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def save_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def count_chords(data):
+    total = 0
+    correct = 0
+    human_origin = 0
+
+    for sec in data.get('sections', []):
+        for line in sec.get('lines', []):
+            for measure in line.get('measures', []):
+                for chord in measure.get('chords', []):
+                    total += 1
+                    ct = (chord.get('ground_truth') or {}).get('correction_type')
+                    if ct == 'correct':
+                        correct += 1
+                    elif ct == 'human_origin':
+                        human_origin += 1
+
+    return total, correct, human_origin
+
+
+def normalize_slug_from_file(path):
+    stem = Path(path).stem
+    if stem.endswith('_pipeline'):
+        return stem[:-9]
+    if stem.endswith('_merged'):
+        return stem[:-7]
+    return stem
+
+
+def title_from_slug(slug):
+    return slug.replace('-', ' ').strip().title()
+
+
+def prepare_editor_seed_from_pipeline(slug, pipeline_data):
+    """
+    Cria o JSON inicial do editor a partir do pipeline.
+    Isso evita abrir louvor novo vazio quando já existe <slug>_pipeline.json.
+    """
+    data = json.loads(json.dumps(pipeline_data, ensure_ascii=False))
+
+    meta_path = META_DIR / f"{slug}_meta.json"
+    meta = {}
+    if meta_path.exists():
+        try:
+            meta = load_json(meta_path)
+        except Exception:
+            meta = {}
+
+    data['title'] = data.get('title') or meta.get('title') or title_from_slug(slug)
+    data['composer'] = data.get('composer') or meta.get('composer', '')
+    data['key'] = data.get('key') or meta.get('key', '')
+    data['bpm'] = data.get('bpm') or meta.get('bpm', '')
+    data['meter'] = data.get('meter') or meta.get('meter', '4/4')
+    data['clef'] = data.get('clef') or meta.get('clef', 'treble')
+
+    data['editor_initialized_from'] = f"{slug}_pipeline.json"
+    data['editor_initialized_at'] = datetime.now(timezone.utc).isoformat()
+    data['editor_status'] = 'seed_from_pipeline'
+
+    for sec in data.get('sections', []):
+        for line in sec.get('lines', []):
+            for measure in line.get('measures', []):
+                for chord in measure.get('chords', []):
+                    chord.setdefault('human', None)
+                    chord['ground_truth'] = {
+                        'status': 'unvalidated',
+                        'correct': None,
+                        'delta_cx': None,
+                        'correction_type': 'unvalidated',
+                        'rule_changed': None,
+                        'implied_rule': None,
+                    }
+
+    return data
+
+
+def ensure_editor_json_from_pipeline(slug):
+    """
+    Retorna o JSON humano/editor.
+    Se não existir, mas existir pipeline, cria automaticamente o JSON inicial do editor.
+    """
+    editor_path = JSON_DIR / f"{slug}.json"
+    pipeline_path = JSON_DIR / f"{slug}_pipeline.json"
+
+    if editor_path.exists():
+        return editor_path, load_json(editor_path), False
+
+    if not pipeline_path.exists():
+        return None, None, False
+
+    pipeline_data = load_json(pipeline_path)
+    editor_data = prepare_editor_seed_from_pipeline(slug, pipeline_data)
+    save_json(editor_path, editor_data)
+
+    return editor_path, editor_data, True
+
+
+
+
+# ════════════════════════════════════════════════════════════════
 # ROTAS PRINCIPAIS
 # ════════════════════════════════════════════════════════════════
 
@@ -74,52 +187,86 @@ def static_files(filename):
 def listar_louvores():
     """
     Lista todos os louvores no acervo.
-    Retorna informações básicas de cada um.
+    Inclui:
+      - JSON humano/editor
+      - pipeline-only
+      - PDFs ainda sem pipeline
     """
+    slugs = set()
+
+    for f in JSON_DIR.glob('*.json'):
+        slugs.add(normalize_slug_from_file(f))
+
+    for f in PDF_DIR.glob('*.pdf'):
+        slugs.add(f.stem)
+
     louvores = []
 
-    for json_file in sorted(JSON_DIR.glob('*.json')):
+    for slug in sorted(slugs):
+        if not slug:
+            continue
+
+        editor_path = JSON_DIR / f"{slug}.json"
+        pipeline_path = JSON_DIR / f"{slug}_pipeline.json"
+        merged_path = MERGED_DIR / f"{slug}_merged.json"
+        pdf_path = PDF_DIR / f"{slug}.pdf"
+
+        data = None
+        source = None
+
         try:
-            with open(json_file, encoding='utf-8') as f:
-                data = json.load(f)
+            if editor_path.exists():
+                data = load_json(editor_path)
+                source = 'editor'
+            elif pipeline_path.exists():
+                data = load_json(pipeline_path)
+                source = 'pipeline'
+            else:
+                data = {
+                    'title': title_from_slug(slug),
+                    'composer': '',
+                    'key': '',
+                    'bpm': '',
+                    'meter': '4/4',
+                    'sections': [],
+                }
+                source = 'pdf'
 
-            # Contar acordes e status
-            total = corretos = humanos = 0
-            for sec in data.get('sections', []):
-                for line in sec.get('lines', []):
-                    for measure in line.get('measures', []):
-                        for chord in measure.get('chords', []):
-                            total += 1
-                            ct = chord.get('ground_truth', {}).get('correction_type', '')
-                            if ct == 'correct':       corretos += 1
-                            elif ct == 'human_origin': humanos += 1
+            total, corretos, humanos = count_chords(data)
 
-            # Verificar se tem PDF e versão mesclada
-            slug     = json_file.stem
-            has_pdf    = (PDF_DIR / f"{slug}.pdf").exists()
-            has_merged = (MERGED_DIR / f"{slug}_merged.json").exists()
+            pct = round(100 * corretos / (total - humanos)) if (total - humanos) > 0 else None
 
-            pct = round(100 * corretos / (total - humanos)) \
-                  if (total - humanos) > 0 else None
+            modified_candidates = [
+                p for p in [editor_path, pipeline_path, merged_path, pdf_path]
+                if p.exists()
+            ]
+
+            modified_ts = max((p.stat().st_mtime for p in modified_candidates), default=0)
+            modified = (
+                datetime.fromtimestamp(modified_ts).strftime('%Y-%m-%d %H:%M')
+                if modified_ts else ''
+            )
 
             louvores.append({
-                'slug':       slug,
-                'title':      data.get('title', slug),
-                'composer':   data.get('composer', ''),
-                'key':        data.get('key', ''),
-                'bpm':        data.get('bpm', ''),
-                'meter':      data.get('meter', '4/4'),
+                'slug': slug,
+                'title': data.get('title') or title_from_slug(slug),
+                'composer': data.get('composer', ''),
+                'key': data.get('key', ''),
+                'bpm': data.get('bpm', ''),
+                'meter': data.get('meter', '4/4'),
                 'total_chords': total,
                 'human_chords': humanos,
-                'correct_pct':  pct,
-                'has_pdf':      has_pdf,
-                'has_merged':   has_merged,
-                'modified':     datetime.fromtimestamp(
-                    json_file.stat().st_mtime
-                ).strftime('%Y-%m-%d %H:%M'),
+                'correct_pct': pct,
+                'has_pdf': pdf_path.exists(),
+                'has_editor': editor_path.exists(),
+                'has_pipeline': pipeline_path.exists(),
+                'has_merged': merged_path.exists(),
+                'source': source,
+                'modified': modified,
             })
+
         except Exception as e:
-            print(f"  [AVISO] Erro ao ler {json_file.name}: {e}")
+            print(f"  [AVISO] Erro ao listar {slug}: {e}")
 
     return jsonify(louvores)
 
@@ -141,21 +288,25 @@ def carregar_louvor(slug):
 @app.route('/api/editor/<slug>', methods=['GET'])
 def carregar_louvor_editor(slug):
     """
-    Carrega exclusivamente o JSON humano salvo pelo editor.
-    Não usa merged.
-    Não usa pipeline.
-    Usado pelo editor_v4.html.
+    Carrega o JSON humano salvo pelo editor.
+    Se ainda não existir, mas o pipeline existir, cria automaticamente
+    um JSON inicial do editor a partir do pipeline.
     """
-    path = JSON_DIR / f"{slug}.json"
+    path, data, created = ensure_editor_json_from_pipeline(slug)
 
-    if not path.exists():
+    if not path or data is None:
         return jsonify({
             'erro': f'JSON humano não encontrado: {slug}.json',
-            'path': str(path)
+            'instrucao': f'Rode primeiro: curl -X POST http://localhost:5000/api/pipeline/{slug}',
+            'path': str(JSON_DIR / f"{slug}.json")
         }), 404
 
-    with open(path, encoding='utf-8') as f:
-        return jsonify(json.load(f))
+    if created:
+        data['_editor_seed_created'] = True
+        data['_editor_seed_path'] = str(path)
+
+    return jsonify(data)
+
 
 @app.route('/api/louvores/<slug>', methods=['POST'])
 def salvar_louvor(slug):
@@ -225,7 +376,7 @@ def salvar_louvor(slug):
 
 @app.route('/api/meta/<slug>', methods=['POST'])
 def salvar_meta(slug):
-    """Salva metadados simples para o pipeline_v6. Não usa LINES_MAP."""
+    """Salva metadados simples para o pipeline. Não usa LINES_MAP."""
     try:
         data = request.get_json() or {}
         meta = {
@@ -252,7 +403,7 @@ def salvar_meta(slug):
 @app.route('/api/pipeline/<slug>', methods=['POST'])
 def rodar_pipeline(slug):
     """
-    Roda sempre o pipeline_v6 sobre o PDF do louvor.
+    Roda sempre o pipeline sobre o PDF do louvor.
     Não usa LINES_MAP.
     O PDF deve estar em scores/pdf/<slug>.pdf
     """
@@ -267,7 +418,7 @@ def rodar_pipeline(slug):
 
     try:
         sys.path.insert(0, str(BASE_DIR))
-        import pipeline_v6 as pipeline
+        import pipeline
 
         meta = {}
 
@@ -317,6 +468,8 @@ def rodar_pipeline(slug):
                 continue
             by_rule[regra] = by_rule.get(regra, 0) + 1
 
+        editor_path = JSON_DIR / f"{slug}.json"
+
         return jsonify({
             'slug':        slug,
             'output':      str(out_path),
@@ -324,6 +477,8 @@ def rodar_pipeline(slug):
             'total':       total,
             'systems':     len(audit_systems),
             'by_rule':     by_rule,
+            'has_editor':  editor_path.exists(),
+            'editor':      str(editor_path) if editor_path.exists() else None,
         })
 
     except Exception as e:
@@ -337,7 +492,7 @@ def rodar_pipeline(slug):
 @app.route('/api/lines/<slug>', methods=['POST'])
 def salvar_lines(slug):
     """Rota antiga desativada. Esta versão não usa LINES_MAP."""
-    return jsonify({'erro': 'LINES_MAP foi removido. Esta versão usa somente pipeline_v6.'}), 410
+    return jsonify({'erro': 'LINES_MAP foi removido. Esta versão usa somente pipeline.'}), 410
 
 
 @app.route('/api/upload/<slug>', methods=['POST'])
@@ -358,6 +513,46 @@ def upload_pdf(slug):
         'saved':   str(dest),
         'size_kb': round(dest.stat().st_size / 1024, 1),
     })
+
+
+
+@app.route('/api/editor/<slug>/seed', methods=['POST'])
+def criar_editor_inicial(slug):
+    """
+    Força a criação do JSON inicial do editor a partir do pipeline.
+    Não sobrescreve JSON humano existente, salvo se ?force=1.
+    """
+    editor_path = JSON_DIR / f"{slug}.json"
+    pipeline_path = JSON_DIR / f"{slug}_pipeline.json"
+
+    force = request.args.get('force') == '1'
+
+    if editor_path.exists() and not force:
+        return jsonify({
+            'slug': slug,
+            'created': False,
+            'aviso': f'{slug}.json já existe',
+            'editor': str(editor_path),
+        })
+
+    if not pipeline_path.exists():
+        return jsonify({
+            'erro': f'Pipeline não encontrado: {slug}_pipeline.json',
+            'instrucao': f'Rode primeiro /api/pipeline/{slug}'
+        }), 404
+
+    pipeline_data = load_json(pipeline_path)
+    editor_data = prepare_editor_seed_from_pipeline(slug, pipeline_data)
+    save_json(editor_path, editor_data)
+
+    return jsonify({
+        'slug': slug,
+        'created': True,
+        'editor': str(editor_path),
+        'pipeline': str(pipeline_path),
+        'total_chords': count_chords(editor_data)[0],
+    })
+
 
 
 # ════════════════════════════════════════════════════════════════
@@ -442,9 +637,9 @@ def listar_relatorios():
 if __name__ == '__main__':
     print("""
 ╔══════════════════════════════════════════════════╗
-║          INSTRUMENTISTAS TOOLS v1.0              ║
+║          INSTRUMENTISTAS TOOLS v1.1              ║
 ╠══════════════════════════════════════════════════╣
-║  Editor + Pipeline v6 + Calibração               ║
+║  Editor + Pipeline v6 + Calibração + Seed automático               ║
 ╚══════════════════════════════════════════════════╝
 
 Pastas:

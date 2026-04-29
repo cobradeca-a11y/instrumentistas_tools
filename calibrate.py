@@ -147,6 +147,16 @@ def compute_ground_truth(protocol_block, human_block, ts):
     implied_rule = 'T90' if h_syl else 'VAZIO'
     rule_changed = implied_rule != p_rule
 
+    # match_confidence: métodos precisos valem 1.0; loose/presence valem 0.5.
+    # trainable=False exclui o registro de conjuntos de treino futuros.
+    match_method = human_block.get('_match') or human_block.get('_match_method') or ''
+    CONFIDENT_METHODS = {'n_sym_ratio', 'near_measure_ratio', 'seq_ratio'}
+    match_confidence = 1.0 if match_method in CONFIDENT_METHODS else 0.5
+    trainable = (
+        match_confidence >= 1.0
+        and ct not in ('unvalidated', 'presence_only', 'human_origin')
+    )
+
     return {
         'status': 'correct' if correct else ('unvalidated' if ct == 'unvalidated' else 'corrected'),
         'correct': correct,
@@ -154,6 +164,9 @@ def compute_ground_truth(protocol_block, human_block, ts):
         'correction_type': ct,
         'rule_changed': rule_changed,
         'implied_rule': implied_rule,
+        'match_method': match_method or None,
+        'match_confidence': match_confidence,
+        'trainable': trainable,
         'merged_at': ts,
     }
 
@@ -412,6 +425,18 @@ def _find_best_editor_match(editor_index, n, sym, p_chord, window=2):
 
     if best_method.endswith('_loose'):
         if measure_delta == 0:
+            # MergeGuard2: mesmo compasso, símbolo igual, mas posição fraca.
+            # Se as sílabas divergem de forma óbvia (ratio muito afastado),
+            # marca como forced_presence — não pode ser validado musicalmente.
+            protocol = p_chord.get('protocol') or {}
+            human_chord = best.get('chord') or {}
+            e_human = human_chord.get('human') or {}
+            p_syl = (protocol.get('syllable') or '').strip()
+            h_syl = (e_human.get('syllable') or '').strip()
+
+            if p_syl and h_syl and p_syl != h_syl and ratio_delta > 0.28:
+                return best, 'forced_presence'
+
             return best, 'n_sym_presence'
 
         if ratio_delta > 0.38:
@@ -717,6 +742,7 @@ def merge(pipeline_path, editor_path, output_path):
 
                         presence_only = match_method in {
                             'n_sym_presence',
+                            'forced_presence',
                             'presence_seq',
                             'presence_align',
                         }
@@ -797,11 +823,13 @@ def merge(pipeline_path, editor_path, output_path):
     total = sum(stats.values())
     correct = stats.get('correct', 0)
     pct = round(100 * correct / total) if total else 0
+    forced = stats.get('forced_presence', 0)
 
     print("\n✅ Mesclagem concluída")
     print(f"   {total} eventos processados")
     print(f"   {correct}/{total} corretos ({pct}%)")
     print(f"   missing_human_chords: {len(missing_human)}")
+    print(f"   forced_presence:      {forced}")
     print("\n   Distribuição:")
 
     for ct, n in stats.most_common():
@@ -824,6 +852,7 @@ def _collect_metrics(data):
         'melisma': 0,
         'pause': 0,
         'human_origin': 0,
+        'forced_presence': 0,
         'missing_human': len(data.get('_missing_human_chords', [])),
         'beat_all': [],
         'beat_musical': [],
@@ -861,6 +890,8 @@ def _collect_metrics(data):
 
                     if is_presence:
                         metrics['presence_only'] += 1
+                        if mm == 'forced_presence':
+                            metrics['forced_presence'] += 1
                     elif mm and not empty_match:
                         metrics['musical_crossed'] += 1
                         if bd is not None:
@@ -941,6 +972,7 @@ def calibrate(json_paths):
         f"  Acordes humanos estim.:  {human_est}",
         f"  Presença cruzada:        {total['structural_crossed']}",
         f"  Presence-only:           {presence_only}",
+        f"  Forced-presence:         {total['forced_presence']}",
         f"  Cruzamento musical:      {musical_crossed}",
         f"  Humanos faltantes:       {total['missing_human']}",
     ]
@@ -1037,6 +1069,7 @@ def coverage(json_path):
     print(f"  Acordes humanos estim.:  {human_total}")
     print(f"  Presença cruzada:        {m['structural_crossed']}")
     print(f"  Presence-only:           {m['presence_only']}")
+    print(f"  Forced-presence:         {m['forced_presence']}")
     print(f"  Cruzamento musical:      {m['musical_crossed']}")
     print(f"  Humanos faltantes:       {m['missing_human']}")
 

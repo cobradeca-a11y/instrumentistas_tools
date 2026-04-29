@@ -7,8 +7,8 @@
   "bpm": "",
   "meter": "4/4",
   "clef": "treble",
-  "pipeline_version": "v6.2-melisma-debug",
-  "generated_at": "2026-04-29T01:03:04.189158+00:00",
+  "pipeline_version": "v6.1-syllable-clean",
+  "generated_at": "2026-04-29T15:03:40.536993+00:00",
   "form": [
     {
       "type": "to_coda",
@@ -82,8 +82,7 @@
                     "float_cx": 101.7540417232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "Œ@100",
-                    "melisma_debug": null
+                    "nota_anchor": "Œ@100"
                   },
                   "human": null,
                   "ground_truth": {
@@ -150,8 +149,7 @@
                     "float_cx": 190.21518380235443,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@190",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@190"
                   },
                   "human": null,
                   "ground_truth": {
@@ -259,8 +257,7 @@
                     "float_cx": 278.72721486945545,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@278",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@278"
                   },
                   "human": null,
                   "ground_truth": {
@@ -382,8 +379,7 @@
                     "float_cx": 375.4094885217323,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@375",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@375"
                   },
                   "human": null,
                   "ground_truth": {
@@ -527,17 +523,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@492",
-                    "melisma_debug": {
-                      "anchor_cx": 491.8,
-                      "current_measure": 13,
-                      "used_source": null,
-                      "reason": "no_previous_syllable_available",
-                      "same_measure_candidates": [],
-                      "previous_measure": null,
-                      "previous_measure_candidates": [],
-                      "previous_line_candidates": []
-                    }
+                    "nota_anchor": "œ@492"
                   },
                   "human": null,
                   "ground_truth": {
@@ -627,8 +613,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@170",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@170"
                   },
                   "human": null,
                   "ground_truth": {
@@ -698,8 +683,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@236",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@236"
                   },
                   "human": null,
                   "ground_truth": {
@@ -826,8 +810,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@311",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@311"
                   },
                   "human": null,
                   "ground_truth": {
@@ -1112,8 +1095,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@95",
-                    "melisma_debug": null
+                    "nota_anchor": "˙@95"
                   },
                   "human": null,
                   "ground_truth": {
@@ -1277,8 +1259,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@223",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@223"
                   },
                   "human": null,
                   "ground_truth": {
@@ -1422,8 +1403,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@345",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@345"
                   },
                   "human": null,
                   "ground_truth": {
@@ -1448,8 +1428,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@396",
-                    "melisma_debug": null
+                    "nota_anchor": "˙@396"
                   },
                   "human": null,
                   "ground_truth": {
@@ -1712,8 +1691,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@113",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@113"
                   },
                   "human": null,
                   "ground_truth": {
@@ -1858,8 +1836,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@216",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@216"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2177,8 +2154,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@405",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@405"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2393,8 +2369,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@96",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@96"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2419,8 +2394,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@155",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@155"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2553,8 +2527,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@207",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@207"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2717,8 +2690,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@337",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@337"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2743,8 +2715,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@387",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@387"
                   },
                   "human": null,
                   "ground_truth": {
@@ -2891,8 +2862,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@451",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@451"
                   },
                   "human": null,
                   "ground_truth": {
@@ -3334,8 +3304,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@112",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@112"
                   },
                   "human": null,
                   "ground_truth": {
@@ -3441,8 +3410,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@238",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@238"
                   },
                   "human": null,
                   "ground_truth": {
@@ -3553,8 +3521,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@363",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@363"
                   },
                   "human": null,
                   "ground_truth": {
@@ -3727,8 +3694,7 @@
                     "float_cx": 467.3558993217324,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@470",
-                    "melisma_debug": null
+                    "nota_anchor": "˙@470"
                   },
                   "human": null,
                   "ground_truth": {
@@ -3794,8 +3760,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -3820,8 +3785,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -3936,8 +3900,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -3962,8 +3925,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -4105,8 +4067,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -4195,8 +4156,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -4276,8 +4236,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -4362,8 +4321,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -4436,8 +4394,7 @@
                     "float_cx": 95.87710280235441,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@96",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@96"
                   },
                   "human": null,
                   "ground_truth": {
@@ -4544,8 +4501,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@202",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@202"
                   },
                   "human": null,
                   "ground_truth": {
@@ -4638,8 +4594,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@308",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@308"
                   },
                   "human": null,
                   "ground_truth": {
@@ -4781,8 +4736,7 @@
                     "float_cx": 110.3158288222179,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@117",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@117"
                   },
                   "human": null,
                   "ground_truth": {
@@ -4908,8 +4862,7 @@
                     "float_cx": 278.7375951232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@279",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@279"
                   },
                   "human": null,
                   "ground_truth": {
@@ -4958,8 +4911,7 @@
                     "float_cx": 348.5624655769992,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "˙@349",
-                    "melisma_debug": null
+                    "nota_anchor": "˙@349"
                   },
                   "human": null,
                   "ground_truth": {
@@ -5026,8 +4978,7 @@
                     "float_cx": 413.32506786945544,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@404",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@404"
                   },
                   "human": null,
                   "ground_truth": {
@@ -5518,8 +5469,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@107",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@107"
                   },
                   "human": null,
                   "ground_truth": {
@@ -5544,174 +5494,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@156",
-                    "melisma_debug": {
-                      "anchor_cx": 155.7,
-                      "current_measure": 1,
-                      "used_source": "same_measure",
-                      "reason": "target_from_same_measure",
-                      "same_measure_candidates": [
-                        {
-                          "text": "rei)",
-                          "cx": 99.6,
-                          "top": 494.0
-                        }
-                      ],
-                      "previous_measure": null,
-                      "previous_measure_candidates": [],
-                      "previous_line_candidates": [
-                        {
-                          "text": "rei)",
-                          "cx": 99.6,
-                          "top": 494.0
-                        },
-                        {
-                          "text": "com",
-                          "cx": 106.2,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "mi-nhagló-ria",
-                          "cx": 146.5,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "en-che-rei",
-                          "cx": 200.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "es",
-                          "cx": 229.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "-",
-                          "cx": 238.5,
-                          "top": 470.5
-                        },
-                        {
-                          "text": "(es",
-                          "cx": 245.5,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "te",
-                          "cx": 247.2,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "lu-",
-                          "cx": 259.5,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "-",
-                          "cx": 261.1,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "te",
-                          "cx": 274.3,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "gar,",
-                          "cx": 277.6,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "lu-",
-                          "cx": 290.7,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "gar),",
-                          "cx": 309.6,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "diz",
-                          "cx": 317.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "o",
-                          "cx": 329.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "Se-nhor",
-                          "cx": 350.8,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "dose",
-                          "cx": 386.5,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "-",
-                          "cx": 401.7,
-                          "top": 470.5
-                        },
-                        {
-                          "text": "xér",
-                          "cx": 412.7,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "-",
-                          "cx": 424.8,
-                          "top": 470.0
-                        },
-                        {
-                          "text": "diz",
-                          "cx": 434.1,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "ci-tos,",
-                          "cx": 443.4,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "o",
-                          "cx": 448.1,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "Se",
-                          "cx": 460.0,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "-",
-                          "cx": 470.7,
-                          "top": 494.8
-                        },
-                        {
-                          "text": "nhor",
-                          "cx": 488.3,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "diz",
-                          "cx": 489.9,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "o",
-                          "cx": 501.9,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "Se-nhor",
-                          "cx": 524.4,
-                          "top": 469.8
-                        }
-                      ]
-                    }
+                    "nota_anchor": "œ@156"
                   },
                   "human": null,
                   "ground_truth": {
@@ -5736,174 +5519,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@218",
-                    "melisma_debug": {
-                      "anchor_cx": 217.6,
-                      "current_measure": 1,
-                      "used_source": "same_measure",
-                      "reason": "target_from_same_measure",
-                      "same_measure_candidates": [
-                        {
-                          "text": "rei)",
-                          "cx": 99.6,
-                          "top": 494.0
-                        }
-                      ],
-                      "previous_measure": null,
-                      "previous_measure_candidates": [],
-                      "previous_line_candidates": [
-                        {
-                          "text": "rei)",
-                          "cx": 99.6,
-                          "top": 494.0
-                        },
-                        {
-                          "text": "com",
-                          "cx": 106.2,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "mi-nhagló-ria",
-                          "cx": 146.5,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "en-che-rei",
-                          "cx": 200.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "es",
-                          "cx": 229.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "-",
-                          "cx": 238.5,
-                          "top": 470.5
-                        },
-                        {
-                          "text": "(es",
-                          "cx": 245.5,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "te",
-                          "cx": 247.2,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "lu-",
-                          "cx": 259.5,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "-",
-                          "cx": 261.1,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "te",
-                          "cx": 274.3,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "gar,",
-                          "cx": 277.6,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "lu-",
-                          "cx": 290.7,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "gar),",
-                          "cx": 309.6,
-                          "top": 494.5
-                        },
-                        {
-                          "text": "diz",
-                          "cx": 317.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "o",
-                          "cx": 329.3,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "Se-nhor",
-                          "cx": 350.8,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "dose",
-                          "cx": 386.5,
-                          "top": 470.3
-                        },
-                        {
-                          "text": "-",
-                          "cx": 401.7,
-                          "top": 470.5
-                        },
-                        {
-                          "text": "xér",
-                          "cx": 412.7,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "-",
-                          "cx": 424.8,
-                          "top": 470.0
-                        },
-                        {
-                          "text": "diz",
-                          "cx": 434.1,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "ci-tos,",
-                          "cx": 443.4,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "o",
-                          "cx": 448.1,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "Se",
-                          "cx": 460.0,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "-",
-                          "cx": 470.7,
-                          "top": 494.8
-                        },
-                        {
-                          "text": "nhor",
-                          "cx": 488.3,
-                          "top": 494.7
-                        },
-                        {
-                          "text": "diz",
-                          "cx": 489.9,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "o",
-                          "cx": 501.9,
-                          "top": 469.8
-                        },
-                        {
-                          "text": "Se-nhor",
-                          "cx": 524.4,
-                          "top": 469.8
-                        }
-                      ]
-                    }
+                    "nota_anchor": "œ@218"
                   },
                   "human": null,
                   "ground_truth": {
@@ -6094,8 +5710,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@318",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@318"
                   },
                   "human": null,
                   "ground_truth": {
@@ -6223,8 +5838,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@410",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@410"
                   },
                   "human": null,
                   "ground_truth": {
@@ -6325,8 +5939,7 @@
                     "float_cx": null,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@491",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@491"
                   },
                   "human": null,
                   "ground_truth": {
@@ -6732,8 +6345,7 @@
                     "float_cx": 192.9032289232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "w@194",
-                    "melisma_debug": null
+                    "nota_anchor": "w@194"
                   },
                   "human": null,
                   "ground_truth": {
@@ -6836,8 +6448,7 @@
                     "float_cx": 312.1903352023544,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": "œ@312",
-                    "melisma_debug": null
+                    "nota_anchor": "œ@312"
                   },
                   "human": null,
                   "ground_truth": {
@@ -6954,8 +6565,7 @@
                     "float_cx": 431.52833106945536,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -7015,8 +6625,7 @@
                     "float_cx": 95.8498811217324,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
@@ -7117,8 +6726,7 @@
                     "float_cx": 470.3369079232648,
                     "next_syllable": null,
                     "next_syllable_cx": null,
-                    "nota_anchor": null,
-                    "melisma_debug": null
+                    "nota_anchor": null
                   },
                   "human": null,
                   "ground_truth": {
